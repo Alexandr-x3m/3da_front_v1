@@ -1,0 +1,136 @@
+@import '../app'
+
+.pageContainer
+    position: relative
+    top: 120px
+    width: 100%
+    @media screen and ( max-width: 600px )
+        top: 64px
+
+
+.serviceContainer
+    position: relative
+
+.previewBlock__container
+    position: relative
+    width: inherit
+    height: 380px
+    margin-bottom: 80px
+    @media screen and ( max-width: 600px )
+        height: 40vh
+        margin-bottom: 32px
+        overflow: hidden
+        
+
+.previewBlock__text
+    position: relative
+    top: 50%
+    text-align: center
+    text-shadow: 0px 4px 3px $prim-back-color
+    color: $def-color
+    z-index: 10
+    transform: translate(0, -50%)
+    @media screen and ( max-width: 600px )
+        padding: 32px
+
+.previewBlock__title
+    font-size: $txt-48px
+    font-weight: 700
+    margin-bottom: 16px
+    @media screen and ( max-width: 600px )
+        font-size: $txt-24px
+        line-height: $txt-24px
+
+.serviceContainer__subtitle
+    font-size: $txt-18px
+    font-weight: 600
+    @media screen and ( max-width: 600px )
+        font-size: $txt-14px
+
+.previewBlock__background
+    position: absolute
+    top: 0
+    left: 0
+    height: 380px
+    z-index: 9
+    @media screen and ( max-width: 600px )
+        left: 50%
+        width: auto
+        height: 100%
+        transform: translate(-50%, 0)
+        
+
+
+
+.firstInfoBlock__container
+    position: relative
+    text-align: center
+    color: $def-color
+    margin: 80px 0
+    @media screen and ( max-width: 600px )
+        padding: 0 32px
+        margin: 64px 0
+        
+
+.firstInfoBlock__content
+    position: relative
+    max-width: 1200px
+    margin: auto
+
+.firstInfoBlock__text
+    margin-bottom: 44px 
+    @media screen and ( max-width: 600px )
+
+.firstInfoBlock__title
+    font-size: $txt-32px
+    line-height: 44px
+    @media screen and ( max-width: 600px )
+        font-size: $txt-24px
+        line-height: 28px
+
+.firstInfoBlock__subtitle
+    font-size: $txt-24px
+    line-height: 32px
+    @media screen and ( max-width: 600px )
+        font-size: $txt-24px
+        line-height: 28px
+
+
+
+
+
+.secondInfoBlock__container
+    position: relative
+    color: $def-color
+    padding: 80px 0
+    background: $snd-back-color
+    @media screen and ( max-width: 600px )
+        padding: 32px 0
+
+
+.secondInfoBlock__content
+    max-width: 1200px 
+    margin: auto
+
+
+
+
+.thirdInfoBlock__container
+    position: relative
+    padding: 80px 0
+    @media screen and ( max-width: 600px )
+        padding: 32px 0
+
+
+.thirdInfoBlock__content
+    display: flex
+    width: 1200px
+    margin: auto
+    @media screen and ( max-width: 1200px )
+        flex-wrap: wrap
+        width: 100%
+        padding: 32px
+        
+
+
+    

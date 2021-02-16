@@ -1,0 +1,67 @@
+@import app
+
+
+.servicePreview__container
+    display: flex
+    width: 100%
+    @media screen and (max-width: 1200px)
+        flex-direction: column-reverse !important
+        padding: 32px
+
+.servicePreview__info
+    position: relative
+    width: calc( 100% - 640px )
+    margin: 110px 160px
+    color: $def-color
+    h2
+        font-size: $txt-32px
+        text-align: center
+        margin-bottom: 24px
+    h6
+        font-size: $txt-18px
+        text-align: center
+        margin-bottom: 32px
+    @media screen and (max-width: 1200px)
+        margin: 0
+        width: 100%
+    @media screen and (max-width: 600px)
+        h2
+            font-size: $txt-18px
+            text-align: left
+            margin-bottom: 12px
+        h6
+            font-size: $txt-14px
+            text-align: left
+            margin-bottom: 24px
+
+    
+
+.servicePreview__btnContainer
+    position: relative
+    margin: auto
+    width: 200px
+    @media screen and (max-width: 600px)
+        width: 100%
+
+.servicePreview__btn
+    background: $def-color
+    border-radius: 32px
+    input
+        color: $prim-back-color
+        text-align: center
+        font-weight: 700
+        padding: 16px 28px
+        width: 100%
+        &:hover
+            color: $def-color
+            background: $prim-back-80-color
+    @media screen and (max-width: 600px)
+        height: 48px
+        border-radius: 6px
+
+.servicePreview__img
+    position: relative
+    width: 100%
+    @media screen and (max-width: 600px)
+        height: 160px
+        margin-bottom: 12px

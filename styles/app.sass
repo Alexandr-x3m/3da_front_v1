@@ -1,0 +1,64 @@
+// -------------------- colours using in project
+$prim-back-color: rgba(0, 0, 0, 1)
+$prim-back-80-color: rgba(0, 0, 0, 0.8)
+$snd-back-color: rgba(24,24, 27, 1)
+
+$prim-color: rgba(255, 0, 184, 1)
+$prim-60-color: rgba(255, 0, 184, 0.6)
+$snd-color: rgba(10, 175, 241, 1)
+
+$def-color: rgba(255, 255, 255, 1)
+$def-15-color: rgba(255, 255, 255, 0.15)
+$def-40-color: rgba(255, 255, 255, 0.4)
+$def-60-color: rgba(255, 255, 255, 0.8)
+$def-80-color: rgba(255, 255, 255, 0.8)
+
+$header-top-color: rgba(149 , 0, 161, 1)
+
+$prim-gradient: radial-gradient(50% 3200% at 50% 50%, rgba(0, 0, 0, 0) 57.29%, #000000 100%), linear-gradient(90deg, rgba(0, 240, 255, 0.9) 0%, rgba(13, 227, 252, 0.819357) 23.2%, rgba(128, 120, 227, 0.9) 50.1%, rgba(230, 24, 204, 0.719617) 74.04%, rgba(255, 0, 199, 0.675) 100%)
+$snd-gradient: linear-gradient(90deg, #0DE3FC 0%, #00A3FF 100%)
+
+
+$txt-120px: 7.500em
+$txt-48px: 3.000em
+$txt-32px: 2.000em
+$txt-24px: 1.500em
+$txt-18px: 1.125em
+$txt-16px: 1em
+$txt-14px: 0.875em
+$txt-12px: 0.750em
+
+
+
+
+=transitionDuration($property)
+    -webkit-transition-duration: $property
+    -moz-transition-duration: $property
+    -o-transition-duration: $property
+    transition-duration: $property
+
+
+=placeholderEl($color)
+    &::-moz-placeholder 
+        color: $color
+    &:-moz-placeholder 
+        color: $color
+    &::-webkit-input-placeholder
+        color: $color
+    &::-ms-input-placeholder
+        color: $color
+    &:-ms-input-placeholder
+        color: $color
+
+
+.visuallyHidden
+    display: none
+
+      
+
+
+
+
+
+
+

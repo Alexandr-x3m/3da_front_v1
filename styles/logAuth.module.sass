@@ -1,0 +1,35 @@
+@import app
+
+
+.logAuth__container
+    width: inherit
+
+.logAuth__tougleContainer
+    display: flex
+    width: inherit
+    margin-bottom: 32px
+
+.logAuth__horLine
+    position: absolute
+    top: 63px
+    width: calc( 100% - 64px )
+    height: 2px
+    background: $def-15-color
+
+.logAuth__tougle__item
+    +transitionDuration(0.2s)
+    color: white
+    padding: 8px 0
+    font-size: 14px
+    margin-top: 1px
+    margin-right: 12px
+    background: none
+    border: none
+    outline: none
+    &:hover
+        cursor: pointer
+
+.logAuth__tougle__activeItem
+    font-weight: 700
+    padding: 8px 0 6px 0
+    border-bottom: 2px solid $prim-color

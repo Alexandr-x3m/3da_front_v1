@@ -1,0 +1,26 @@
+@import app
+
+
+.mainPageContainer__container
+    position: relative
+    top: 120px
+    width: 100%
+    @media screen and ( max-width: 600px )
+        top: 64px
+
+.mainPageContainer__sliderWindow
+    width: 100%
+    height: calc( 100vh - 120px )
+    overflow: hidden
+    @media screen and ( max-width: 600px )
+        height: calc( 100vh - 120px )
+
+.mainPageContainer__servicesList
+    position: relative
+    margin-bottom: 120px
+    z-index: 999
+    @media screen and ( max-width: 600px )
+        margin-bottom: 72px
+        
+
+

@@ -1,0 +1,40 @@
+@import '../app'
+
+.downloadBoard__container
+    +transitionDuration(0.2s)
+    display: flex
+    position: relative
+    height: 36px
+    padding: 8px 6px
+    margin-right: 12px
+    &:hover
+        cursor: pointer
+
+.downloadBoard__icon
+    height: 18px
+    margin-right: 4px
+
+.downloadBoard__text
+    font-size: 14px
+    color: $def-60-color
+    line-height: 20px
+
+//----------------------------------
+
+.downloadBoard__smallContainer
+    +transitionDuration(0.2s)
+    display: flex
+    position: relative
+    height: 12px
+    margin-right: 12px
+    &:hover
+        cursor: pointer
+
+.downloadBoard__smallIcon
+    height: 11px
+    margin-right: 4px
+
+.downloadBoard__smallText
+    font-size: 12px
+    color: $def-60-color
+    line-height: 12px

@@ -1,0 +1,91 @@
+@import '../app'
+
+
+.inputText__block
+    position: relative
+    width: 100%
+    height: 60px
+    margin-bottom: 24px
+        
+
+.inputText__label
+    +transitionDuration(0.2s)
+    position: absolute
+    top: 29px
+    left: 0px
+    margin: 0
+    color: $def-15-color
+    font-weight: 700
+    font-size: 14px
+    line-height: 16px
+    padding: 8px 9px
+    &:hover
+        cursor: text
+            
+.inputText__input
+    //+placeholderEl($def-15-color)
+    +transitionDuration(0.2s)
+    width: inherit
+    max-height: 32px
+    margin-top: 29px
+    padding: 10px 11px 11px 9px
+    border: none
+    background: $def-15-color
+    font-size: 14px
+    line-height: 16px
+    color: $def-color
+    border: 1px solid rgba(255 , 255, 255, 0)
+    border-radius: 4px 
+    outline: none
+    &:hover
+        border: 1px solid $def-40-color
+        ~.inputText__label
+            color: $def-40-color
+    &:focus 
+        background: $prim-back-color
+        +placeholderEl($def-15-color)
+        border: 1px solid $prim-color
+        ~.inputText__label
+            color: $prim-color
+            top: 0px
+            font-size: 12px
+
+.inputText__activeInput
+    background: $prim-back-color
+    +placeholderEl($def-15-color)
+    border: 1px solid $prim-color
+    ~.inputText__label
+        color: $prim-color
+        top: 0px
+        font-size: 12px
+    &:hover
+        border: 1px solid $prim-color !important
+        ~.inputText__label 
+            color: $prim-color !important
+
+
+.inputText__errorText
+    font-size: 12px
+    color: $def-40-color
+    text-transform: lowercase
+    padding: 2px 9px
+    margin: 0
+
+.inputText__icon
+    position: absolute
+    top: 32px
+    right: 2px
+    width: 26px
+    height: 26px
+    padding: 3px
+    outline: none
+    background: none
+    border: none
+    border-radius: 6px
+    &:hover
+        background: $def-15-color
+        cursor: pointer
+    img
+        width: 20px
+        
+
