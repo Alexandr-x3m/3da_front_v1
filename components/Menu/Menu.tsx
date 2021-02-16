@@ -1,17 +1,7 @@
-import Link from 'next/link';
-import s from '../../styles/menu.module.sass';
+import Link from 'next/link'
 
-interface MenuDataObj {
-    name: string,
-    icon_src: string,
-    url: string
-}
-
-interface MenuProps {
-    visability: boolean,
-    setVisability: Function,
-    data: Array<MenuDataObj>
-}
+import s from '../../styles/menu.module.sass'
+import { MenuProps } from '../../interfaces/interfaces'
 
 const Menu: React.FC<MenuProps> = (props) => {
 
@@ -21,10 +11,12 @@ const Menu: React.FC<MenuProps> = (props) => {
         <div className={s.menu__container} >
             {data.map(el => (
                 <Link href={'/' + el.url} >
-                    <div className={s.menu__itemBlock} >
-                        <img src={el.icon_src} />
-                        <p>{el.name}</p>
-                    </div>
+                    <a>
+                        <div className={s.menu__itemBlock} >
+                            <img src={el.icon_src} />
+                            <p>{el.name}</p>
+                        </div>
+                    </a>
                 </Link>
             ))}
             <div className={s.menu__background} onClick={() => setVisability(!visability)} ></div>

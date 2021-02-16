@@ -1,21 +1,36 @@
 @import '../app'
 
-.portfolio__container
-    display: flex
+.container
     position: relative
-    top: 120px
-    max-width: 1776px
+    top: 112px
+    max-width: 100%
     margin: 32px auto
+    @media screen and ( max-width: 800px )
+        top: 64px
 
-.portfolioCategoryBlock
+.category_container
+    display: none
+    position: relative
+    padding: 0 32px
+    margin-bottom: 32px
 
-.portfolio__listContainer
+
+.list_container
     display: flex
     flex-wrap: wrap
     position: relative
-    left: 16px
+    max-width: 100%
     margin: auto
+    padding: 0 16px
+        
 
-.portfolio__itemContainer
-    width: 412px
-    margin: 0 32px 32px 0
+.item
+    width: calc(25% - 32px)
+    margin: 16px 16px
+    @media screen and ( max-width: 1200px )
+        width: calc(33.33333% - 32px)
+    @media screen and ( max-width: 800px )
+        width: calc(50% - 32px)
+    @media screen and ( max-width: 480px )
+        width: calc(100% - 32px)
+        

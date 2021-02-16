@@ -3,7 +3,7 @@ import Image from 'next/image';
 import s from '../../styles/header.module.sass';
 import InputButton from '../Inputs/InputButton/inputButton';
 import MainNav from '../mainNav/MainNav';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PopUp from '../PopUp/PopUp';
 import LogAuthContainer from '../LogAuthContainer';
 import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn';
@@ -20,6 +20,8 @@ const HeaderBlock: React.FC = () => {
     const [serviceList, setServiceList] = useState<boolean>(false);
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
 
+    const [windowHeight, setWindowHeight] = useState<number>();
+
     const openAuthorization = () => {
         setAuthLog(true)
         setPopUp(true)
@@ -30,6 +32,14 @@ const HeaderBlock: React.FC = () => {
         setPopUp(true)
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            let windowH = window.document.documentElement.clientHeight
+            setWindowHeight(windowH)
+            console.log(windowH)
+        }, 100)
+    }, [])
+
     return (
         <div>
             <div className={s.header__container}>
@@ -38,9 +48,9 @@ const HeaderBlock: React.FC = () => {
                         <div className={s.headerTop__infoTextBlock} >
                             <div className={s.headerTop__infoText} >
                                 <img src={'/phone_icon.svg'} />
-                                <Link href='tel: +79295436694' >
+                                <a href='tel: +79295436694' >
                                     <p >+7 (929) 543-66-94</p>
-                                </Link>
+                                </a>
                             </div>
                             <div className={s.headerTop__infoText} >
                                 <img src={'/email_icon.svg'} />
@@ -53,81 +63,87 @@ const HeaderBlock: React.FC = () => {
                     </div>
                 </div>
                 <div className={s.headerBottom__container} >
-                    <Link href='/' >
-                        <Image
-                            src={'/logotype.svg'}
-                            alt='27 cypher'
-                            width={232}
-                            height={48} />
-                    </Link>
-                    <div className={s.header__interfaceBlock} >
-                        <div className={s.header__navbar} >
-                            <Link href='/' passHref >
-                                <p className={s.navbar_item} >Главная</p>
-                            </Link>
-                            <div
-                                className={s.navbar_item}
-                                onClick={() => setServiceList(!serviceList)}
-                            >
-                                <p className={s.header__navbarItem_text} >Услуги</p>
-                                <img src={'/arrow-left-r.svg'} className={s.header__navbarItem_icon} />
-                                {serviceList
-                                    ? (<Menu
-                                        visability={serviceList}
-                                        setVisability={setServiceList}
-                                        data={
-                                            [
+                    <div className={s.headerBottom_content} >
+                        <div className={s.logo_container} >
+                            <Link href='/' ><a>
+                                <Image
+                                    src={'/logotype.svg'}
+                                    alt='27 cypher'
+                                    width={'fill'}
+                                    height={42} />
+                            </a></Link>
+                        </div>
+                        <div className={s.header__interfaceBlock} >
+                            <div className={s.header__navbar} >
+                                <Link href='/' passHref >
+                                    <a className={s.navbar_item} >Главная</a>
+                                </Link>
+                                <div
+                                    className={s.navbar_item}
+                                    onClick={() => setServiceList(!serviceList)}
+                                >
+                                    <p className={s.header__navbarItem_text} >Услуги</p>
+                                    <img src={'/arrow-left-r.svg'} className={s.header__navbarItem_icon} />
+                                    {serviceList
+                                        ? (<Menu
+                                            visability={serviceList}
+                                            setVisability={setServiceList}
+                                            data={[
                                                 {
-                                                    url: './artistic-modeling',
+                                                    url: './3d-modeling',
                                                     icon_src: './cube_icon.svg',
-                                                    name: 'Художественное моделирование'
+                                                    name: '3D Моделирование'
                                                 },
                                                 {
-                                                    url: '/services/engineering-modeling',
-                                                    icon_src: './cube_icon.svg',
-                                                    name: 'Инженерное моделирование'
-                                                },
-                                                {
-                                                    url: '/services/3d-printing',
+                                                    url: './3d-printing',
                                                     icon_src: './3d_printer.svg',
                                                     name: '3D печать'
                                                 }]
-                                        } />)
-                                    : null
-                                }
-                            </div>
-                            <Link href='/' passHref >
-                                <p className={s.navbar_item} >Контакты</p>
-                            </Link>
-                        </div>
-                        {/*  <div className={s.header__userContainer} >
-                                <InputButton
-                                    value='Войти'
-                                    onClick={openAuthorization}
-                                    additClass={s.header__userAuthBtn} />
-                                <InputButton
-                                    value='Регистрация'
-                                    onClick={openRegistration}
-                                    additClass={s.header__userRegBtn} />
-                                <div className={s.header__userbar} >
-                                    <img src={'/account_circle.svg'} className={s.header__userbar_profileIcon} />
-                                    <img src={'/arrow-left-r.svg'} className={s.header__navbarItem_icon} alt="" />
+                                            } />)
+                                        : null
+                                    }
                                 </div>
-                            </div> */}
+                                <Link href='/aboutus' passHref >
+                                    <a className={s.navbar_item} >Контакты</a>
+                                </Link>
+                                <Link href='/gallery' passHref >
+                                    <a className={s.navbar_item} >Галерея</a>
+                                </Link>
+                            </div>
+                            {/*  <div className={s.header__userContainer} >
+                                    <InputButton
+                                        value='Войти'
+                                        onClick={openAuthorization}
+                                        additClass={s.header__userAuthBtn} />
+                                    <InputButton
+                                        value='Регистрация'
+                                        onClick={openRegistration}
+                                        additClass={s.header__userRegBtn} />
+                                    <div className={s.header__userbar} >
+                                        <img src={'/account_circle.svg'} className={s.header__userbar_profileIcon} />
+                                        <img src={'/arrow-left-r.svg'} className={s.header__navbarItem_icon} alt="" />
+                                    </div>
+                                </div> */}
+                        </div>
                     </div>
                 </div>
                 <div className={s.header_mobile} >
                     <div className={s.mobile_container} >
-                        <Image
-                            src={'/logotype.svg'}
-                            alt='27 cypher'
-                            width={232}
-                            height={48} />
-                        <input 
-                            type="checkbox" 
-                            id="menu_checkbox" 
-                            className={s.menu_checkbox + ' ' + s.visuallyHidden} 
-                            onChange={() => setMobileMenu(!mobileMenu)} 
+                        <Link href='/' >
+                            <a>
+                                <Image
+                                    src={'/logotype.svg'}
+                                    alt='27 cypher'
+                                    width={232}
+                                    height={48}
+                                />
+                            </a>
+                        </Link>
+                        <input
+                            type="checkbox"
+                            id="menu_checkbox"
+                            className={s.menu_checkbox + ' ' + s.visuallyHidden}
+                            onChange={() => setMobileMenu(!mobileMenu)}
                         />
                         <label htmlFor={'menu_checkbox'}>
                             <div className={s.hamburger + ' ' + s.hamburger4}>
@@ -136,14 +152,27 @@ const HeaderBlock: React.FC = () => {
                                 <span className={s.bar + ' ' + s.bar3} ></span>
                                 <span className={s.bar + ' ' + s.bar4} ></span>
                                 <span className={s.bar + ' ' + s.bar5} ></span>
-                            </div>  
-                            <div className={s.menu_background} ></div>    
+                            </div>
+                            <div className={s.menu_background} ></div>
                         </label>
-                        <div className={s.mobile_menu} style={mobileMenu ? {right: '0px'} : {right: '-280px'}} >
+                        <div
+                            className={s.mobile_menu}
+                            style={
+                                mobileMenu
+                                    ? {
+                                        right: '0px',
+                                        height: `calc(${windowHeight}px - 64px)`
+                                    }
+                                    : {
+                                        right: '-280px',
+                                        height: `calc(${windowHeight}px - 64px)`
+                                    }
+                            }
+                        >
                             <div className={s.mobile_menu__navbar} >
                                 <div className={s.navbar_container} >
                                     <Link href='/' passHref >
-                                        <p className={s.navbar_item} >Главная</p>
+                                        <a className={s.navbar_item} >Главная</a>
                                     </Link>
                                     <div>
                                         <div
@@ -156,36 +185,35 @@ const HeaderBlock: React.FC = () => {
                                         </div>
                                         {serviceList
                                             ? (<div className={s.mobile_menu__sublist} >
-                                                <Link href={'./artistic-modeling'} >
-                                                    <div className={s.sublist_item} >
-                                                        <InputButton
-                                                            value={'Художественное мод'}
-                                                            additClass={s.sublist_item__btn}
-                                                        />
-                                                    </div>
+                                                <Link href={'/3d-modeling'} >
+                                                    <a>
+                                                        <div className={s.sublist_item} >
+                                                            <InputButton
+                                                                value={'3D Моделированиеы'}
+                                                                additClass={s.sublist_item__btn}
+                                                            />
+                                                        </div>
+                                                    </a>
                                                 </Link>
-                                                <Link href={'/services/engineering-modeling'} >
-                                                    <div className={s.sublist_item} >
-                                                        <InputButton
-                                                            value={'Инженерное мод'}
-                                                            additClass={s.sublist_item__btn}
-                                                        />
-                                                    </div>
-                                                </Link>
-                                                <Link href={'/services/3d-printing'} >
-                                                    <div className={s.sublist_item} >
-                                                        <InputButton
-                                                            value={'3D печать'}
-                                                            additClass={s.sublist_item__btn}
-                                                        />
-                                                    </div>
+                                                <Link href={'/3d-printing'} >
+                                                    <a>
+                                                        <div className={s.sublist_item} >
+                                                            <InputButton
+                                                                value={'3D Печать'}
+                                                                additClass={s.sublist_item__btn}
+                                                            />
+                                                        </div>
+                                                    </a>
                                                 </Link>
                                             </div>)
                                             : null
                                         }
                                     </div>
-                                    <Link href='/' passHref >
+                                    <Link href='/aboutus' passHref >
                                         <p className={s.navbar_item} >Контакты</p>
+                                    </Link>
+                                    <Link href='/gallery' passHref >
+                                        <p className={s.navbar_item} >Галерея</p>
                                     </Link>
                                 </div>
                                 <div className={s.social_container} >

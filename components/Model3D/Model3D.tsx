@@ -6,7 +6,7 @@ const GLTFLoader  = require('three-gltf-loader')
 
 const Model3D = () => {
 
-    const canvas = useRef()
+    const canvas = useRef<HTMLCanvasElement>()
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(45, window.innerHeight/ window.innerWidth, 0.1, 1000);

@@ -1,24 +1,22 @@
-import Link from 'next/link';
+import React from 'react'
+
 import s from '../../../styles/socialIcon.module.sass';
-
-
-interface SocialIconProps {
-    socialName: string,
-    href: string
-}
+import { SocialIconProps } from '../../../interfaces/interfaces'
 
 const SocialIcon: React.FC<SocialIconProps> = (props) => {
 
     const { socialName, href } = props;
 
     return (
-        <Link href={href} >
-            <img 
-                src={`/socialIcons/${socialName}_icon.svg`} 
-                className={s.socialIcon__img}
-            />
-        </Link>
+        <div className={s.conatiner} >
+            <a href={href}>
+                <img
+                    src={`/socialIcons/${socialName}_icon.svg`}
+                    className={s.socialIcon__img}
+                />
+            </a>
+        </div>
     )
-} 
+}
 
 export default SocialIcon;

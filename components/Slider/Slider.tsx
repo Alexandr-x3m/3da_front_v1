@@ -4,35 +4,8 @@ import Link from 'next/link'
 
 import s from '../../styles/slider.module.sass'
 import InputButton from '../Inputs/InputButton/inputButton'
-
-
-
-interface dataSlides {
-    id: string,
-    img: string,
-    title?: string,
-    desc?: string,
-    url?: string
-}
-
-
-interface SliderProps {
-    data: dataSlides[],
-    thumbnail: boolean,
-    //title: boolean,
-    //desc: boolean,
-    content?: Array<ReactElement>,
-    swiper: boolean,
-    additClass?: string,
-    autoSwipe?: boolean
-}
-
-interface positionMTouch {
-    downX: number,
-    downY: number,
-    upX: number,
-    upY: number
-}
+import { SliderProps } from '../../interfaces/interfaces'
+import { PositionMTouch } from '../../interfaces/interfaces'
 
 const Slider: React.FC<SliderProps> = (props) => {
 
@@ -44,8 +17,6 @@ const Slider: React.FC<SliderProps> = (props) => {
         autoSwipe
     } = props;
 
-
-
     const [activeSlide, setActiveSlide] = useState<number>(0);
 
     const [thumbnailsView, setThumbnailView] = useState<boolean>(thumbnail);
@@ -53,7 +24,7 @@ const Slider: React.FC<SliderProps> = (props) => {
 
     const [autoSwipeS, setAutoSwipeS] = useState<boolean>(autoSwipe);
     const [touch, setTouch] = useState<boolean>(false);
-    const [positionMTouch, setPositionMTouch] = useState<positionMTouch>({ downX: 0, downY: 0, upX: 0, upY: 0 });
+    const [positionMTouch, setPositionMTouch] = useState<PositionMTouch>({ downX: 0, downY: 0, upX: 0, upY: 0 });
 
     const handleSwipeLeft = () => {
         let newSlide = activeSlide - 1
@@ -141,8 +112,8 @@ const Slider: React.FC<SliderProps> = (props) => {
                     gridTemplateColumns: `repeat(${data.length}, 100%)`,
                 }}
             >
-                {data.map((el, index) => (
-                    <div className={s.sliderMain__itemBlock} key={el.id} >
+                {data.map(el => (
+                    <div className={s.sliderMain__itemBlock} key={'slide_' + el.id} >
                         <div className={s.sliderMain__textBlock} >
                             {el.title ? (
                                 <h2 className={s.textBlock_title} >
@@ -156,10 +127,12 @@ const Slider: React.FC<SliderProps> = (props) => {
                             ) : null}
                             <div className={s.textBlock_btn} >
                                 <Link href={el.url}>
-                                    <InputButton
-                                        value={'Узнать больше'}
-                                        additClass={s.servicePreview__btn}
-                                    />
+                                    <a>
+                                        <InputButton
+                                            value={'Узнать больше'}
+                                            additClass={s.servicePreview__btn}
+                                        />
+                                    </a>
                                 </Link>
                             </div>
                         </div>
@@ -175,7 +148,7 @@ const Slider: React.FC<SliderProps> = (props) => {
                         className={s.sliderMain_swiperNav}
                     >
                         {data.map((el, index) => (
-                            <div className={(activeSlide == index) ? (s.swiperNav__activeItem) : (s.swiperNav__item)} >
+                            <div key={'swiper_nav_' + el.id} className={(activeSlide == index) ? (s.swiperNav__activeItem) : (s.swiperNav__item)} >
                                 <button onClick={() => setActiveSlide(index)} />
                             </div>
                         ))}

@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react';
-import ActiveSlideMP from '../../interfaces/interfaces';
+import { useState, useEffect } from 'react'
+import { useMutation } from 'urql'
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+
 import s from '../../styles/mainPage.module.sass';
-import Slider from '../Slider/Slider';
-import AttentionLane from '../AttentionLane/AttentionLane';
-import ServicePreview from '../ServicePreview/ServicePreview';
-import ChessBoard from '../ChessBoard/ChessBoard';
-import CounterInfo from '../CounterInfo/CounterInfo';
-import Footer from '../Footer/Footer';
+import { ActiveSlideMP, DataSlides } from '../../interfaces/interfaces'
+import Slider from '../Slider/Slider'
+import AttentionLane from '../AttentionLane/AttentionLane'
+import ServicePreview from '../ServicePreview/ServicePreview'
+import ChessBoard from '../ChessBoard/ChessBoard'
+import CounterInfo from '../CounterInfo/CounterInfo'
+import Footer from '../Footer/Footer'
 
 
-import { useMutation } from 'urql';
 
 const GET_MAIN_SLIDES = `
 query {
@@ -22,19 +25,12 @@ query {
     }
   }`
 
-interface dataSlides {
-    id: string,
-    img: string,
-    title: string,
-    desc: string,
-    url: string
-}
+
+const MainPageContainer: React.FC<ActiveSlideMP> = () => {
 
 
-const MainPageContainer: React.FC<ActiveSlideMP> = (props) => {
+    const [slides, setSlides] = useState<DataSlides[]>([]);
 
-
-    const [slides, setSlides] = useState<dataSlides[]>([]);
 
     const [getSlidesResult, getSlidesQuery] = useMutation(GET_MAIN_SLIDES);
 
@@ -48,10 +44,13 @@ const MainPageContainer: React.FC<ActiveSlideMP> = (props) => {
         }
     }, [slides])
 
+    gsap.registerPlugin(ScrollTrigger)
 
     return (
         <>
-            <div className={s.mainPageContainer__container} >
+            <div
+                className={s.mainPageContainer__container}
+            >
                 <div className={s.mainPageContainer__sliderWindow} >
                     <Slider
                         data={slides}
@@ -62,44 +61,48 @@ const MainPageContainer: React.FC<ActiveSlideMP> = (props) => {
                     />
                 </div>
                 <AttentionLane />
+
                 <div className={s.mainPageContainer__servicesList}>
                     <ServicePreview
                         title={'Художественное моделирование'}
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
-                        link={'/artistic-modeling'}
+                        link={'/3d-modeling'}
                         img_src={'/artistic-preview.jpg'}
+                        animation={true}
                     />
                     <ServicePreview
                         title={'ИНЖЕНЕРНОЕ МОДЕЛИРОВАНИЕ'}
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
-                        link={'/artistic-modeling'}
+                        link={'/3d-modeling'}
                         img_src={'/engineering-preview.jpg'}
                         reverse={true}
+                        animation={true}
                     />
                     <ServicePreview
                         title={'3D печать'}
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
-                        link={'/artistic-modeling'}
+                        link={'/3d-printing'}
                         img_src={'/3d-printer-preview.jpg'}
+                        animation={true}
                     />
                 </div>
                 <ChessBoard />
                 <CounterInfo data={[
                     {
-                        number: '23123',
-                        text: 'Крутая стата'
+                        number: 764,
+                        text: 'Проектов выполнено'
                     },
                     {
-                        number: '23123',
-                        text: 'Крутая стата'
+                        number: 42,
+                        text: 'Постоянных клиентов'
                     },
                     {
-                        number: '23123',
-                        text: 'Крутая стата'
+                        number: 3,
+                        text: 'Года на рынке'
                     },
                     {
-                        number: '23123',
-                        text: 'Крутая стата'
+                        number: 141,
+                        text: 'Напечатанно моделей'
                     }
                 ]} />
 

@@ -1,9 +1,15 @@
 import { useState } from 'react'
+
 import s from '../styles/logAuth.module.sass'
+import { LogAuthProps } from '../interfaces/interfaces'
 import AuthForm from '../components/Forms/Auth/Auth'
 import RegisterForm from '../components/Forms/Register/Register'
 
-const LogAuthContainer: React.FC = ({authLog}) => {
+
+
+const LogAuthContainer: React.FC<LogAuthProps> = (props) => {
+
+    const { authLog } = props
 
     const [activeForm, setActiveForm] = useState<boolean>(authLog)
 

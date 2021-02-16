@@ -1,11 +1,8 @@
 import { useState } from 'react'
-import s from '../../../styles/interfaceEl/viewBoard.module.sass'
-import Prompt from '../Prompt/Prompt'
 
-interface ViewBoardProps {
-    count: number
-    small?: boolean
-}
+import s from '../../../styles/interfaceEl/viewBoard.module.sass'
+import { ViewBoardProps } from '../../../interfaces/interfaces'
+import Prompt from '../Prompt/Prompt'
 
 const ViewBoard: React.FC<ViewBoardProps> = (props) => {
 

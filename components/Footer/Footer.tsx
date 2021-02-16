@@ -10,8 +10,7 @@ const Footer: React.FC = () => {
                     ⓒ 27 Cypher Modelling Studio.
                 </p>
                 <div className={s.footer__iconContainer} >
-                    <SocialIcon href={'https://www.instagram.com/'} socialName={'instagram'} />
-                    <SocialIcon href={'https://facebook.com/'} socialName={'facebook'} />
+                    <SocialIcon href={'https://wa.me/79260865993'} socialName={'whatsapp'} />
                     <SocialIcon href={'https://web.telegram.org/#/login'} socialName={'telegram'} />
 
                 </div>

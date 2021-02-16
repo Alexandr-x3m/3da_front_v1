@@ -1,10 +1,7 @@
 import s from '../../../styles/interfaceEl/priceTag.module.sass'
+import { PriceTagProps } from '../../../interfaces/interfaces'
 
-interface PriceTag {
-    price: number
-}
-
-const PriceTag: React.FC<PriceTag> = (props) => {
+const PriceTag: React.FC<PriceTagProps> = (props) => {
 
     const { price } = props
 

@@ -1,14 +1,6 @@
-
-import { useState } from 'react';
-import s from '../../styles/attentionLane.module.sass';
-import MailForm from '../Forms/SendMail/SendMail';
-import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn';
-
-interface AttentionLaneProps {
-    title?: string,
-    subtitle?: string,
-    btn?: boolean
-}
+import s from '../../styles/attentionLane.module.sass'
+import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn'
+import { AttentionLaneProps } from '../../interfaces/interfaces'
 
 const AttentionLane: React.FC<AttentionLaneProps> = (props) => {
 
@@ -16,6 +8,9 @@ const AttentionLane: React.FC<AttentionLaneProps> = (props) => {
 
     return (
         <div className={s.attentionLane__container} >
+            <div 
+                //src={'/background_line.jpg'} 
+                className={s.background}  />
             <div className={s.attentionLane__contentBlock} >
                 <h2 className={s.attentionLane__title} >
                     {title 

@@ -1,4 +1,5 @@
-
+import { useState, useEffect } from 'react'
+import { useMutation } from 'urql'
 
 import s from '../../../styles/modelPage.module.sass'
 import DownloadBoard from '../../interfaceEl/DownloadBoard/DownloadBoard'
@@ -8,25 +9,42 @@ import Slider from '../../Slider/Slider'
 import ShareBtn from '../../interfaceEl/ShareBtn/ShareBtn'
 import InputButton from '../../Inputs/InputButton/inputButton'
 import LikeBoard from '../../interfaceEl/LikeBoard/LikeBoard'
-import PopUp from '../../PopUp/PopUp'
-import Model3D from '../../Model3D/Model3D'
-import { useState } from 'react'
+import { DataSlides } from '../../../interfaces/interfaces'
 
-const ModelPage: React.FC = (props) => {
+const GET_MAIN_SLIDES = `
+query {
+    main_page_slides {
+        id
+        desc
+        img
+        title
+        url
+    }
+  }`
 
-    const {  } = props 
+const ModelPage: React.FC = () => {
 
-    const [model3D, setModel3D] = useState<boolean>(false)
+    const [model3D, setModel3D] = useState<boolean>(false);
+    
+    const [slides, setSlides] = useState<DataSlides[]>([]);
+    const [getSlidesResult, getSlidesQuery] = useMutation(GET_MAIN_SLIDES);
+
+    useEffect(() => {
+        if (slides.length == 0) {
+            getSlidesQuery()
+                .then(res => {
+                    let data = res.data.main_page_slides
+                    setSlides(data)
+                })
+        }
+    }, [slides])
 
     return (
         <div className={s.modelPage__contentContainer} >
-
-        
             <div className={s.modelPage__sliderWindow} >
                 <Slider 
+                    data={slides}
                     thumbnail={true}
-                    title={false}
-                    desc={false}
                     swiper={false}
                     additClass={'modelPage__slider'}
                 />

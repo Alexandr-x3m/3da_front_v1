@@ -1,26 +1,38 @@
-import { useState } from 'react';
 import s from '../../styles/popUp.module.sass'
-import RadioInput from '../Inputs/Radio/RadioInput';
+import { Scrollbars } from 'react-custom-scrollbars';
+import { PopUpProps } from '../../interfaces/interfaces'
 
-interface PopUpProps {
-    setVisibility: Function,
-    content: JSX.Element
-}
 
 const PopUp: React.FC<PopUpProps> = (props) => {
 
-    const { setVisibility, content } = props;
-
-    //const [] = useState<boolean>(true)
+    const { setVisibility, scroll, content, title } = props
 
     return (
         <div className={s.popUp__container} >
             <div className={s.popUp__background} onClick={() => setVisibility(false)} ></div>
+
             <div className={s.popUp__ContentContainer} >
                 <button className={s.popUp__closeBtn} onClick={() => setVisibility(false)} >
                     <img src={'./clear_icon.svg'} />
                 </button>
-                {content}
+                {scroll
+                    ? (<div className={s.content_container} >
+                        <h1 className={s.content_title} >
+                            {title}
+                        </h1>
+                        <div className={s.content_scroll_container} >
+                            <Scrollbars autoHeightMax={200} >
+                                <div className={s.content_block} >
+                                    {content}
+                                </div>
+                            </Scrollbars>
+                        </div>
+                    </div>)
+                    : (<div className={s.content_container + ' ' + s.content_noScroll_container} >
+                        {content}
+                    </div>)
+                }
+
             </div>
         </div>
     )

@@ -1,10 +1,7 @@
 import s from '../../../styles/inputs/radioInputs.module.sass'
+import  { RadioInput } from '../../../interfaces/interfaces'
 
-interface RadioInput {
-    data: Array<string>
-}
-
-const RadioInput: React.FC = (props) => {
+const RadioInput: React.FC<RadioInput> = (props) => {
 
     const { data } = props;
 

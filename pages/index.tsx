@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
-import s from '../styles/main.module.sass'
 import HeaderBlock from '../components/Header/Header'
 import MainPageContainer from '../components/MainPageContainer/MainPageContainer'
-import ActiveSlideMP from '../interfaces/interfaces';
-
 
 
 export default function Main() {
@@ -12,8 +9,7 @@ export default function Main() {
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
   return (
-    <div 
-      className={s.container} 
+    <div  
       onWheel={e => {
         if (e.deltaY < 0 && activeSlide !== 0) {
           let val = activeSlide - 1
@@ -29,8 +25,10 @@ export default function Main() {
         <meta charSet='utf-8' />
         <meta name='keywords' content='most famous words' />
         <meta name='description' content='test desc' />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
       <div >
         <HeaderBlock />
@@ -38,7 +36,6 @@ export default function Main() {
           activeSlide={activeSlide}
           setActiveSlide={setActiveSlide} />
       </div>
-      
     </div>
   )
 }

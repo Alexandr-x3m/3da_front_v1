@@ -1,12 +1,9 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
+
 import s from '../../../styles/interfaceEl/likeBoard.module.sass'
 import Prompt from "../Prompt/Prompt"
+import { LikeBoardProps } from '../../../interfaces/interfaces'
 
-interface LikeBoardProps {
-    onlyIcon: boolean,
-    liked: boolean,
-    count: number,
-}
 
 const LikeBoard: React.FC<LikeBoardProps> = (props) => {
 

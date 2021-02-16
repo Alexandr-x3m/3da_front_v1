@@ -1,22 +1,12 @@
-import Image from 'next/image'
-import s from '../../styles/previewCard.module.sass'
-import PriceTag from '../interfaceEl/PriceTag/PriceTag'
 import Link from 'next/link'
+
+import { PreviewCardProps } from '../../interfaces/interfaces'
+import s from '../../styles/previewCard.module.sass'
 import LikeBoard from '../interfaceEl/LikeBoard/LikeBoard'
-import { useState } from 'react'
 import DownloadBoard from '../interfaceEl/DownloadBoard/DownloadBoard'
 import ViewBoard from '../interfaceEl/ViewBoard/ViewBoard'
 
-interface PreviewCard {
-    id: string,
-    name: string, 
-    views: number,
-    likes: number,
-    loads: number
-}
-
-
-const PreviewCard: React.FC<PreviewCard> = (props) => {
+const PreviewCard: React.FC<PreviewCardProps> = (props) => {
 
     const { id, name, views, likes, loads } = props
 
@@ -26,9 +16,9 @@ const PreviewCard: React.FC<PreviewCard> = (props) => {
                 <img src='/test_img_card.jpg' className={s.previewCard__img} />
                 <div className={s.previewCard__info} >
                     <Link href={'/model/' + id} >
-                        <p className={s.previewCard__name}>
+                        <a className={s.previewCard__name}>
                             {name}
-                        </p>
+                        </a>
                     </Link>
                     <div className={s.previewCard__statistics}>
                         <ViewBoard small={true} count={views} />

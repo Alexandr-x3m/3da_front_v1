@@ -1,29 +1,12 @@
 import { useState, useEffect } from 'react'
+
 import s from '../../../styles/inputs/inputText.module.sass'
+import { InputTextProps } from '../../../interfaces/interfaces'
 
-interface iconParams {
-    src?: string,
-    component?: JSX.Element,
-    onClick?: Function
-}
-
-interface InputTextProps {
-    name?: string
-    placeholder?: string,
-    value: string,
-    hideValue?: boolean,
-    handleValue: Function,
-    label: string,
-    errorText?: string,
-    errorValue?: boolean,
-    icon?: boolean,
-    iconParams?: iconParams,
-    autocomplete?: string
-}
 
 const InputText: React.FC<InputTextProps> = (props) => {
 
-    const { name, placeholder, value, hideValue, handleValue, label, errorText, errorValue, autocomplete,  icon, iconParams } = props;
+    const { name, placeholder, value, hideValue, handleValue, required, label, errorText, errorValue, autocomplete,  icon, iconParams } = props;
 
     const [visability, setVisability] = useState<boolean>(true)
 
@@ -47,7 +30,6 @@ const InputText: React.FC<InputTextProps> = (props) => {
     }, [hideValue, visability, valueTxt, value]) */
 
     const handleChange = (e) => {
-        debugger
         if (visability) {
             handleValue(e.target.value)
         } else {
@@ -62,17 +44,18 @@ const InputText: React.FC<InputTextProps> = (props) => {
 
     return (
         <>
-            <div className={s.inputText__block} >
+            <div className={s.container} >
                 <input
                     name={name}
                     id={'inputText_' + label}
-                    className={s.inputText__input + ' ' + (value.length > 0 ? s.inputText__activeInput : null)}
+                    className={s.input + ' ' + (value.length > 0 ? s.activeInput : null)}
                     value={hideValue ? (visability ? value : valueTxt) : value}
                     onChange={handleChange}
                     placeholder={placeholder}
                     autoComplete={autocomplete}
+                    required={required}
                 />
-                <label className={s.inputText__label} htmlFor={'inputText_' + label} >
+                <label className={s.label} htmlFor={'inputText_' + label} >
                     {label}
                 </label>
                 {/* hideValue 

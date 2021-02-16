@@ -1,45 +1,98 @@
-import { useState, useEffect } from 'react';
-import s from '../../styles/infoblock.module.sass'
+import { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+import s from '../../styles/In1/InfoBlock.module.sass'
+import { InfoBlockProps } from '../../interfaces/interfaces'
 
 
-interface infoBlockProps {
-    list: boolean,
-    listData?: Array<{
-        title: string,
-        subtitle: string
-    }>,
-    title?: string,
-    description?: string,
-    style: string // style_1, style_2, style_3
-}
 
-const InfoBlock: React.FC<infoBlockProps> = (props) => {
+const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
-    const { list, listData, title, description, style } = props;
+    const { list, listData, title, description, style, src } = props
+
+    const [anima, setAnima] = useState<boolean>(true)
+
+    const image = useRef<HTMLImageElement>()
+    const text = useRef<HTMLInputElement>()
+
+    // right and left moving
+    const animation1 = (el) => {
+        gsap.to(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'top bottom',
+                end: '+=400'
+            },
+            opacity: 1,
+            top: 0,
+            right: 0,
+            left: 0,
+            duration: 1.5
+        })
+    }
+
+    useEffect(() => {
+        
+        if (document.documentElement.clientWidth < 1200) {
+            setAnima(false)
+        } else {
+            debugger
+            if (anima) {
+                gsap.registerPlugin(ScrollTrigger)
+
+                animation1(image.current)
+                animation1(text.current)
+            }
+        }
+    }, [anima])
+
 
     return (
         <div className={s.container + ' ' + s[style]} >
             <div className={s.mainImg_container} >
-                <img src={'/placeholder.jpg'} className={s.main_img} />
+                <img 
+                    ref={image}
+                    src={src} 
+                    className={s.main_img}
+                    style={
+                        (anima && style !== 'style_2') 
+                            ? {top: '120px', opacity: '0'} 
+                            : {opacity: '0'}
+                    }  
+                />
             </div>
             {list
-                ? (<div className={s.list_container} >
-                    <p className={s.list_title} >Самое важное</p>
-                    {listData.map(el => (
-                        <div className={s.list_item} >
-                            <img src={'/list_marker.svg'} className={s.list_icon} />
-                            <div className={s.list_txtContainer} >
-                                <p className={s.listItem__title} >
-                                    {el.title}
-                                </p>
-                                <p className={s.listItem_description} >
-                                    {el.subtitle}
-                                </p>
+                ? (<div  ref={text} className={s.list_container} style={(anima) ? {opacity: '0'} : null} >
+                    <div className={s.list_wrapper}>
+                        <p className={s.list_title} >МЫ ЭКСПЕРТЫ</p>
+                        {listData.map((el, index) => (
+                            <div 
+                                key={'list_itme_' + index} 
+                                className={s.list_item} 
+                            >
+                                <img src={'/list_marker.svg'} className={s.list_icon} />
+                                <div className={s.list_txtContainer} >
+                                    <p className={s.listItem__title} >
+                                        {el.title}
+                                    </p>
+                                    <p className={s.listItem_description} >
+                                        {el.subtitle}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>)
-                : (<div className={s.txt_container} >
+                : (<div 
+                        ref={text}
+                        className={s.txt_container} 
+                        style={
+                            (anima)
+                                ? ({top: '120px', opacity: '0'})
+                                : null 
+                        }
+                    >
                     {title
                         ? <p className={s.txt_title} >{title}</p>
                         : null

@@ -1,32 +1,5 @@
-import Link from 'next/link';
-import { useState } from 'react';
 import s from '../../styles/header.module.sass'
-
-
-{/* <NavLink
-            to={el.address}
-            className='mainNav__item'
-            activeClassName='mainNav__active_item' >
-            <Grid
-                container
-                direction='row' >
-                <div className='mainNav__item_circle' />
-                <Typography className='mainNav__item_name'>
-                    {el.name}
-                </Typography>
-            </Grid>
-        </NavLink> */}
-
-interface blabla {
-    address: string,
-    name: string
-}
-
-interface MainNavProps {
-    data1: Array<blabla>,
-    activeSlide: number,
-    setActiveSlide: Function
-}
+import { MainNavProps } from '../../interfaces/interfaces'
 
 export const MainNav: React.FC<MainNavProps> = (props) => {
 

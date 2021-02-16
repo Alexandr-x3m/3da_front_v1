@@ -1,11 +1,8 @@
 import { useState } from 'react'
+
 import s from '../../../styles/interfaceEl/downloadBoard.module.sass'
 import Prompt from '../Prompt/Prompt'
-
-interface DownloadBoardProps {
-    count: number
-    small?: boolean
-}
+import { DownloadBoardProps } from '../../../interfaces/interfaces'
 
 const DownloadBoard: React.FC<DownloadBoardProps> = (props) => {
 

@@ -5,9 +5,16 @@
     width: 100%
     padding: 68px 0
     background: $prim-gradient
-    @media screen and ( max-width: 600px )
+    @media screen and ( max-width: 800px )
         padding: 32px 0
         
+.background
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: $prim-gradient
 
 .attentionLane__contentBlock
     position: relative
@@ -30,7 +37,15 @@
         font-size: $txt-18px
 
 .attentionLane__subtitle
-    font-size: $txt-18px
+    position: relative
+    left: 50%
+    width: 50%
+    transform: translate(-50%, 0)
+    font-size: $txt-24px
+    font-weight: 500
+    letter-spacing: 0
+    @media screen and ( max-width: 1200px )
+        font-size: $txt-16px
     @media screen and ( max-width: 600px )
         font-size: $txt-14px
 
@@ -44,4 +59,4 @@
     box-shadow: 0 4px 10px 0 $prim-back-80-color
     @media screen and ( max-width: 600px )
         margin-top: 32px !important
-        padding: 20px 64px !important
+        padding: 20px 40px !important
