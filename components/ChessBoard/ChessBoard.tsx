@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-import s from '../../styles/chessBoard.module.sass'
+import s from '../../styles/ChessBoard.module.sass'
 
 const ChessBoard: React.FC = () => {
 

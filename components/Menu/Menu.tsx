@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import s from '../../styles/menu.module.sass'
+import s from '../../styles/Menu.module.sass'
 import { MenuProps } from '../../interfaces/interfaces'
 
 const Menu: React.FC<MenuProps> = (props) => {

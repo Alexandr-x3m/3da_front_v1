@@ -1,4 +1,4 @@
-import s from '../../styles/modelPage.module.sass'
+import s from '../../styles/ModelPage.module.sass'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import HeaderBlock from '../../components/Header/Header'

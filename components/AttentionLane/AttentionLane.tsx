@@ -1,4 +1,4 @@
-import s from '../../styles/attentionLane.module.sass'
+import s from '../../styles/AttentionLane.module.sass'
 import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn'
 import { AttentionLaneProps } from '../../interfaces/interfaces'
 

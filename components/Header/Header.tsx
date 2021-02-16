@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import s from '../../styles/header.module.sass';
-import InputButton from '../Inputs/InputButton/inputButton';
-import MainNav from '../mainNav/MainNav';
-import { useEffect, useState } from 'react';
-import PopUp from '../PopUp/PopUp';
-import LogAuthContainer from '../LogAuthContainer';
-import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn';
-import Menu from '../Menu/Menu';
-import SocialIcon from '../interfaceEl/SocialIcon/SocialIcon';
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+
+import s from '../../styles/Header.module.sass'
+import InputButton from '../Inputs/InputButton/inputButton'
+import PopUp from '../PopUp/PopUp'
+import LogAuthContainer from '../LogAuthContainer'
+import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn'
+import Menu from '../Menu/Menu'
+import SocialIcon from '../interfaceEl/SocialIcon/SocialIcon'
 
 
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useMutation } from 'urql'
 
-import s from '../../../styles/modelPage.module.sass'
+import s from '../../../styles/ModelPage.module.sass'
 import DownloadBoard from '../../interfaceEl/DownloadBoard/DownloadBoard'
 import ViewBoard from '../../interfaceEl/ViewBoard/ViewBoard'
 import PriceTag from '../../interfaceEl/PriceTag/PriceTag'

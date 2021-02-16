@@ -2,7 +2,7 @@ import { JSXElementConstructor, ReactElement, useEffect, useRef, useState } from
 import Image from 'next/image'
 import Link from 'next/link'
 
-import s from '../../styles/slider.module.sass'
+import s from '../../styles/Slider.module.sass'
 import InputButton from '../Inputs/InputButton/inputButton'
 import { SliderProps } from '../../interfaces/interfaces'
 import { PositionMTouch } from '../../interfaces/interfaces'

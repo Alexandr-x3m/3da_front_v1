@@ -5,7 +5,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
 import InputButton from '../Inputs/InputButton/inputButton'
-import s from '../../styles/servicePreview.module.sass'
+import s from '../../styles/ServicePreview.module.sass'
 import { ServicePreviewProps } from '../../interfaces/interfaces'
 
 

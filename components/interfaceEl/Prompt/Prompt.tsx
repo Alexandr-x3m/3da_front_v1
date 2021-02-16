@@ -1,4 +1,4 @@
-import s from '../../../styles/prompt.module.sass'
+import s from '../../../styles/Prompt.module.sass'
 import { PromptProps } from '../../../interfaces/interfaces'
 
 const Prompt: React.FC<PromptProps> = ({name, view}) => {

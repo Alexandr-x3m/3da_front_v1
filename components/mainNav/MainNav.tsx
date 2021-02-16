@@ -1,4 +1,4 @@
-import s from '../../styles/header.module.sass'
+import s from '../../styles/Header.module.sass'
 import { MainNavProps } from '../../interfaces/interfaces'
 
 export const MainNav: React.FC<MainNavProps> = (props) => {

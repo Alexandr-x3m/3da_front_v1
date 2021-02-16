@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 
-import s from '../../../styles/animatedBtn.module.sass'
+import s from '../../../styles/AnimatedBtn.module.sass'
 import SendMailContainer from '../../Forms/SendMail/SendMailContainer'
 import { AnimatedBtnProps } from '../../../interfaces/interfaces'
 
