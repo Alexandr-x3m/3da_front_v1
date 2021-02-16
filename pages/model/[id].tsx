@@ -5,7 +5,7 @@ import HeaderBlock from '../../components/Header/Header'
 import ModelComponent from '../../components/Pages/ModelPage/ModelPage'
 
 
-const ModelContainer: React.FC = () => {
+const ModelPage: React.FC = () => {
 
     const info = useRouter()
 
@@ -29,4 +29,4 @@ const ModelContainer: React.FC = () => {
     )
 }
 
-export default ModelContainer;
+export default ModelPage;
