@@ -20,7 +20,7 @@ const ModelPage: React.FC = () => {
                 <meta name='description' content='test desc' />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={s.modelPage__container} >
+            <div >
                 <HeaderBlock />
                 <ModelComponent />
 
