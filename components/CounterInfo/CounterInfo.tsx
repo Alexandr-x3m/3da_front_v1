@@ -1,5 +1,5 @@
 
-import s from '../../styles/CounterInfo.module.sass'
+import s from './CounterInfo.module.sass'
 import { CounterInfoProps } from '../../interfaces/interfaces'
 import Count from './Count'
 

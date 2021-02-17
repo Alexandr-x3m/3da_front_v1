@@ -1,0 +1,55 @@
+@import '../../../styles/app'
+
+.container
+    position: relative
+    width: 240px
+    margin: auto
+    input[type='file']
+        position: absolute
+        width: 0.1px
+        height: 0.1px
+        opacity: 0
+        z-index: -10
+        &:focus + label
+            .btn
+                border: 3px solid $def-color
+                background: $def-15-color
+
+.btn
+    position: relative
+    height: 180px
+    border-radius: 6px
+    border: 3px dashed $def-60-color        
+    p
+        margin: 52px 12px
+        font-size: $txt-14px
+        text-align: center
+        color: $def-color
+        overflow: hidden
+    &:hover
+        cursor: pointer
+        .img_block
+            animation: move 0.4s linear
+            
+.img_block
+    +transitionDuration(0.2s)
+    position: relative
+    left: 50%
+    top: 50%
+    width: 60px
+    transform: translate(-50%, -80%)
+    img
+        width: 100%
+
+.btn_hover
+    border: 3px solid $def-color
+    background: $def-15-color
+
+
+@keyframes move
+    0%
+        transform: translate(-50%, -80%)
+    50%
+        transform: translate(-50%, -90%)
+    100%
+        transform: translate(-50%, -80%)

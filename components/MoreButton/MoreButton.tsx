@@ -1,4 +1,4 @@
-import s from '../../styles/inputs/moreButton.module.sass'
+import s from './MoreButton.module.sass'
 import InputButton from '../Inputs/InputButton/inputButton'
 import { MoreButtonProps } from '../../interfaces/interfaces'
 

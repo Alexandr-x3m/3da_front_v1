@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import axios from 'axios'
 
-import s from '../../../styles/form/sendMail.module.sass'
+import s from './SendMail.module.sass'
 import InputButton from '../../Inputs/InputButton/inputButton'
 import InputText from '../../Inputs/InputText/InputText'
 import InputFile from '../../Inputs/InputFile/InputFile'

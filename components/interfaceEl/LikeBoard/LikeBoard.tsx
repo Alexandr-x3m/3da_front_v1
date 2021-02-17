@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import s from '../../../styles/interfaceEl/likeBoard.module.sass'
+import s from './styles/interfaceEl/LikeBoard.module.sass'
 import Prompt from "../Prompt/Prompt"
 import { LikeBoardProps } from '../../../interfaces/interfaces'
 

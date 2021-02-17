@@ -1,4 +1,4 @@
-import s from '../../../styles/interfaceEl/priceTag.module.sass'
+import s from './styles/interfaceEl/PriceTag.module.sass'
 import { PriceTagProps } from '../../../interfaces/interfaces'
 
 const PriceTag: React.FC<PriceTagProps> = (props) => {

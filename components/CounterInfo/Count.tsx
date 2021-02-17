@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import s from '../../styles/CounterInfo.module.sass'
+import s from './CounterInfo.module.sass'
 import { CounterData } from '../../interfaces/interfaces'
 
 const Count: React.FC<CounterData> = ({ number, text }) => {

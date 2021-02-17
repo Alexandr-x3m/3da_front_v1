@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import s from '../../../styles/inputs/inputFile.module.sass'
+import s from './InputFile.module.sass'
 import { InputFileProps } from '../../../interfaces/interfaces'
 
 

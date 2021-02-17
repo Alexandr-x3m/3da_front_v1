@@ -1,4 +1,4 @@
-import s from '../../styles/alerts/succesSend.module.sass'
+import s from './SuccesSend.module.sass'
 import { SuccessSendProps } from '../../interfaces/interfaces'
 
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { PreviewCardProps } from '../../interfaces/interfaces'
-import s from '../../styles/PreviewCard.module.sass'
+import s from './PreviewCard.module.sass'
 import LikeBoard from '../interfaceEl/LikeBoard/LikeBoard'
 import DownloadBoard from '../interfaceEl/DownloadBoard/DownloadBoard'
 import ViewBoard from '../interfaceEl/ViewBoard/ViewBoard'

@@ -1,0 +1,45 @@
+@import '../../../styles/app'
+
+
+.btn_2
+    display: inline-block
+    position: relative
+    height: inherit
+    padding: 4px 12px
+    border-radius: 6px
+    background: $snd-back-color
+    transition: all 500ms ease
+    overflow: hidden
+    text-decoration: none
+    font-weight: 400
+    font-size: $txt-16px
+    letter-spacing: 0.03em
+    color: $def-40-color
+    text-transform: uppercase
+    z-index: 999
+    &:before
+        position: absolute
+        content: ''
+        width: 0%
+        transform: skew(-20deg)
+        height: 100%
+        background: $snd-gradient
+        top: 0
+        left: auto
+        right: -12px
+        z-index: -1
+        transition: all 500ms ease
+    &:hover
+        color: white
+        box-shadow: none
+        cursor: pointer
+        &:before
+            position: absolute
+            content: ''
+            width: 112%
+            height: 100%
+            background: $snd-gradient
+            top: 0
+            left: -12px
+            right: -12px
+            z-index: -1

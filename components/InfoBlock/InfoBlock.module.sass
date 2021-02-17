@@ -1,0 +1,149 @@
+@import '../../styles/app'
+
+.container
+    display: flex
+    margin: 32px
+    position: relative
+    padding: 0 32px
+    color: $def-color
+    @media screen and ( max-width: 600px )
+        padding: 0
+
+.style_1
+    flex-direction: row-reverse
+    justify-content: space-between
+    align-items: stretch
+    margin: 0
+    .txt_container
+        width: 540px
+        margin-right: 32px
+        .txt_description
+            position: relative
+            top: 50%
+            width: 100%
+            transform: translate(0, -50%)
+    .mainImg_container
+        position: relative
+        height: 540px
+        overflow: hidden
+        img
+            width: auto
+            height: 100%
+    @media screen and ( max-width: 600px )
+        margin: 0
+        flex-direction: column
+        .mainImg_container
+            width: 100%
+            height: auto
+            margin-bottom: 16px
+        .txt_container
+            width: 100%
+            margin: 0
+            .txt_description
+                font-size: $txt-16px
+                font-weight: 600
+                line-height: 24px
+                text-align: center
+
+.style_2
+    flex-direction: row
+    grid-template-columns: 530px 1fr
+    padding: 0
+    .main_img
+        top: 50% !important
+        width: 530px !important
+        margin: 0 32px 0 0 !important
+        transform: translate(0, -50%) !important
+    .list_container
+        margin: 0 0 0 32px
+    @media screen and ( max-width: 600px )
+        flex-direction: column
+        .list_container
+            margin: 0 0 0 16px
+        .main_img
+            top: 0
+            width: 100%
+            margin: 0 0 16px 0
+            transform: translate(0, 0)
+
+.style_3
+    flex-direction: column
+    margin: 0
+    width: 100%
+    .mainImg_container
+        padding-bottom: 24px
+        img
+            height: 190px
+    .txt_title
+        margin-bottom: 16px
+        text-align: center
+        font-weight: 700
+        font-size: $txt-18px
+    .txt_description
+        text-align: center !important
+        font-weight: 400 !important
+        font-size: $txt-16px
+    @media screen and ( max-width: 600px )
+        flex-direction: column
+        margin: 0 0 32px 0
+        .mainImg_container
+            padding: 0 16px 16px 16px
+
+.mainImg_container
+    position: relative
+
+.main_img
+    position: relative
+    width: 100%
+
+.txt_container
+    position: relative
+    width: 100%
+    text-align: left
+
+.txt_description
+    font-size: $txt-18px
+    font-weight: 600
+    line-height: $txt-24px
+    letter-spacing: 0.03%
+
+.list_wrapper
+    position: relative
+    top: 50%
+    transform: translate(0, -50%)
+
+.list_item
+    display: flex
+    margin-bottom: 12px
+
+.list_icon
+    position: relative
+    top: 0
+    width: 24px
+    height: 26px
+    margin-right: 12px
+
+.list_title
+    font-weight: 700
+    font-size: $txt-32px
+    margin-bottom: 32px
+    text-align: center
+    margin-bottom: 32px
+    @media screen and ( max-width: 600px )
+        margin: 0 0 24px 32px
+        font-weight: 600
+        font-size: $txt-24px
+        text-align: left
+
+.listItem__title
+    font-size: $txt-18px
+    font-weight: 700
+    margin-bottom: 12px
+    @media screen and ( max-width: 600px )
+        font-size: $txt-18px
+
+.listItem_description
+    font-size: $txt-16px
+    font-weight: 400
+    line-height: $txt-24px
+    @media screen and ( max-width: 600px )

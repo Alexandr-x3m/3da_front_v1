@@ -1,4 +1,4 @@
-import s from '../../styles/PopUp.module.sass'
+import s from './PopUp.module.sass'
 import { Scrollbars } from 'react-custom-scrollbars';
 import { PopUpProps } from '../../interfaces/interfaces'
 

@@ -3,7 +3,7 @@ import { useMutation } from 'urql'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
-import s from '../../styles/MainPage.module.sass';
+import s from './MainPage.module.sass';
 import { ActiveSlideMP, DataSlides } from '../../interfaces/interfaces'
 import Slider from '../Slider/Slider'
 import AttentionLane from '../AttentionLane/AttentionLane'

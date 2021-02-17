@@ -1,0 +1,37 @@
+@import '../../styles/app'
+
+.previewCard__block
+    width: 100%
+    border-radius: 6px
+    overflow: hidden
+
+.previewCard__img
+    position: relative
+    width: 100%
+
+.previewCard__info
+    position: relative
+    top: -4px
+    display: flex
+    justify-content: space-between
+    height: 40px
+    padding: 0 24px
+    background: $snd-back-color
+    border-bottom-left-radius: 6px
+    border-bottom-right-radius: 6px
+
+.previewCard__statistics
+    display: flex
+    margin-top: 14px
+
+.previewCard__name
+    +transitionDuration(0.4s)
+    font-size: 12px
+    font-weight: 600 
+    line-height: 40px
+    color: $def-60-color
+    &:hover
+        color: $prim-color
+        text-decoration: underline
+        cursor: pointer
+

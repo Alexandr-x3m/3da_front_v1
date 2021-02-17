@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import s from '../../../styles/interfaceEl/viewBoard.module.sass'
+import s from './ViewBoard.module.sass'
 import { ViewBoardProps } from '../../../interfaces/interfaces'
 import Prompt from '../Prompt/Prompt'
 

@@ -1,4 +1,4 @@
-import s from '../../styles/FilterProjects.module.sass'
+import s from './FilterProjects.module.sass'
 import { GalleryNavigationProps } from '../../interfaces/interfaces'
 
 

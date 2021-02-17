@@ -1,4 +1,4 @@
-import s from '../../styles/Loader.module.sass'
+import s from './Loader.module.sass'
 
 
 const Loader: React.FC = (props) => {

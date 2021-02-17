@@ -1,0 +1,40 @@
+@import '../../../styles/app'
+
+.viewBoard__container
+    display: flex
+    position: relative
+    height: 36px
+    padding: 8px 6px
+    margin-right: 12px
+    &:hover
+        cursor: pointer
+
+.viewBoard__icon
+    margin-right: 4px
+    height: 20px
+
+.viewBoard__text
+    font-size: 14px
+    color: $def-60-color
+    line-height: 20px
+
+
+
+.viewBoard__smallContainer
+    +transitionDuration(0.2s)
+    display: flex
+    position: relative
+    height: 12px
+    margin-right: 12px
+    &:hover
+        cursor: pointer
+
+
+.viewBoard__smallIcon
+    margin-right: 4px
+
+
+.viewBoard__smallText
+    font-size: 12px
+    color: $def-60-color
+    line-height: 12px

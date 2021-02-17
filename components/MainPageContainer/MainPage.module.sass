@@ -1,0 +1,32 @@
+@import '../../styles/app'
+
+
+.mainPageContainer__container
+    +transitionDuration(0.4s)
+    position: relative
+    top: 112px
+    width: 100%
+    overflow: hidden
+    @media screen and ( max-width: 800px )
+        top: 64px
+
+.mainPageContainer__sliderWindow
+    width: 100%
+    height: calc( 100vh - 112px )
+    overflow: hidden
+    @media screen and ( max-width: 800px )
+        height: calc( 100vh - 64px )
+
+.mainPageContainer__servicesList
+    position: relative
+    margin-bottom: 200px
+    z-index: 999
+    @media screen and ( max-width: 800px )
+        margin-bottom: 72px
+
+        
+
+
+        
+
+

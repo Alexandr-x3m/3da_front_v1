@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import s from '../../../styles/inputs/inputText.module.sass'
+import s from './InputText.module.sass'
 import { InputTextProps } from '../../../interfaces/interfaces'
 
 

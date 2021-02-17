@@ -1,4 +1,4 @@
-import s from '../../../styles/inputs/inputText.module.sass';
+import s from '../InputText/InputText.module.sass'
 import { InputTextareaProps } from '../../../interfaces/interfaces'
 
 const InputTextarea: React.FC<InputTextareaProps> = (props) => {

@@ -1,12 +1,8 @@
 import { useState } from 'react'
-import s from '../../../styles/form/register.module.sass'
+import s from './Register.module.sass'
 import InputButton from '../../Inputs/InputButton/inputButton'
 import InputText from '../../Inputs/InputText/InputText'
 
-//const bcrypt = require('bcrypt');
-const saltRounds = 10;
-const myPlaintextPassword = 'hello world';
-const someOtherPlaintextPassword = 'not_bacon';
 
 const RegisterForm: React.FC = () => {
 

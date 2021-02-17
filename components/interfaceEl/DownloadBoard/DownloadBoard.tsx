@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import s from '../../../styles/interfaceEl/downloadBoard.module.sass'
+import s from './DownloadBoard.module.sass'
 import Prompt from '../Prompt/Prompt'
 import { DownloadBoardProps } from '../../../interfaces/interfaces'
 

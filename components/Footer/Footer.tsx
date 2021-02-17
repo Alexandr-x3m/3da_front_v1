@@ -1,4 +1,4 @@
-import s from '../../styles/Footer.module.sass'
+import s from './Footer.module.sass'
 import SocialIcon from '../interfaceEl/SocialIcon/SocialIcon'
 
 const Footer: React.FC = () => {

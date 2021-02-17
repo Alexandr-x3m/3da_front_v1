@@ -1,4 +1,4 @@
-import s from '../../../styles/inputs/inputButton.module.sass'
+import s from './InputButton.module.sass'
 import { InputButtonProps } from '../../../interfaces/interfaces'
 import Loader from '../../Loader/Loader'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from '../../../styles/SocialIcon.module.sass';
+import s from './SocialIcon.module.sass';
 import { SocialIconProps } from '../../../interfaces/interfaces'
 
 const SocialIcon: React.FC<SocialIconProps> = (props) => {

@@ -1,4 +1,4 @@
-import s from '../../../styles/interfaceEl/shareBtn.module.sass'
+import s from './ShareBtn.module.sass'
 
 const ShareBtn: React.FC = () => {
 
