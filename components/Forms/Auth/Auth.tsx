@@ -1,7 +1,7 @@
 import { useState } from "react"
 import InputButton from "../../Inputs/InputButton/inputButton"
 import InputText from "../../Inputs/InputText/InputText"
-import s from './auth.module.sass'
+import s from './Auth.module.sass'
 
 
 const AuthForm: React.FC = () => {
