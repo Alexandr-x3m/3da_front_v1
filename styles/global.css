@@ -23,11 +23,13 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, div{
+h1, h2, h3, h4, h5, h6, p, a, div, input{
   font-family: 'Conv_19888', sans-serif;
   font-size: 100%;
   margin: 0;
 }
+
+
 
 * {
   box-sizing: border-box;

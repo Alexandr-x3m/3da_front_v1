@@ -1,0 +1,88 @@
+@import '../../styles/app'
+
+.container
+    display: flex
+    position: relative
+    width: 874px
+    margin: auto
+    z-index: 99
+
+.img_wrap
+    position: relative
+    perspective: 1000px
+    perspective-origin: 50% 50%
+    &:hover
+        cursor: pointer
+
+.img_block
+    position: relative
+    width: 278px
+    height: 215px
+    box-shadow: 0px 0px 10px 4px #000000
+    background: rgba(0, 0, 0, 1)
+    border: 1px solid #000000
+    border-radius: 6px
+    transform-style: preserve-3d
+    transform: rotateY(0) scale(1)
+    margin: 0
+    overflow: hidden
+    -webkit-transition: margin 0.8s, z-index 0.6s, -webkit-transform 1s
+    transition: margin 0.8s, z-index 0.6s, transform 1s
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+.right_block
+    width: 122px
+    z-index: 91
+    .img_block  
+        margin: 0
+        transform-style: preserve-3d
+        transform: rotateY(45deg)
+        img
+            transform: translateZ(0)
+            opacity: 0.6
+
+.left_block
+    width: 122px
+    z-index: 91
+    .img_block
+        transform-style: preserve-3d
+        transform: rotateY(-45deg)
+        img
+            transform: translateZ(0)
+            opacity: 0.6
+
+.focus_img
+    margin: 0 60px
+    z-index: 999
+    .img_block
+        animation: rightGetImg 0.4s
+        transform: rotateY(0) scale(1.4)
+        img
+            opacity: 1
+
+
+@keyframes rightGetImg
+    0%
+        opacity: 1
+        transform: rotateY(45deg)
+        animation-timing-function: ease-in
+    50%
+        opacity: 1
+        transform: rotateY(0) translateX(0) scale(0.9)
+        perspective: 20000px
+        animation-timing-function: ease-out
+    100%
+        opacity: 1
+        width: 278px
+        transform: rotateY(0) translateX(0) scale(1.4)
+
+
+
+        
+        
+
+
+        

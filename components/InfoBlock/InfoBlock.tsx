@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import s from './InfoBlock.module.sass'
 import { InfoBlockProps } from '../../interfaces/interfaces'
+import Animation1 from '../interfaceEl/Animation1/Animation1'
 
 
 
@@ -21,14 +22,28 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
         gsap.to(el, {
             scrollTrigger: {
                 trigger: el,
-                start: 'top bottom',
-                end: '+=400'
+                start: 'center bottom+=50px',
+                markers: true
             },
             opacity: 1,
             top: 0,
             right: 0,
             left: 0,
             duration: 1.5
+        })
+    }
+    const animation2 = (el) => {
+        gsap.to(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'center bottom+=50px',
+                markers: true
+            },
+            opacity: 1,
+            top: 0,
+            right: 0,
+            left: 0,
+            duration: 0.1
         })
     }
 
@@ -51,16 +66,18 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
     return (
         <div className={s.container + ' ' + s[style]} >
             <div className={s.mainImg_container} >
-                <img 
-                    ref={image}
-                    src={src} 
-                    className={s.main_img}
-                    style={
-                        (anima && style !== 'style_2') 
-                            ? {top: '120px', opacity: '0'} 
-                            : {opacity: '0'}
-                    }  
-                />
+                <Animation1>
+                    <img 
+                        ref={image}
+                        src={src} 
+                        className={s.main_img}
+                        style={
+                            (anima && style !== 'style_2') 
+                                ? {top: '120px', opacity: '0'} 
+                                : {opacity: '0'}
+                        }  
+                    />
+                </Animation1>
             </div>
             {list
                 ? (<div  ref={text} className={s.list_container} style={(anima) ? {opacity: '0'} : null} >
