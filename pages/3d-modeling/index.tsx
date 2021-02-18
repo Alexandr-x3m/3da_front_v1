@@ -7,7 +7,7 @@ import InfoBlock from '../../components/InfoBlock/InfoBlock'
 import AttentionLane from '../../components/AttentionLane/AttentionLane'
 import Footer from '../../components/Footer/Footer'
 import Slider3D from '../../components/Slider3D/Slider3d'
-import ServiceNav from '../../components/MainNav/ServiceNav'
+import ServiceNav from '../../components/MainNav/SN'
 
 
 
