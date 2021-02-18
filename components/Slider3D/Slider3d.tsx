@@ -47,9 +47,9 @@ const Slider3D: React.FC<Slider3DProps> = () => {
         <div className={s.container} >
             {data.map((el, index) => (
                 <div 
-                    id={index} 
-                    className={s.img_wrap + ' ' + (index < activeImg*1 ? s.right_block : s.left_block ) + ' ' + (activeImg == index ? s.focus_img : null)}  
-                    style={((index > activeImg*1 && index != activeImg*1 ) ? {zIndex: 91-index} : null )}
+                    id={`${index}`} 
+                    className={s.img_wrap + ' ' + (index.toString() < activeImg ? s.right_block : s.left_block ) + ' ' + (activeImg == index.toString() ? s.focus_img : null)}  
+                    style={((index.toString() > activeImg && index.toString() != activeImg ) ? {zIndex: 91-index} : null )}
                     onMouseOver={(e: React.MouseEvent<HTMLDivElement>) => mouseOverHandler(e)} 
                     onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => mouseLeaveHandler(e)}
                 >

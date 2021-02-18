@@ -52,7 +52,6 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
         if (document.documentElement.clientWidth < 1200) {
             setAnima(false)
         } else {
-            debugger
             if (anima) {
                 gsap.registerPlugin(ScrollTrigger)
 
