@@ -12,8 +12,6 @@ import ChessBoard from '../ChessBoard/ChessBoard'
 import CounterInfo from '../CounterInfo/CounterInfo'
 import Footer from '../Footer/Footer'
 
-
-
 const GET_MAIN_SLIDES = `
 query {
     main_page_slides {
@@ -26,7 +24,7 @@ query {
   }`
 
 
-const MainPageContainer: React.FC<ActiveSlideMP> = () => {
+const MainPageContainer: React.FC<ActiveSlideMP> = ({scroll}) => {
 
 
     const [slides, setSlides] = useState<DataSlides[]>([]);
@@ -48,10 +46,8 @@ const MainPageContainer: React.FC<ActiveSlideMP> = () => {
 
     return (
         <>
-            <div
-                className={s.mainPageContainer__container}
-            >
-                <div className={s.mainPageContainer__sliderWindow} >
+            <div className={s.container} style={scroll > 120 ? {top: '64px'} : {top: '112px'}} >
+                <div className={s.sliderWindow} >
                     <Slider
                         data={slides}
                         thumbnail={false}
@@ -62,20 +58,27 @@ const MainPageContainer: React.FC<ActiveSlideMP> = () => {
                 </div>
                 <AttentionLane />
 
-                <div className={s.mainPageContainer__servicesList}>
+                <div className={s.servicesList}>
                     <ServicePreview
                         title={'Художественное моделирование'}
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
-                        link={'/3d-modeling'}
+                        link={'/3d-modeling?segment=1'}
                         img_src={'/artistic-preview.jpg'}
                         animation={true}
                     />
                     <ServicePreview
                         title={'ИНЖЕНЕРНОЕ МОДЕЛИРОВАНИЕ'}
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
-                        link={'/3d-modeling'}
+                        link={'/3d-modeling?segment=2'}
                         img_src={'/engineering-preview.jpg'}
                         reverse={true}
+                        animation={true}
+                    />
+                    <ServicePreview
+                        title={'Ювелирное МОДЕЛИРОВАНИЕ'}
+                        subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
+                        link={'/3d-modeling?segment=3'}
+                        img_src={'/jewelry/photo_2021-01-30_04-02-14 (2).jpg'}
                         animation={true}
                     />
                     <ServicePreview
@@ -83,8 +86,10 @@ const MainPageContainer: React.FC<ActiveSlideMP> = () => {
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
                         link={'/3d-printing'}
                         img_src={'/3d-printer-preview.jpg'}
+                        reverse={true}
                         animation={true}
                     />
+                    <div className={s.transition_background} ></div>
                 </div>
                 <ChessBoard />
                 <CounterInfo data={[

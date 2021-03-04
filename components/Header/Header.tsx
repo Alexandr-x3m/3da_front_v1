@@ -13,14 +13,15 @@ import SocialIcon from '../interfaceEl/SocialIcon/SocialIcon'
 
 
 
-const HeaderBlock: React.FC = () => {
+const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
 
-    const [popUp, setPopUp] = useState<boolean>(false);
-    const [authLog, setAuthLog] = useState<boolean>(false);
-    const [serviceList, setServiceList] = useState<boolean>(false);
-    const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+    const [popUp, setPopUp] = useState<boolean>(false)
+    const [authLog, setAuthLog] = useState<boolean>(false)
+    const [serviceList, setServiceList] = useState<boolean>(false)
+    const [mobileMenu, setMobileMenu] = useState<boolean>(false)
 
-    const [windowHeight, setWindowHeight] = useState<number>();
+    const [windowHeight, setWindowHeight] = useState<number>()
+    const [pageHeight, setPageHeight] = useState<number>()
 
     const openAuthorization = () => {
         setAuthLog(true)
@@ -33,17 +34,27 @@ const HeaderBlock: React.FC = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            let windowH = window.document.documentElement.clientHeight
-            setWindowHeight(windowH)
-            console.log(windowH)
-        }, 100)
+        if (document.documentElement.clientWidth >= 800) {
+            setTimeout(() => {
+                debugger
+                let windowH = window.document.documentElement.clientHeight
+                let pageH = window.document.documentElement.offsetHeight
+
+                setWindowHeight(windowH)
+                setPageHeight(pageH)
+                console.log(windowH)
+            }, 100)
+        }
     }, [])
 
+    console.log(scroll)
     return (
-        <div>
-            <div className={s.header__container}>
-                <div className={s.headerTop__container} >
+        <div >
+            <div className={s.header__container} >
+                <div 
+                    className={s.headerTop__container} 
+                    style={scroll > 150 || (scroll !< 150 && scroll !> 100) ? {height:  '0px'} : {height:  '48px'}} 
+                >
                     <div className={s.headerTop__contentBlock} >
                         <div className={s.headerTop__infoTextBlock} >
                             <div className={s.headerTop__infoText} >
@@ -58,7 +69,10 @@ const HeaderBlock: React.FC = () => {
                             </div>
                         </div>
                         <div className={s.headerTop__btnBlock} >
-                            <AnimatedBtn name={'Получить предложение'} />
+                            <AnimatedBtn 
+                                name={'Получить предложение'} 
+                                additClass={s.get_sentence} 
+                            />
                         </div>
                     </div>
                 </div>
@@ -71,6 +85,7 @@ const HeaderBlock: React.FC = () => {
                                     alt='27 cypher'
                                     width={'fill'}
                                     height={42} />
+                                <div className={s.logo_gradient}  style={{height: `${pageHeight}px`,top: `-${scroll}px`}}  ></div>
                             </a></Link>
                         </div>
                         <div className={s.header__interfaceBlock} >
@@ -133,7 +148,7 @@ const HeaderBlock: React.FC = () => {
                             <a>
                                 <Image
                                     src={'/logotype.svg'}
-                                    alt='27 cypher'
+                                    alt='3Da modeling studio'
                                     width={232}
                                     height={48}
                                 />

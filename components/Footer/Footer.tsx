@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <div className={s.footer__container} >
             <div className={s.footer__contentBlock} >
                 <p className={s.footer__txt} >
-                    ⓒ 27 Cypher Modelling Studio.
+                    ⓒ 3Da Modelling Studio.
                 </p>
                 <div className={s.footer__iconContainer} >
                     <SocialIcon href={'https://wa.me/79260865993'} socialName={'whatsapp'} />

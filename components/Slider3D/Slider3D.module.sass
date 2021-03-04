@@ -3,7 +3,7 @@
 .container
     display: flex
     position: relative
-    width: 874px
+    width: 1200px
     margin: auto
     z-index: 99
 
@@ -14,75 +14,110 @@
     &:hover
         cursor: pointer
 
-.img_block
+.swiper_container
+    position: absolute
+    bottom: -120px
+    width: 200px
+    z-index: 999
+    button
+        width: 48px
+        height: 32px
+        background: $prim-back-color
+        border: 1px solid $def-color
+        border-radius: 6px
+        color: $def-color
+
+.name
+    position: absolute
+    bottom: 0
+    color: $def-color
+    background: $prim-back-color
+    z-index: 1000
+
+.carousel
     position: relative
-    width: 278px
-    height: 215px
-    box-shadow: 0px 0px 10px 4px #000000
-    background: rgba(0, 0, 0, 1)
-    border: 1px solid #000000
-    border-radius: 6px
+    margin: 0 auto
     transform-style: preserve-3d
-    transform: rotateY(0) scale(1)
-    margin: 0
+    perspective: 1000px
+    width: 362px
+    height: 272px
+
+.item
+    +transitionDuration(.6s)
+    position: absolute
+    top: 0
+    left: 0
+    width: 362px
+    height: 272px
+    background: $prim-60-color
+    transform-style: preserve-3d
+    border-radius: 6px
+    border: 1px solid #000
+    box-shadow: 0px 0px 10px 4px #000000
     overflow: hidden
-    -webkit-transition: margin 0.8s, z-index 0.6s, -webkit-transform 1s
-    transition: margin 0.8s, z-index 0.6s, transform 1s
     img
+        display: block
+        position: relative
         width: 100%
         height: 100%
-        object-fit: cover
 
-.right_block
-    width: 122px
-    z-index: 91
-    .img_block  
-        margin: 0
-        transform-style: preserve-3d
-        transform: rotateY(45deg)
-        img
-            transform: translateZ(0)
-            opacity: 0.6
+.name
+    position: relative
+    top: -32px
+    left: 50%
+    max-width: 80%
+    padding: 6px $txt-12px
+    text-align: center
+    background: rgba( 0, 0, 0, 0.6)
+    transform: translate(-50%, -50%)
+    opacity: 0
 
-.left_block
-    width: 122px
-    z-index: 91
-    .img_block
-        transform-style: preserve-3d
-        transform: rotateY(-45deg)
-        img
-            transform: translateZ(0)
-            opacity: 0.6
+.position_1
+    transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
+    transform: translateX(-480px) translateZ(-500px) rotateY(35deg)
+    z-index: 997
 
-.focus_img
-    margin: 0 60px
-    z-index: 999
-    .img_block
-        animation: rightGetImg 0.4s
-        transform: rotateY(0) scale(1.4)
-        img
-            opacity: 1
+.position_2
+    transform: rotateY(30deg)
+    transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
+    transform: translateX(-240px) translateZ(-400px) rotateY(35deg)
+    z-index: 998
 
+.position_3
+    transform: none
+    transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
+    .name
+        opacity: 1
 
-@keyframes rightGetImg
+.position_4
+    transform: rotateY(-30deg)
+    transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
+    transform: translateX(240px) translateZ(-400px) rotateY(-35deg)
+    z-index: 998
+
+.position_5
+    transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
+    transform: translateX(480px) translateZ(-500px) rotateY(-35deg)
+    z-index: 997
+
+.nav_btns
+    position: absolute
+    bottom: 0
+    left: 50%
+    button
+        width: 40px
+        height: 20px
+
+@keyframes disappearence
     0%
         opacity: 1
-        transform: rotateY(45deg)
-        animation-timing-function: ease-in
     50%
-        opacity: 1
-        transform: rotateY(0) translateX(0) scale(0.9)
-        perspective: 20000px
-        animation-timing-function: ease-out
+        opacity: 0
     100%
         opacity: 1
-        width: 278px
-        transform: rotateY(0) translateX(0) scale(1.4)
 
-
-
-        
-        
-
-
-        
+@keyframes appearence
+    0%
+        opacity: 0
+    100%
+        opacity: 1

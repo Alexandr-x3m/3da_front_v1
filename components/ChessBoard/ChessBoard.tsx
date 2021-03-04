@@ -7,37 +7,50 @@ import s from './ChessBoard.module.sass'
 
 const ChessBoard: React.FC = () => {
 
-    const [anima, setAnima] = useState<boolean>(true);
+    const [anima, setAnima] = useState<boolean>(true)
 
-    const item = useRef<HTMLInputElement>();
-    const itemContain = useRef<HTMLInputElement>();
+    const emptyItem = useRef<HTMLInputElement>()
+    const emptyItem1 = useRef<HTMLInputElement>()
+    const emptyItem2 = useRef<HTMLInputElement>()
+    const emptyItem3 = useRef<HTMLInputElement>()
 
-    const item1 = useRef<HTMLInputElement>();
-    const itemContain1 = useRef<HTMLInputElement>();
-
-    const item2 = useRef<HTMLInputElement>();
-    const itemContain2 = useRef<HTMLInputElement>();
-
-    const item3 = useRef<HTMLInputElement>();
-    const itemContain3 = useRef<HTMLInputElement>();
+    const itemContain = useRef<HTMLInputElement>()
+    const itemContain1 = useRef<HTMLInputElement>()
+    const itemContain2 = useRef<HTMLInputElement>()
+    const itemContain3 = useRef<HTMLInputElement>()
 
     // right and left moving
-    const animation1 = (el) => {
+    const emptyItemAnima = (el) => {
         gsap.to(el, {
             scrollTrigger: {
                 trigger: el,
-                start: 'bottom center+=45%',
+                start: 'top bottom-=5%',
                 endTrigger: el,
-                end: "top center-=35%",
-                toggleActions: 'play reverse play reverse'
+                end: "top top+=120px",
+                toggleActions: 'play reverse play reverse',
+                markers: true
             },
             opacity: 1,
-            //top: 0,
-            //right: 0,
-            //left: 0,
             duration: 0.6
         })
     }    
+
+    const boxShadowAnima = (el) => {
+        gsap.to(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'top bottom-=5%',
+                endTrigger: el,
+                end: "top top+=120px",
+                toggleActions: 'play reverse play reverse'
+            },
+            opacity: 1,
+            duration: 0.6,
+            boxShadow: '0px 0px 6px 0px #0AAFF1'
+        })
+    }
+
+    
 
     useEffect(() => {
         if (document.documentElement.clientWidth < 1200) {
@@ -46,23 +59,28 @@ const ChessBoard: React.FC = () => {
             if (anima) {
                 gsap.registerPlugin(ScrollTrigger)
 
-                animation1(item.current)
-                animation1(item1.current)
-                animation1(item2.current)
-                animation1(item3.current)
+                boxShadowAnima(itemContain.current)
+                boxShadowAnima(itemContain1.current)
+                boxShadowAnima(itemContain2.current)
+                boxShadowAnima(itemContain3.current)
+
+                emptyItemAnima(emptyItem.current)
+                emptyItemAnima(emptyItem1.current)
+                emptyItemAnima(emptyItem2.current)
+                emptyItemAnima(emptyItem3.current)
             }
         }
-    }, [item])
+    }, [anima])
 
     return (
         <div className={s.container} > 
-            <img src={'/background.jpg'} className={s.background_img} /> 
+            {/* <img src={'/background.jpg'} className={s.background_img} />  */}
             <div className={s.content_block} >
                 <h2 className={s.chessBoard__title} >ПРАВИЛЬНЫЕ ПРИОРИТЕТЫ</h2>
                 <h4 className={s.chessBoard__subtitle} >Для нас важные показателем качества нашей работы является, не только выполненная работа, но и хорошее впечатление от сотрудничества с нами </h4>
                 <div className={s.chessBoard__descBlock}>
 
-                    <div className={s.empty_item} style={{width: '328px'}} ></div>
+                    <div ref={emptyItem} className={s.empty_item} style={{width: '328px'}} ></div>
 
                     <div 
                         ref={itemContain}
@@ -72,7 +90,7 @@ const ChessBoard: React.FC = () => {
                         <div className={s.mobile_img} >
                             <Image src={'/icons/support_icon.svg'} layout={'fill'} />
                         </div>
-                        <div ref={item} className={s.item_content} >
+                        <div className={s.item_content} >
                             <h6 className={s.item_title} >
                                 Персонализированная поддержка
                             </h6>
@@ -83,7 +101,7 @@ const ChessBoard: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className={s.empty_item} style={{width: '240px', marginRight: '0'}} ></div>
+                    <div ref={emptyItem1} className={s.empty_item} style={{width: '240px', marginRight: '0'}} ></div>
 
                     <div 
                         ref={itemContain1}
@@ -93,7 +111,7 @@ const ChessBoard: React.FC = () => {
                         <div className={s.mobile_img} >
                             <Image src={'/icons/spy_icon.svg'} layout={'fill'} />
                         </div>
-                        <div ref={item1} className={s.item_content} >
+                        <div className={s.item_content} >
                             <h6 className={s.item_title} >
                                 Коммерческая тайна
                             </h6>
@@ -104,7 +122,7 @@ const ChessBoard: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className={s.empty_item} style={{width: '350px'}} ></div>
+                    <div ref={emptyItem2} className={s.empty_item} style={{width: '350px'}} ></div>
 
                     <div 
                         ref={itemContain2}
@@ -114,7 +132,7 @@ const ChessBoard: React.FC = () => {
                         <div className={s.mobile_img} >
                             <Image src={'/icons/group_icon.svg'} layout={'fill'} />
                         </div>
-                        <div ref={item2} className={s.item_content} >
+                        <div className={s.item_content} >
                             <h6 className={s.item_title} >
                                 Сделаем простым
                             </h6>
@@ -125,7 +143,7 @@ const ChessBoard: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className={s.empty_item} style={{width: '482px'}} ></div>
+                    <div ref={emptyItem3} className={s.empty_item} style={{width: '482px'}} ></div>
 
                     <div 
                         ref={itemContain3}
@@ -135,7 +153,7 @@ const ChessBoard: React.FC = () => {
                         <div className={s.mobile_img} >
                             <Image src={'/icons/calendar_icon.svg'} layout={'fill'} />
                         </div>
-                        <div ref={item3} className={s.item_content} >
+                        <div className={s.item_content} >
                             <h6 className={s.item_title} >
                                 Производство в сроки
                             </h6>

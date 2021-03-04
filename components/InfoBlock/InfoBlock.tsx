@@ -81,7 +81,6 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
             {list
                 ? (<div  ref={text} className={s.list_container} style={(anima) ? {opacity: '0'} : null} >
                     <div className={s.list_wrapper}>
-                        <p className={s.list_title} >МЫ ЭКСПЕРТЫ</p>
                         {listData.map((el, index) => (
                             <div 
                                 key={'list_itme_' + index} 

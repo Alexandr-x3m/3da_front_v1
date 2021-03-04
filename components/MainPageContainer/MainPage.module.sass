@@ -1,28 +1,35 @@
 @import '../../styles/app'
 
 
-.mainPageContainer__container
+.container
     +transitionDuration(0.4s)
     position: relative
     top: 112px
     width: 100%
     overflow: hidden
+    background: $prim-back-color
     @media screen and ( max-width: 800px )
         top: 64px
 
-.mainPageContainer__sliderWindow
+.sliderWindow
     width: 100%
     height: calc( 100vh - 112px )
     overflow: hidden
     @media screen and ( max-width: 800px )
         height: calc( 100vh - 64px )
 
-.mainPageContainer__servicesList
+.servicesList
     position: relative
-    margin-bottom: 200px
     z-index: 999
     @media screen and ( max-width: 800px )
         margin-bottom: 72px
+
+.transition_background
+    position: relative
+    width: 100%
+    height: 300px
+    margin-bottom: -100px
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)
 
         
 

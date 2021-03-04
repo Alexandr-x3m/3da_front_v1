@@ -2,21 +2,20 @@
 
 .container
     display: flex
-    margin: 32px
     position: relative
-    padding: 0 32px
     color: $def-color
     @media screen and ( max-width: 600px )
         padding: 0
 
 .style_1
-    flex-direction: row-reverse
-    justify-content: space-between
-    align-items: stretch
+    display: grid
+    grid-template-columns: 540px 1fr
+    grid-column-gap: 32px
     margin: 0
     .txt_container
+        grid-column: 1
+        grid-row: 1
         width: 540px
-        margin-right: 32px
         .txt_description
             position: relative
             top: 50%
@@ -27,8 +26,8 @@
         height: 540px
         overflow: hidden
         img
-            width: auto
-            height: 100%
+            width: 100%
+            object-fit: cover
     @media screen and ( max-width: 600px )
         margin: 0
         flex-direction: column
@@ -46,16 +45,20 @@
                 text-align: center
 
 .style_2
-    flex-direction: row
+    display: grid
     grid-template-columns: 530px 1fr
+    grid-column-gap: 32px
     padding: 0
     .main_img
         top: 50% !important
         width: 530px !important
+        height: 100%
         margin: 0 32px 0 0 !important
         transform: translate(0, -50%) !important
     .list_container
-        margin: 0 0 0 32px
+        padding: 32px
+        background: $snd-back-color
+        border-radius: 6px
     @media screen and ( max-width: 600px )
         flex-direction: column
         .list_container
@@ -70,16 +73,26 @@
     flex-direction: column
     margin: 0
     width: 100%
+    padding: 0 16px
+    &:first-child
+        padding: 0 16px 0 0
+    &:last-child
+        padding: 0 0 0 16px
     .mainImg_container
         padding-bottom: 24px
         img
             height: 190px
+    .txt_container
+        height: 200px
+        padding: 0 32px !important
+        border-radius: 0 !important
     .txt_title
-        margin-bottom: 16px
+        padding: 16px 0
         text-align: center
         font-weight: 700
         font-size: $txt-18px
     .txt_description
+        padding-bottom: 16px
         text-align: center !important
         font-weight: 400 !important
         font-size: $txt-16px
@@ -100,6 +113,9 @@
     position: relative
     width: 100%
     text-align: left
+    padding: 32px
+    border-radius: 6px
+    background: $snd-back-color
 
 .txt_description
     font-size: $txt-18px
@@ -122,18 +138,6 @@
     width: 24px
     height: 26px
     margin-right: 12px
-
-.list_title
-    font-weight: 700
-    font-size: $txt-32px
-    margin-bottom: 32px
-    text-align: center
-    margin-bottom: 32px
-    @media screen and ( max-width: 600px )
-        margin: 0 0 24px 32px
-        font-weight: 600
-        font-size: $txt-24px
-        text-align: left
 
 .listItem__title
     font-size: $txt-18px

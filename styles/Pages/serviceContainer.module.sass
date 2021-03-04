@@ -37,6 +37,7 @@
     font-weight: 700
     margin-bottom: 16px
     text-transform: uppercase
+    text-shadow: $textShadow-4px
     @media screen and ( max-width: 600px )
         font-size: $txt-24px
         line-height: $txt-24px
@@ -44,6 +45,7 @@
 .serviceContainer__subtitle
     font-size: $txt-24px
     font-weight: 400
+    text-shadow: $textShadow-2px
     @media screen and ( max-width: 600px )
         font-size: $txt-14px
 
@@ -59,27 +61,28 @@
         width: auto
         height: 100%
         transform: translate(-50%, 0)
-        
-.firstInfoBlock__container
+
+.section_item
     position: relative
-    text-align: center
     color: $def-color
-    margin: 80px 0
+    background: $prim-back-color
     @media screen and ( max-width: 600px )
         padding: 0 32px
         margin: 64px 0
         
 
-.firstInfoBlock__content
+.block_content
     position: relative
     max-width: 1200px
     margin: auto
+    padding: 80px 0
 
-.firstInfoBlock__text
+.title_container
     margin-bottom: 48px 
     @media screen and ( max-width: 600px )
 
-.firstInfoBlock__title
+.title
+    text-align: center
     font-size: $txt-32px
     line-height: 44px
     text-transform: uppercase
@@ -87,71 +90,11 @@
         font-size: $txt-24px
         line-height: 28px
 
-.firstInfoBlock__subtitle
-    position: relative
-    left: 50%
-    width: 60%
-    font-size: $txt-24px
-    line-height: 32px
-    transform: translate(-50%, 0)
-    @media screen and ( max-width: 600px )
-        font-size: $txt-24px
-        line-height: 28px
 
+.hor_block
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
 
-
-
-
-.secondInfoBlock__container
-    position: relative
-    color: $def-color
-    padding: 80px 0
-    background: $snd-back-color
-    @media screen and ( max-width: 600px )
-        padding: 32px 0
-
-
-.secondInfoBlock__content
-    max-width: 1200px 
-    margin: auto
-
-
-
-
-.thirdInfoBlock__container
-    position: relative
-    padding: 80px 0
-    @media screen and ( max-width: 600px )
-        padding: 32px 0
-
-
-.thirdInfoBlock__content
-    display: flex
-    width: 1200px
-    margin: auto
-    @media screen and ( max-width: 1200px )
-        flex-wrap: wrap
-        width: 100%
-        padding: 32px
-
-.thirdInfoBlock_title
-    text-align: center
-    text-transform: uppercase
-    color: $def-color
-    font-size: $txt-32px
-    margin-bottom: 48px
-
-
-.fourBlock_container
-    position: relative
-    width: 100%
-    padding: 120px 0
-    background: $snd-back-color
-
-.fourBlock_content
-    position: relative
-    width: 1200px
-    margin: auto
     
         
 

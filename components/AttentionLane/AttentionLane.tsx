@@ -12,16 +12,16 @@ const AttentionLane: React.FC<AttentionLaneProps> = (props) => {
                 //src={'/background_line.jpg'} 
                 className={s.background}  />
             <div className={s.attentionLane__contentBlock} >
-                <h2 className={s.attentionLane__title} >
+                <div>
                     {title 
-                        ? title
-                        : 'ЧЕМ МЫ ЗАНИМАЕМСЯ'
+                        ? <h2 className={s.title_txt + ' ' + s.custom_title} >{title}</h2>
+                        : <h2 className={s.title_txt} >ЧЕМ МЫ ЗАНИМАЕМСЯ !!!</h2>
                     }
-                </h2>
+                </div>
                 <h4 className={s.attentionLane__subtitle} >
                     {subtitle
                         ? subtitle
-                        : 'Прототипирование, Скульптинг, Инженерное моделирование'
+                        : null
                     }
                 </h4>
                 {btn

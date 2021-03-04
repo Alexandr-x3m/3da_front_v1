@@ -1,27 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
+
 import HeaderBlock from '../components/Header/Header'
 import MainPageContainer from '../components/MainPageContainer/MainPageContainer'
 
 
 export default function Main() {
 
-  const [activeSlide, setActiveSlide] = useState<number>(0)
+
+  const [scroll, setScroll] = useState<number>(0)
+
+  useEffect(() => {
+    let scrollTop = window.scrollY
+    setScroll(scrollTop)
+  }, [])
+
+  const scrollPageHandler = () => {
+    let scrollTop = window.scrollY
+    let windowH = window.document.documentElement.scrollHeight
+    let windowH1 = window.document.documentElement.scrollTop
+    console.log(windowH)
+    console.log(windowH1)
+    setScroll(scrollTop)
+  }
 
   return (
-    <div  
-      onWheel={e => {
-        if (e.deltaY < 0 && activeSlide !== 0) {
-          let val = activeSlide - 1
-          setActiveSlide(val)
-        }
-        if (e.deltaY > 0 && activeSlide !== 4) {
-          let val = activeSlide + 1
-          setActiveSlide(val)
-        }
-      }} >
+    <div 
+      onWheel={(e: React.WheelEvent<HTMLDivElement>) => scrollPageHandler(e)} 
+    >
       <Head>
-        <title>Добро подаловать в 27 CYPHER</title>
+        <title>3Da studio - 3Д моделирование и печать, в Москве и Московской области</title>
         <meta charSet='utf-8' />
         <meta name='keywords' content='most famous words' />
         <meta name='description' content='test desc' />
@@ -31,10 +39,8 @@ export default function Main() {
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
       <div >
-        <HeaderBlock />
-        <MainPageContainer
-          activeSlide={activeSlide}
-          setActiveSlide={setActiveSlide} />
+        <HeaderBlock scroll={scroll} />
+        <MainPageContainer scroll={scroll}  />
       </div>
     </div>
   )

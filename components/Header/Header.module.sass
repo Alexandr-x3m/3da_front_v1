@@ -10,17 +10,18 @@
     position: fixed
     top: 0
     width: 100%
-    height: 112px
     box-shadow: 0px 3px 10px 0px $prim-back-color
     z-index: 9999
     @media screen and (max-width: 800px)
         height: 64px
 
 .headerTop__container
+    +transitionDuration(0.4s)
     width: inherit
     height: 48px
     margin: auto
-    background: $header-top-color
+    background: $prim-color
+    overflow: hidden
     @media screen and (max-width: 800px)
         display: none
 
@@ -50,10 +51,24 @@
         font-weight: 600
         font-size: 14px
         font-weight: 400
+        line-height: 22px
+        letter-spacing: -0.03em
+        font-family: 'Open Sans'
 
 .headerTop__btnBlock
     width: 260px
     margin-top: 8px
+
+.get_sentence
+    border: 1px solid $snd-color
+    background: $snd-gradient !important
+    color: $def-color
+    //text-shadow: $textShadow-1px
+    &:hover
+        border: 1px solid $def-color !important
+    &:before
+        background: $snd-back-color !important   
+        
 
 .headerBottom__container
     position: relative
@@ -77,8 +92,23 @@
 .logo_container
     position: relative
     width: 89px
-    height: 42px
+    height: 36px
     margin: 10px 32px 0 0 
+    z-index: 999
+    overflow: hidden
+    img
+        top: -4px !important
+        z-index: 99
+
+.logo_gradient
+    position: absolute
+    top: 0
+    left: 0
+    width: 89px
+    background: url('/logo_back.svg')
+    background-size: auto 100%
+    transform: rotate(180deg)
+
 
 .header__interfaceBlock
     display: flex

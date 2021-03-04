@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
 
 import s from '../../styles/Pages/serviceContainer.module.sass'
 import HeaderBlock from '../../components/Header/Header'
@@ -10,22 +11,35 @@ import Footer from '../../components/Footer/Footer'
 
 export default function Main() {
 
+  const [scroll, setScroll] = useState<number>(0)
+
+  useEffect(() => {
+    let scrollTop = window.scrollY
+    setScroll(scrollTop)
+  }, [])
+
+  const scrollPageHandler = () => {
+    let scrollTop = window.scrollY
+    setScroll(scrollTop)
+  }
 
   return (
     <div
-      className={s.pageContainer} >
+      className={s.pageContainer}
+      onWheel={(e: React.WheelEvent<HTMLDivElement>) => scrollPageHandler(e)}
+    >
       <Head>
         <title></title>
         <meta charSet='utf-8' />
         <meta name='keywords' content='most famous words' />
         <meta name='description' content='test desc' />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />s
       </Head>
       <div >
-        <HeaderBlock />
+        <HeaderBlock scroll={scroll} />
 
         <div className={s.serviceContainer} >
           <div className={s.previewBlock__container} >
@@ -50,8 +64,8 @@ export default function Main() {
                   3D ПЕЧАТЬ
                 </h2>
                 <h3 className={s.firstInfoBlock__subtitle} >
-                  27 CYPHER ИСПОЛЬЗУЕТ НЕКОТОРЫЕ ЗАХВАТЫВАЮЩИЕ ТЕХНОЛОГИИ 3D-ПЕЧАТИ
-                  </h3>
+                  3Da modeling studio ИСПОЛЬЗУЕТ НЕКОТОРЫЕ ЗАХВАТЫВАЮЩИЕ ТЕХНОЛОГИИ 3D-ПЕЧАТИ
+                </h3>
               </div>
               <InfoBlock
                 src={'/jewelry/photo_2021-01-30_04-03-43.jpg'}

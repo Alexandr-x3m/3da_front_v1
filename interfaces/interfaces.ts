@@ -1,8 +1,7 @@
 import { ReactElement } from 'react';
 
 interface ActiveSlideMP {
-    activeSlide: number,
-    setActiveSlide: Function
+    scroll: number,
 } 
 
 interface LogAuthProps {

@@ -3,7 +3,7 @@
 .attentionLane__container
     position: relative
     width: 100%
-    padding: 68px 0
+    padding: 48px 0
     background: $prim-gradient
     @media screen and ( max-width: 800px )
         padding: 32px 0
@@ -14,7 +14,7 @@
     left: 0
     width: 100%
     height: 100%
-    background: $prim-gradient
+    background: $prim-color
 
 .attentionLane__contentBlock
     position: relative
@@ -25,16 +25,22 @@
     @media screen and ( max-width: 1200px )
         padding: 0 32px
 
-.attentionLane__title
+.title_txt
+    text-align: center
     font-size: $txt-32px
     text-transform: uppercase
-    margin-bottom: 16px
     font-weight: 700
+    margin: 4px 32px 0 0
+    text-shadow: $textShadow-2px
     @media screen and ( max-width: 1200px )
         font-size: $txt-24px
         margin-bottom: 24px
     @media screen and ( max-width: 600px )
         font-size: $txt-18px
+
+.custom_title
+    margin-bottom: 32px
+
 
 .attentionLane__subtitle
     position: relative
@@ -44,6 +50,8 @@
     font-size: $txt-24px
     font-weight: 500
     letter-spacing: 0
+    color: $def-80-color    
+    text-shadow: $textShadow-1px
     @media screen and ( max-width: 1200px )
         font-size: $txt-16px
     @media screen and ( max-width: 600px )
@@ -51,12 +59,46 @@
 
 .attentionLane__request
     margin-top: 48px !important
-    opacity: 0.9 !important
-    padding: 12px 32px !important
-    background: $prim-color !important
+    opacity: 1 !important
+    padding: 14px 32px 10px !important
+    background: $prim-back-color !important
     color: $def-color !important
-    border: 1px solid $snd-back-color
+    border: 1px solid $def-color
     box-shadow: 0 4px 10px 0 $prim-back-80-color
+    text-shadow: $textShadow-1px
+    &:hover
+        border: 1px solid $snd-color
     @media screen and ( max-width: 600px )
         margin-top: 32px !important
         padding: 20px 40px !important
+
+
+
+@keyframes show
+    0%
+        width: 40px
+        height: 40px
+        opacity: 1
+    50%
+        width: 0.1px
+        height: 0.1px
+        opacity: 0
+    100%
+        width: 40px
+        height: 40px
+        opacity: 1
+
+@keyframes hide
+    0%
+        width: 0.1px
+        height: 0.1px
+        opacity: 0
+    50%
+        width: 40px
+        height: 40px
+        opacity: 1
+    100%
+        width: 0.1px
+        height: 0.1px
+        opacity: 0
+        

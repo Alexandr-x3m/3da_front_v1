@@ -7,7 +7,7 @@ const CounterInfo: React.FC<CounterInfoProps> = ({ data }) => {
 
     return (
         <div className={s.counterInfo__container} >
-            <img src={'/background2.jpg'} className={s.counterInfo__background} />
+            {/* <img src={'/background2.jpg'} className={s.counterInfo__background} /> */}
             <h2 className={s.counterInfo__title} >
                 Наша студия в цифрах
             </h2>

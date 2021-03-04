@@ -7,6 +7,7 @@ const client = createClient({ url: 'https://fleet-pigeon-38.hasura.app/v1/graphq
 
 function MyApp({ Component, pageProps }) {
 
+
   return (
     <React.StrictMode>
       <Provider value={client}>
