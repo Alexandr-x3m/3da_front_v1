@@ -10,7 +10,7 @@ import Animation1 from '../interfaceEl/Animation1/Animation1'
 
 const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
-    const { list, listData, title, description, style, src } = props
+    const { list, listData, title, description, style, src, additClass } = props
 
     const [anima, setAnima] = useState<boolean>(true)
 
@@ -63,7 +63,7 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
 
     return (
-        <div className={s.container + ' ' + s[style]} >
+        <div className={s.container + ' ' + s[style] + ' ' + additClass} >
             <div className={s.mainImg_container} >
                 <Animation1>
                     <img 

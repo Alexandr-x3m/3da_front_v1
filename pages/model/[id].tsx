@@ -1,5 +1,5 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import HeaderBlock from '../../components/Header/Header'
 import ModelComponent from '../../components/Pages/ModelPage/ModelPage'
@@ -7,9 +7,17 @@ import ModelComponent from '../../components/Pages/ModelPage/ModelPage'
 
 const ModelPage: React.FC = () => {
 
-    const info = useRouter()
+    const [scroll, setScroll] = useState<number>(0)
 
-    console.log(info)
+    useEffect(() => {
+        let scrollTop = window.scrollY
+        setScroll(scrollTop)
+    }, [])
+
+    const scrollPageHandler = () => {
+        let scrollTop = window.scrollY
+        setScroll(scrollTop)
+    }
 
     return (
         <>
@@ -20,8 +28,8 @@ const ModelPage: React.FC = () => {
                 <meta name='description' content='test desc' />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div >
-                <HeaderBlock />
+            <div onWheel={() => scrollPageHandler()} >
+                <HeaderBlock scroll={scroll} />
                 <ModelComponent />
 
             </div>

@@ -21,7 +21,7 @@ const Portfolio: React.FC = () => {
 
     return (
         <div
-            onWheel={(e: React.WheelEvent<HTMLDivElement>) => scrollPageHandler(e)}
+            onWheel={() => scrollPageHandler()}
         >
             <Head>
                 <title>3д модели</title>

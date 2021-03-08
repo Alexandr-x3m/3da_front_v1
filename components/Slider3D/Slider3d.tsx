@@ -10,7 +10,7 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
 
 
 
-    const [data, setData] = useState<{ id: string, position: string, src: string, name: string }[]>(dt)
+    const [data, setData] = useState<{ id: string, position: number, src: string, name: string }[]>(dt)
     const [sndSwipe, setSndSwipe] = useState<{ dir: string, step: number }>({ dir: '', step: 0 })
 
     useEffect(() => {
@@ -20,27 +20,23 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
 
 
     const swipeSlideLeft = async (step) => {
-        await setTimeout(() => {
 
-            const dt = data.map((el, index) => ({ ...el, position: el.position === 5 ? 1 : el.position + 1 }))
-            setData(dt)
-            step = step - 1
+        const dt = data.map((el, index) => ({ ...el, position: el.position === 5 ? 1 : el.position + 1 }))
+        setData(dt)
+        step = step - 1
 
-            if (step !== 0 && step > 0) setSndSwipe({ dir: 'left', step: step })
-            else setSndSwipe({ dir: '', step: 0 })
-        }, 500)
+        if (step !== 0 && step > 0) setSndSwipe({ dir: 'left', step: step })
+        else setSndSwipe({ dir: '', step: 0 })
     }
 
     const swipeSlideRight = async (step) => {
-        await setTimeout(() => {
 
-            const dt = data.map((el, index) => ({ ...el, position: el.position === 1 ? 5 : el.position - 1 }))
-            setData(dt)
-            step = step - 1
+        const dt = data.map((el, index) => ({ ...el, position: el.position === 1 ? 5 : el.position - 1 }))
+        setData(dt)
+        step = step - 1
 
-            if (step !== 0 && step > 0) setSndSwipe({ dir: 'right', step: step })
-            else setSndSwipe({ dir: '', step: 0 })
-        }, 500)
+        if (step !== 0 && step > 0) setSndSwipe({ dir: 'right', step: step })
+        else setSndSwipe({ dir: '', step: 0 })
     }
 
 
@@ -59,12 +55,6 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
         }
     }
 
-
-
-
-
-
-
     return (
         <div className={s.container} >
             <div className={s.carousel}>
@@ -72,7 +62,7 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
                     <div
                         key={`${el.id}_321321lds_${index}`}
                         id={`${el.id}`}
-                        className={s.item + ' ' + s.[`position_${el.position}`]}
+                        className={s.item + ' ' + s[`position_${el.position}`]}
                         onClick={(e: React.MouseEvent<HTMLDivElement>) => clickHandler(e)}
                     >
                         <img src={el.src} />

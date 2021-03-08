@@ -1,9 +1,24 @@
+import { useState, useEffect } from 'react'
 import Head from "next/head"
+
 import HeaderBlock from "../../components/Header/Header"
 import PortfolioPage from "./PortfolioPage"
 
 
 const Portfolio:React.FC = () => {
+
+    const [scroll, setScroll] = useState<number>(0)
+
+    useEffect(() => {
+        let scrollTop = window.scrollY
+        setScroll(scrollTop)
+    }, [])
+
+    const scrollPageHandler = () => {
+        let scrollTop = window.scrollY
+        setScroll(scrollTop)
+    }
+
     return (
         <>
             <Head>
@@ -13,8 +28,8 @@ const Portfolio:React.FC = () => {
                 <meta name='description' content='test desc' />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div>
-                <HeaderBlock />
+            <div onWheel={() => scrollPageHandler()} >
+                <HeaderBlock scroll={scroll} />
                 <PortfolioPage />
             </div>
         </>

@@ -130,7 +130,8 @@ interface InfoBlockProps {
     description?: string,
     style: string, // style_1, style_2, style_3, style_4
     src: string,
-    animation?: boolean
+    animation?: boolean, 
+    additClass?: string
 }
 
 interface AnimatedBtnProps {

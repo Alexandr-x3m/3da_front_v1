@@ -1,0 +1,41 @@
+@import '../../../styles/app'
+
+
+.container
+    position: relative
+    width: 80px
+    height: 18px
+
+.band
+    position: relative
+    width: 80px
+    height: 18px
+    background: #fff
+    transform: skew(-20deg)
+    width: 100%
+    background: $def-color
+
+.progress
+    position: absolute
+    top: 0
+    left: 0
+    height: 18px
+    transform: skew(-20deg)
+    background: $prim-color
+
+.decor_container
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-column-gap: 4px
+    position: absolute
+    top: 0
+    left: 0
+    width: 80px
+    transform: skew(-20deg)
+
+.wall
+    position: relative
+    left: 0
+    width: calc( 100% + 4px)
+    height: 18px
+    border-right: 4px solid $snd-back-color

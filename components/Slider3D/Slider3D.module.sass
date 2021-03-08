@@ -39,16 +39,16 @@
     margin: 0 auto
     transform-style: preserve-3d
     perspective: 1000px
-    width: 362px
-    height: 272px
+    width: 558px
+    height: 336px
 
 .item
     +transitionDuration(.6s)
     position: absolute
     top: 0
     left: 0
-    width: 362px
-    height: 272px
+    width: 558px
+    height: 336px
     background: $prim-60-color
     transform-style: preserve-3d
     border-radius: 6px
@@ -65,22 +65,23 @@
     position: relative
     top: -32px
     left: 50%
-    max-width: 80%
+    max-width: 60%
     padding: 6px $txt-12px
     text-align: center
     background: rgba( 0, 0, 0, 0.6)
+    border-radius: 6px
     transform: translate(-50%, -50%)
     opacity: 0
 
 .position_1
     transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
-    transform: translateX(-480px) translateZ(-500px) rotateY(35deg)
+    transform: translateX(-580px) translateZ(-500px) rotateY(35deg)
     z-index: 997
 
 .position_2
     transform: rotateY(30deg)
     transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
-    transform: translateX(-240px) translateZ(-400px) rotateY(35deg)
+    transform: translateX(-340px) translateZ(-400px) rotateY(35deg)
     z-index: 998
 
 .position_3
@@ -92,12 +93,12 @@
 .position_4
     transform: rotateY(-30deg)
     transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
-    transform: translateX(240px) translateZ(-400px) rotateY(-35deg)
+    transform: translateX(340px) translateZ(-400px) rotateY(-35deg)
     z-index: 998
 
 .position_5
     transition: transform 500ms ease 0s, opacity 500ms ease 0s, visibility 500ms ease 0s
-    transform: translateX(480px) translateZ(-500px) rotateY(-35deg)
+    transform: translateX(580px) translateZ(-500px) rotateY(-35deg)
     z-index: 997
 
 .nav_btns

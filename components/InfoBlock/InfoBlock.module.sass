@@ -9,7 +9,7 @@
 
 .style_1
     display: grid
-    grid-template-columns: 540px 1fr
+    grid-template-columns: 9fr 11fr
     grid-column-gap: 32px
     margin: 0
     .txt_container
@@ -23,7 +23,6 @@
             transform: translate(0, -50%)
     .mainImg_container
         position: relative
-        height: 540px
         overflow: hidden
         img
             width: 100%
@@ -49,12 +48,9 @@
     grid-template-columns: 530px 1fr
     grid-column-gap: 32px
     padding: 0
-    .main_img
-        top: 50% !important
-        width: 530px !important
-        height: 100%
-        margin: 0 32px 0 0 !important
-        transform: translate(0, -50%) !important
+    .mainImg_container
+        height: inherit
+        overflow: hidden
     .list_container
         padding: 32px
         background: $snd-back-color
@@ -125,8 +121,6 @@
 
 .list_wrapper
     position: relative
-    top: 50%
-    transform: translate(0, -50%)
 
 .list_item
     display: flex

@@ -45,7 +45,7 @@ export default function Main() {
   return (
     <div
       className={s.pageContainer}
-      onWheel={(e: React.WheelEvent<HTMLDivElement>) => scrollPageHandler(e)}
+      onWheel={() => scrollPageHandler()}
     >
       <Head>
         <title>3Da modeling studio</title>
@@ -103,6 +103,7 @@ export default function Main() {
                         Независимо от того, является ли ваша цель гипер-реальностью или причудливо стилизованным образом, мы можем помочь вам в ее достижении.`
                   }
                   animation={true}
+                  additClass={s.style_1_modeling}
                 />
               </div>
               <div className={s.block_content} >

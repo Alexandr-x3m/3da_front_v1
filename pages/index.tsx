@@ -17,16 +17,12 @@ export default function Main() {
 
   const scrollPageHandler = () => {
     let scrollTop = window.scrollY
-    let windowH = window.document.documentElement.scrollHeight
-    let windowH1 = window.document.documentElement.scrollTop
-    console.log(windowH)
-    console.log(windowH1)
     setScroll(scrollTop)
   }
 
   return (
     <div 
-      onWheel={(e: React.WheelEvent<HTMLDivElement>) => scrollPageHandler(e)} 
+      onWheel={() => scrollPageHandler()} 
     >
       <Head>
         <title>3Da studio - 3Д моделирование и печать, в Москве и Московской области</title>
