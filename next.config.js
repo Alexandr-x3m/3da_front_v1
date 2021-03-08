@@ -1,9 +1,9 @@
 const path = require('path')
 
 // next.config.js
-/* module.exports = {
+module.exports = {
   reactStrictMode: true,
-} */
+}
 
 module.exports = {
   sassOptions: {

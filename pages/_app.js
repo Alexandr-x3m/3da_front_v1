@@ -9,11 +9,11 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-    <React.StrictMode>
+    //<React.StrictMode>
       <Provider value={client}>
         <Component {...pageProps} />
       </Provider>
-    </React.StrictMode>
+   // </React.StrictMode>
   )
 }
 
