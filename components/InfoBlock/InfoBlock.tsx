@@ -13,12 +13,13 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
     const { list, listData, title, description, style, src, additClass } = props
 
     const [anima, setAnima] = useState<boolean>(true)
+    const [data, setData] = useState<{title: string, subtitle: string}[]>(listData ? listData : [{title: ' ', subtitle: ' '}])
 
-    const image = useRef<HTMLImageElement>()
-    const text = useRef<HTMLInputElement>()
+    const image = useRef<any>()
+    const text = useRef<any>()
 
     // right and left moving
-    const animation1 = (el) => {
+    const animation1 = (el: any) => {
         gsap.to(el, {
             scrollTrigger: {
                 trigger: el,
@@ -32,7 +33,7 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
             duration: 1.5
         })
     }
-    const animation2 = (el) => {
+    /* const animation2 = (el: any) => {
         gsap.to(el, {
             scrollTrigger: {
                 trigger: el,
@@ -45,7 +46,8 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
             left: 0,
             duration: 0.1
         })
-    }
+    } */
+
 
     useEffect(() => {
         
@@ -79,9 +81,13 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                 </Animation1>
             </div>
             {list
-                ? (<div  ref={text} className={s.list_container} style={(anima) ? {opacity: '0'} : null} >
+                ? (<div  
+                        ref={text} 
+                        className={s.list_container} 
+                        //style={(anima) ? {opacity: '0'} : null} 
+                    >
                     <div className={s.list_wrapper}>
-                        {listData.map((el, index) => (
+                        {data.map((el, index) => (
                             <div 
                                 key={'list_itme_' + index} 
                                 className={s.list_item} 
@@ -102,11 +108,7 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                 : (<div 
                         ref={text}
                         className={s.txt_container} 
-                        style={
-                            (anima)
-                                ? ({top: '120px', opacity: '0'})
-                                : null 
-                        }
+                        //style={(anima) ? ({top: '120px', opacity: '0'}) : null}
                     >
                     {title
                         ? <p className={s.txt_title} >{title}</p>

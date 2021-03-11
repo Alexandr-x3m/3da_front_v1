@@ -9,18 +9,18 @@ const ChessBoard: React.FC = () => {
 
     const [anima, setAnima] = useState<boolean>(true)
 
-    const emptyItem = useRef<HTMLInputElement>()
-    const emptyItem1 = useRef<HTMLInputElement>()
-    const emptyItem2 = useRef<HTMLInputElement>()
-    const emptyItem3 = useRef<HTMLInputElement>()
+    const emptyItem = useRef<any>()
+    const emptyItem1 = useRef<any>()
+    const emptyItem2 = useRef<any>()
+    const emptyItem3 = useRef<any>()
 
-    const itemContain = useRef<HTMLInputElement>()
-    const itemContain1 = useRef<HTMLInputElement>()
-    const itemContain2 = useRef<HTMLInputElement>()
-    const itemContain3 = useRef<HTMLInputElement>()
+    const itemContain = useRef<any>()
+    const itemContain1 = useRef<any>()
+    const itemContain2 = useRef<any>()
+    const itemContain3 = useRef<any>()
 
     // right and left moving
-    const emptyItemAnima = (el) => {
+    const emptyItemAnima = (el: any) => {
         gsap.to(el, {
             scrollTrigger: {
                 trigger: el,
@@ -35,7 +35,7 @@ const ChessBoard: React.FC = () => {
         })
     }    
 
-    const boxShadowAnima = (el) => {
+    const boxShadowAnima = (el: any) => {
         gsap.to(el, {
             scrollTrigger: {
                 trigger: el,

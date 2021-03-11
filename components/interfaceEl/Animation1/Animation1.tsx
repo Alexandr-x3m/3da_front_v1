@@ -8,7 +8,7 @@ import s from './Animation1.module.sass'
 const Animation1: React.FC = (props) => {
 
     const [showEl, setShowEl] = useState<boolean>(false)
-    const gif = useRef<HTMLDivElement>()
+    const gif = useRef<any>()
 
     useEffect(() => {
         

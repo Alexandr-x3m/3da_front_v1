@@ -10,7 +10,7 @@ const AuthForm: React.FC = () => {
 
     const [password, setPassword] = useState<string>('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault()
     }
 
@@ -30,10 +30,10 @@ const AuthForm: React.FC = () => {
                 handleValue={setPassword}
             />
             <div className={s.authForm__submitContainer} >
-                <InputButton 
+                {/* <InputButton 
                     type={'submit'}
                     value={'Войти'}
-                />
+                /> */}
             </div>
         </form>
     )

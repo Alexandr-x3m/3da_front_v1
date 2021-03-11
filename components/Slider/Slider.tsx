@@ -22,7 +22,7 @@ const Slider: React.FC<SliderProps> = (props) => {
     const [thumbnailsView, setThumbnailView] = useState<boolean>(thumbnail);
     const [sliderSwiper, setSliderSwiper] = useState<boolean>(swiper);
 
-    const [autoSwipeS, setAutoSwipeS] = useState<boolean>(autoSwipe);
+    const [autoSwipeS, setAutoSwipeS] = useState<boolean>(autoSwipe ? autoSwipe : false);
     const [touch, setTouch] = useState<boolean>(false);
     const [positionMTouch, setPositionMTouch] = useState<PositionMTouch>({ downX: 0, downY: 0, upX: 0, upY: 0 });
 
@@ -52,6 +52,7 @@ const Slider: React.FC<SliderProps> = (props) => {
                 handleSwipeRight()
             }, 5000)
         } else {
+            setAutoSwipeS(false)
             setTimeout(() => {
                 setAutoSwipeS(true)
             }, 5000)
@@ -77,7 +78,7 @@ const Slider: React.FC<SliderProps> = (props) => {
         }
     }, [positionMTouch, touch])
 
-    const handleTouchStart = (el) => {
+    const handleTouchStart = (el: any) => {
         if (!touch) {
             setPositionMTouch({
                 ...positionMTouch,
@@ -88,7 +89,7 @@ const Slider: React.FC<SliderProps> = (props) => {
         }
     }
 
-    const handleTouchEnd = (el) => {
+    const handleTouchEnd = (el: any) => {
         setPositionMTouch({
             ...positionMTouch,
             upX: el.changedTouches[0].clientX,
@@ -128,10 +129,10 @@ const Slider: React.FC<SliderProps> = (props) => {
                             <div className={s.textBlock_btn} >
                                 <Link href={el.url}>
                                     <a>
-                                        <InputButton
+                                       {/*  <InputButton
                                             value={'Узнать больше'}
                                             additClass={s.servicePreview__btn}
-                                        />
+                                        /> */}
                                     </a>
                                 </Link>
                             </div>

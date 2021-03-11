@@ -1,6 +1,6 @@
 
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import s from './InputFile.module.sass'
 import { InputFileProps } from '../../../interfaces/interfaces'
@@ -13,7 +13,7 @@ const InputFile: React.FC<InputFileProps> = (props) => {
     const [dragFocus, setDragFocus] = useState<boolean>(false);
     const [fileName, setFilename] = useState<string>('');
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         let file = e.target.files[0]
         let name = e.target.files[0].name
 
@@ -21,16 +21,16 @@ const InputFile: React.FC<InputFileProps> = (props) => {
         setFilename(name)
     }
 
-    const dragEnterHandler = (e) => {
+    const dragEnterHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
         setDragFocus(true)
     } 
-    const dragLeaveHandler = (e) => {
+    const dragLeaveHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
         setDragFocus(false)
     } 
 
-    const dropHandler = (e) => {
+    const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
 
         let dt = e.dataTransfer.files
@@ -45,7 +45,7 @@ const InputFile: React.FC<InputFileProps> = (props) => {
         
     } 
 
-    const dragOverHandler = (e) => {
+    const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
         setDragFocus(true)
     } 
@@ -65,10 +65,10 @@ const InputFile: React.FC<InputFileProps> = (props) => {
                 <div 
                     className={s.btn + ' ' + (dragFocus ? s.btn_hover : null)} 
                     draggable={true}
-                    onDrop={(e) => dropHandler(e)}
-                    onDragOver={(e) => dragOverHandler(e)}
-                    onDragEnter={(e) => dragEnterHandler(e)}
-                    onDragLeave={(e) => dragLeaveHandler(e)}
+                    onDrop={(e: React.DragEvent<HTMLDivElement>) => dropHandler(e)}
+                    onDragOver={(e: React.DragEvent<HTMLDivElement>) => dragOverHandler(e)}
+                    onDragEnter={(e: React.DragEvent<HTMLDivElement>) => dragEnterHandler(e)}
+                    onDragLeave={(e: React.DragEvent<HTMLDivElement>) => dragLeaveHandler(e)}
                 >
                     <div className={s.img_block} >
                         <img id="upload-image" src="/icons/upload_icon.svg" />

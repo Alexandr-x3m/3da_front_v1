@@ -12,7 +12,7 @@ const RegisterForm: React.FC = () => {
     const [confirmPass, setConfirmPass] = useState<string>('')
     const [hash, setHash] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault()
         debugger
         /* bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -51,10 +51,10 @@ const RegisterForm: React.FC = () => {
                 autocomplete={'off'}
             />
             <div className={s.registerForm__submitContainer} >
-                <InputButton 
+                {/* <InputButton 
                     value={'Зарегестрироваться'}
                     type={'submit'}
-                />
+                /> */}
             </div>
         </form>
     )

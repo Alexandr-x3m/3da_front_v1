@@ -19,9 +19,9 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
     }, [sndSwipe])
 
 
-    const swipeSlideLeft = async (step) => {
+    const swipeSlideLeft = async (step: number) => {
 
-        const dt = data.map((el, index) => ({ ...el, position: el.position === 5 ? 1 : el.position + 1 }))
+        const dt = data.map((el) => ({ ...el, position: el.position === 5 ? 1 : el.position + 1 }))
         setData(dt)
         step = step - 1
 
@@ -29,9 +29,9 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
         else setSndSwipe({ dir: '', step: 0 })
     }
 
-    const swipeSlideRight = async (step) => {
+    const swipeSlideRight = async (step: number) => {
 
-        const dt = data.map((el, index) => ({ ...el, position: el.position === 1 ? 5 : el.position - 1 }))
+        const dt = data.map((el) => ({ ...el, position: el.position === 1 ? 5 : el.position - 1 }))
         setData(dt)
         step = step - 1
 
@@ -40,7 +40,7 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
     }
 
 
-    const clickHandler = (e) => {
+    const clickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
         let activeSlide = e.currentTarget.id /// 'id_1'
         let pos = data.findIndex(el => el.id === activeSlide)
         let diff = data[pos].position - 3

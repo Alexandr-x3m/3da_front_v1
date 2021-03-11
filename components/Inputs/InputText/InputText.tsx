@@ -29,7 +29,7 @@ const InputText: React.FC<InputTextProps> = (props) => {
         }
     }, [hideValue, visability, valueTxt, value]) */
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         if (visability) {
             handleValue(e.target.value)
         } else {

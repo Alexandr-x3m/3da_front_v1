@@ -14,7 +14,10 @@ export const MainNav: React.FC<MainNavProps> = (props) => {
                 key={el.name + '_' + index}
                 className={s.mainNav__item + ' ' + (activeSlide === index ? s.mainNav__activeItem : null)}
                 onClick={() => setActiveSlide(index)} >
-                <div className={s.mainNav__itemMarker} style={index === 0 ? {marginTop: '25.5px'} : null}>
+                <div 
+                    className={s.mainNav__itemMarker} 
+                    style={{marginTop: (index === 0 ? '25.5px' : 'opx')}}
+                    >
                     {index !== 0 
                         ? <div className={s.mainNav__itemLine} />
                         : null

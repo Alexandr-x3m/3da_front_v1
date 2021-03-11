@@ -20,16 +20,14 @@ interface AttentionLaneProps {
     btn?: boolean
 }
 
-interface DataSlides {
-    id: string,
-    img: string,
-    title?: string,
-    desc?: string,
-    url?: string
-}
-
 interface SliderProps {
-    data: DataSlides[],
+    data: {
+        id: string,
+        img: string,
+        title?: string,
+        desc?: string,
+        url: string
+    }[],
     thumbnail: boolean,
     content?: Array<ReactElement>,
     swiper: boolean,
@@ -50,7 +48,7 @@ interface ServicePreviewProps {
     link: string,
     img_src: string,
     reverse?: boolean
-    animation?: boolean
+    animation: boolean
 }
 
 interface PreviewCardProps {
@@ -113,19 +111,23 @@ interface IconParams {
     name?: string
     type?: string,
     value: string,
-    onClick?: Function,
+    onClick: Function,
     additClass?: string,
     icon?: boolean,
-    iconParams?: IconParams,
+    iconParams: {
+        src?: string,
+        component?: JSX.Element,
+        onClick?: Function
+    },
     loading?: boolean
 }
 
 interface InfoBlockProps {
-    list: boolean,
-    listData?: Array<{
+    list?: boolean,
+    listData?: {
         title: string,
         subtitle: string
-    }>,
+    }[],
     title?: string,
     description?: string,
     style: string, // style_1, style_2, style_3, style_4
@@ -182,15 +184,11 @@ interface ViewBoardProps {
 interface InputFileProps {
     name: string,
     file: object,
-    setFile?: Function,
+    setFile: Function,
     multiple?: boolean
 }
 
-interface IconParams {
-    src?: string,
-    component?: JSX.Element,
-    onClick?: Function
-}
+
 
 interface InputTextProps {
     name?: string
@@ -270,5 +268,4 @@ export type {
     DownloadBoardProps,
     LikeBoardProps,
     SendMailContainerProps,
-    DataSlides
 }

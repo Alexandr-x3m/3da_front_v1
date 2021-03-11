@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import axios from 'axios'
 
 import s from './SendMail.module.sass'
@@ -17,12 +17,12 @@ const MailForm: React.FC<MailFormProps> = (props) => {
     const [phone, setPhone] = useState<string>('');
     const [mail, setMail] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
-    const [file, setFile] = useState<File>(null);
+    const [file, setFile] = useState<any>();
     const [sending, setSending] = useState<boolean>(false)
 
     const forma = useRef<HTMLFormElement>(null);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
 
@@ -106,12 +106,12 @@ const MailForm: React.FC<MailFormProps> = (props) => {
                 </div>
                 <InputFile name={'mailfail'} file={file} setFile={setFile} multiple={true}  />
                 <div className={s.mailForm__submitContainer} >
-                    <InputButton 
+                    {/* <InputButton 
                         value={'Отправить'}
                         type={'submit'}
                         additClass={s.submit_btn}
                         loading={sending}
-                    />
+                    /> */}
                 </div>
             </form>
         </div>

@@ -15,7 +15,7 @@ const ServiceNav: React.FC<ServiceNavProps> = (props) => {
     return (
         <div className={s.container} >
             <div className={s.content} >
-                {data.map((el, index) => (
+                {data.map((el) => (
                     <label 
                         key={'serviceNav_' + el.name} 
                         className={s.item_container} 
@@ -31,7 +31,7 @@ const ServiceNav: React.FC<ServiceNavProps> = (props) => {
                             type='button'
                             id={'serviceNav_' + el.name}
                             className={s.item + ' ' + (activeSection === el.name ? s.active_item : null)} 
-                            onClick={(e: React.MouseEvent<HTMLButtonElement>) => setActiveSection(e.currentTarget.value)}
+                            onClick={(e: React.MouseEvent<HTMLInputElement>) => setActiveSection(e.currentTarget.value)}
                             value={el.name}
                         />
                     </label>

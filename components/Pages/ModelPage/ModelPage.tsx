@@ -9,7 +9,6 @@ import Slider from '../../Slider/Slider'
 import ShareBtn from '../../interfaceEl/ShareBtn/ShareBtn'
 import InputButton from '../../Inputs/InputButton/inputButton'
 import LikeBoard from '../../interfaceEl/LikeBoard/LikeBoard'
-import { DataSlides } from '../../../interfaces/interfaces'
 
 const GET_MAIN_SLIDES = `
 query {
@@ -26,7 +25,7 @@ const ModelPage: React.FC = () => {
 
     const [model3D, setModel3D] = useState<boolean>(false);
     
-    const [slides, setSlides] = useState<DataSlides[]>([]);
+    const [slides, setSlides] = useState<any>([]);
     const [getSlidesResult, getSlidesQuery] = useMutation(GET_MAIN_SLIDES);
 
     useEffect(() => {
@@ -49,11 +48,11 @@ const ModelPage: React.FC = () => {
                     additClass={'modelPage__slider'}
                 />
                 <div className={s.modelPage__navigation} >
-                    <InputButton 
+                    {/* <InputButton 
                         value={'Просмотр в 3D'} 
                         onClick={() => setModel3D(!model3D)}
                         additClass={s.modelPage__buttons}
-                    />
+                    /> */}
                     <LikeBoard onlyIcon={true} liked={false} count={12312} />
                 </div>
             </div>

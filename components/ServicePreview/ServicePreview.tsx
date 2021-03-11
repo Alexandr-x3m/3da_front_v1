@@ -15,11 +15,11 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
 
     const [anima, setAnima] = useState<boolean>(animation)
 
-    const text = useRef<HTMLInputElement>();
-    const image = useRef<HTMLInputElement>();
+    const text = useRef<any>();
+    const image = useRef<any>();
 
     //fade and up animation
-    const animation1 = (obj) => {
+    const animation1 = (obj: any) => {
         gsap.to(obj, {
             scrollTrigger: {
                 trigger: obj,
@@ -33,7 +33,7 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
     }
 
     //left or right moving animation
-    const animation2 = (obj) => {
+    const animation2 = (obj: any) => {
         gsap.to(obj, {
             scrollTrigger: {
                 trigger: obj,
@@ -63,11 +63,14 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
     }, [anima, text])
 
     return (
-        <div className={s.servicePreview__container} style={reverse ? { flexDirection: 'row-reverse' } : null} >
+        <div className={s.servicePreview__container} style={{ flexDirection: (reverse ? 'row-reverse' : 'row') }} >
             <div 
                 ref={text}
                 className={s.servicePreview__info} 
-                style={anima ? ({top: '60px', opacity: '0'}) : null} 
+                style={{
+                    top: (anima ? '60px' : '0px'), 
+                    opacity: (anima ? '0' : '1')
+                }} 
             >
                 <h2>
                     {title}
@@ -78,10 +81,10 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
                 <div className={s.servicePreview__btnContainer} >
                     <Link href={link}>
                         <a>
-                            <InputButton
+                            {/* <InputButton
                                 value={'Узнать Больше'}
                                 additClass={s.servicePreview__btn}
-                            />
+                            /> */}
                         </a>
                     </Link>
                 </div>
@@ -89,13 +92,10 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
             <div 
                 ref={image}
                 className={s.servicePreview__img}
-                style={anima
-                    ? (reverse 
-                        ? ({right: '200px'})
-                        : ({left: '200px'})
-                    )
-                    : null
-                } 
+                style={{
+                    right: (anima && reverse ?   '200px' : '0px'),
+                    left: (anima && reverse ?   '200px' : '0px')
+                }} 
             >
                 <Image src={img_src} layout={'fill'} />
             </div>

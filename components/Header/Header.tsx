@@ -203,20 +203,20 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                                                 <Link href={'/3d-modeling'} >
                                                     <a>
                                                         <div className={s.sublist_item} >
-                                                            <InputButton
+                                                            {/* <InputButton
                                                                 value={'3D Моделированиеы'}
                                                                 additClass={s.sublist_item__btn}
-                                                            />
+                                                            /> */}
                                                         </div>
                                                     </a>
                                                 </Link>
                                                 <Link href={'/3d-printing'} >
                                                     <a>
                                                         <div className={s.sublist_item} >
-                                                            <InputButton
+                                                            {/* <InputButton
                                                                 value={'3D Печать'}
                                                                 additClass={s.sublist_item__btn}
-                                                            />
+                                                            /> */}
                                                         </div>
                                                     </a>
                                                 </Link>

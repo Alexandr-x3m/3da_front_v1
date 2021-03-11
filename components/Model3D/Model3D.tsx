@@ -6,7 +6,7 @@ const GLTFLoader  = require('three-gltf-loader')
 
 const Model3D = () => {
 
-    const canvas = useRef<HTMLCanvasElement>()
+    /* const canvas = useRef<HTMLCanvasElement>()
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(45, window.innerHeight/ window.innerWidth, 0.1, 1000);
@@ -25,23 +25,25 @@ const Model3D = () => {
     scene.add(pLight);
 
     const loader = new GLTFLoader();
-    let obj = null
+    let obj = null */
 
 
-    loader.load('/scene.gltf', (gltf) => {
+    /* loader.load('/scene.gltf', (gltf) => {
         obj = gltf
         obj.scene.scale(0.5, 0.52, 0.5)
 
         scene.add(obj.scene)
-    })
+    }) */
 
 
 
 
     return (
-        <canvas ref={canvas} style={{width: '100vw', height: '100vh'}}>
+        <>
+        {/* <canvas ref={canvas} style={{width: '100vw', height: '100vh'}}>
 
-        </canvas>
+        </canvas> */}
+        </>
     )
 }
 

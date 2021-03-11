@@ -5,14 +5,15 @@ import { CounterData } from '../../interfaces/interfaces'
 
 const Count: React.FC<CounterData> = ({ number, text }) => {
 
-    const item = useRef<HTMLInputElement>();
-    const [dataInfo, setDataInfo] = useState<CounterData>({ number, text });
+    const item = useRef<any>();
+    const [dataInfo, _setDataInfo] = useState<CounterData>({ number, text });
     const [viewInfo, setViewinfo] = useState<CounterData>({ number: 0, text });
     const [view, setView] = useState<boolean>(false)
 
+    
     useEffect(() => {
-        let callback = (entries, observer) => {
-            entries.forEach(entry => {
+        let callback = (entries: any) => {
+            entries.forEach((entry: any) => {
                 if (entry.isIntersecting) {
                     setView(true)
                 } else {
@@ -28,7 +29,7 @@ const Count: React.FC<CounterData> = ({ number, text }) => {
     useEffect(() => {
         if (dataInfo.number !== viewInfo.number && view) {
             let diff = dataInfo.number - viewInfo.number
-            let x;
+            let x: number;
 
             if (diff >= 100) {
                 x = viewInfo.number + 12

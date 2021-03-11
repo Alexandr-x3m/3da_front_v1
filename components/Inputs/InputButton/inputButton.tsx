@@ -6,6 +6,11 @@ const InputButton: React.FC<InputButtonProps> = (props) => {
 
     const { name, type, value, onClick, additClass, icon, iconParams, loading } = props
 
+    const clickHandler = (e: React.MouseEvent<HTMLInputElement>) => {
+        console.log('click')
+        onClick(e)
+    }
+
     return (
         <label htmlFor={'inputButton_' + name}>
             <div className={s.inputButton__container + ' ' + additClass} >
@@ -13,10 +18,10 @@ const InputButton: React.FC<InputButtonProps> = (props) => {
                     ? <Loader />
                     : (<input
                             id={'inputButton_' + name}
-                            type={(typeof type === 'undefined') ? 'button' : type}
+                            type={'button'}
                             name={name}
                             value={value}
-                            onClick={onClick ? (val) => onClick(val) : null}
+                            onClick={(e: React.MouseEvent<HTMLInputElement>) => clickHandler(e)}
                             className={s.inputButton__input}
                     />)
                 }

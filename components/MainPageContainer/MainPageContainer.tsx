@@ -4,7 +4,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
 import s from './MainPage.module.sass';
-import { ActiveSlideMP, DataSlides } from '../../interfaces/interfaces'
+import { ActiveSlideMP } from '../../interfaces/interfaces'
 import Slider from '../Slider/Slider'
 import AttentionLane from '../AttentionLane/AttentionLane'
 import ServicePreview from '../ServicePreview/ServicePreview'
@@ -27,7 +27,7 @@ query {
 const MainPageContainer: React.FC<ActiveSlideMP> = ({scroll}) => {
 
 
-    const [slides, setSlides] = useState<DataSlides[]>([]);
+    const [slides, setSlides] = useState<any>([]);
 
 
     const [getSlidesResult, getSlidesQuery] = useMutation(GET_MAIN_SLIDES);
