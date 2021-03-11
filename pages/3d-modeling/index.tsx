@@ -8,7 +8,7 @@ import InfoBlock from '../../components/InfoBlock/InfoBlock'
 import AttentionLane from '../../components/AttentionLane/AttentionLane'
 import Footer from '../../components/Footer/Footer'
 import Slider3D from '../../components/Slider3D/Slider3d'
-import ServiceNav from '../../components/MainNav/ServiceNav'
+//import ServiceNav from '../../components/MainNav/ServiceNav'
 
 
 
@@ -76,11 +76,11 @@ export default function Main() {
               alt="художественное моделирование"
             />
           </div>
-          <ServiceNav
+          {/* <ServiceNav
             data={[{ name: 'Художественное' }, { name: 'Инженерное' }, { name: 'Ювелирное' }]}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-          />
+          /> */}
 
           {/* ----------------------------------- */}
           {activeSection === 'Художественное'
@@ -236,11 +236,11 @@ export default function Main() {
               </div>)
           }
 
-          <ServiceNav
+          {/* <ServiceNav
             data={[{ name: 'Художественное' }, { name: 'Инженерное' }, { name: 'Ювелирное' }]}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-          />
+          /> */}
 
           <div className={s.section_item} >
             <div className={s.block_content} >
