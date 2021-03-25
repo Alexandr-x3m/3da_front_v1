@@ -6,7 +6,7 @@ import HeaderBlock from '../../components/Header/Header'
 import InfoBlock from '../../components/InfoBlock/InfoBlock'
 import AttentionLane from '../../components/AttentionLane/AttentionLane'
 import Footer from '../../components/Footer/Footer'
-import ServiceNav from '../../components/MainNav/ServiceNav'
+import ServiceNav from '../../components/ServiceNav/ServiceNav'
 import Slider3D from '../../components/Slider3D/Slider3d'
 import ParameterCard from '../../components/ParameterCard/ParameterCard'
 
