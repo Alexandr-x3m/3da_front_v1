@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ScoreBar from '../interfaceEl/ScoreBar/ScoreBar'
 
-import s from './ParametrCard.module.sass'
+import s from './ParameterCard.module.sass'
 
 interface ParameterCard {
     dataPr: {

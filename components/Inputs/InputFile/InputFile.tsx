@@ -13,13 +13,7 @@ const InputFile: React.FC<InputFileProps> = (props) => {
     const [dragFocus, setDragFocus] = useState<boolean>(false);
     const [fileName, setFilename] = useState<string>('');
 
-    const handleChange = (e: any) => {
-        let file = e.target.files[0]
-        let name = e.target.files[0].name
-
-        setFile(file)
-        setFilename(name)
-    }
+    
 
     const dragEnterHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
@@ -32,18 +26,31 @@ const InputFile: React.FC<InputFileProps> = (props) => {
 
     const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
+        let files = e.dataTransfer.files
 
-        let dt = e.dataTransfer.files
-
-        if (dt) {
-            let file = dt[0]
-            let name = file.name
-            debugger
+        if (multiple) {
+            setFile(files)
+            setFilename(`Выбрано файлов: ${files.length} шт.`)
+        } else {
+            let name = files[0].name
             setFile(file)
-            setFilename(name)
+            setFilename('Вы выбрали файл с именем: ' + name)
         }
-        
     } 
+
+    const handleChange = (e: any) => {
+        e.preventDefault()
+        let files = e.dataTransfer.files
+
+        if (multiple) {
+            setFile(files)
+            setFilename(`Выбрано файлов: ${files.length} шт.`)
+        } else {
+            let name = files[0].name
+            setFile(file)
+            setFilename('Вы выбрали файл с именем: ' + name)
+        }
+    }
 
     const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
@@ -59,7 +66,7 @@ const InputFile: React.FC<InputFileProps> = (props) => {
                 name={name} 
                 multiple={multiple}
                 className={s.input} 
-                onChange={(e) => handleChange(e)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
             />
             <label htmlFor="file-input">
                 <div 
@@ -75,8 +82,8 @@ const InputFile: React.FC<InputFileProps> = (props) => {
                     </div>
                     <div >
                         {fileName
-                            ? <p>Вы выбрали файл: {fileName}</p>
-                            : <p>Выберите файл или перетащите его сюда</p> 
+                            ? <p>{fileName}</p>
+                            : <p>Выберите изображение(я) или перетащите его сюда, чтобы добавить.</p> 
                         }
                     </div>
                 </div>

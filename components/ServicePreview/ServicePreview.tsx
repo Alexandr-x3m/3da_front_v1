@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import InputButton from '../Inputs/InputButton/inputButton'
 import s from './ServicePreview.module.sass'
 import { ServicePreviewProps } from '../../interfaces/interfaces'
+import { useRouter } from 'next/router'
 
 
 const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
@@ -14,6 +15,8 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
     const { title, subtitle, link, img_src, reverse, animation } = props;
 
     const [anima, setAnima] = useState<boolean>(animation)
+
+    const router = useRouter()
 
     const text = useRef<any>();
     const image = useRef<any>();
@@ -46,7 +49,7 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
             duration: 1.5
         })
     }
-    
+
 
     useEffect(() => {
         if (document.documentElement.clientWidth < 1200) {
@@ -54,23 +57,23 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
         } else {
             if (anima) {
                 gsap.registerPlugin(ScrollTrigger)
-                
+
                 animation1(text.current)
                 animation2(image.current)
             }
         }
-        
+
     }, [anima, text])
 
     return (
         <div className={s.servicePreview__container} style={{ flexDirection: (reverse ? 'row-reverse' : 'row') }} >
-            <div 
+            <div
                 ref={text}
-                className={s.servicePreview__info} 
+                className={s.servicePreview__info}
                 style={{
-                    top: (anima ? '60px' : '0px'), 
+                    top: (anima ? '60px' : '0px'),
                     opacity: (anima ? '0' : '1')
-                }} 
+                }}
             >
                 <h2>
                     {title}
@@ -79,23 +82,20 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
                     {subtitle}
                 </h6>
                 <div className={s.servicePreview__btnContainer} >
-                    <Link href={link}>
-                        <a>
-                            {/* <InputButton
-                                value={'Узнать Больше'}
-                                additClass={s.servicePreview__btn}
-                            /> */}
-                        </a>
-                    </Link>
+                    <InputButton
+                        value={'Узнать Больше'}
+                        additClass={s.servicePreview__btn}
+                        onClick={() => router.push(link)}
+                    />
                 </div>
             </div>
-            <div 
+            <div
                 ref={image}
                 className={s.servicePreview__img}
                 style={{
-                    right: (anima && reverse ?   '200px' : '0px'),
-                    left: (anima && reverse ?   '200px' : '0px')
-                }} 
+                    right: (anima && reverse ? '200px' : '0px'),
+                    left: (anima && reverse ? '200px' : '0px')
+                }}
             >
                 <Image src={img_src} layout={'fill'} />
             </div>

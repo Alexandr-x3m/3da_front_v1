@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import s from './InfoBlock.module.sass'
 import { InfoBlockProps } from '../../interfaces/interfaces'
-import Animation1 from '../interfaceEl/Animation1/Animation1'
 
 
 
@@ -50,42 +49,29 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
 
     useEffect(() => {
-        
-        if (document.documentElement.clientWidth < 1200) {
-            setAnima(false)
-        } else {
-            if (anima) {
-                gsap.registerPlugin(ScrollTrigger)
+        //gsap.registerPlugin(ScrollTrigger)
 
-                animation1(image.current)
-                animation1(text.current)
-            }
-        }
+        //animation1(image.current)
+        //animation1(text.current)
     }, [anima])
 
 
     return (
         <div className={s.container + ' ' + s[style] + ' ' + additClass} >
             <div className={s.mainImg_container} >
-                <Animation1>
                     <img 
                         ref={image}
                         src={src} 
                         className={s.main_img}
-                        style={
+                        /* style={
                             (anima && style !== 'style_2') 
                                 ? {top: '120px', opacity: '0'} 
                                 : {opacity: '0'}
-                        }  
+                        }   */
                     />
-                </Animation1>
             </div>
             {list
-                ? (<div  
-                        ref={text} 
-                        className={s.list_container} 
-                        //style={(anima) ? {opacity: '0'} : null} 
-                    >
+                ? (<div ref={text} className={s.list_container} >
                     <div className={s.list_wrapper}>
                         {data.map((el, index) => (
                             <div 

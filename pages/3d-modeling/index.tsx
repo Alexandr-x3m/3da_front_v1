@@ -8,7 +8,7 @@ import InfoBlock from '../../components/InfoBlock/InfoBlock'
 import AttentionLane from '../../components/AttentionLane/AttentionLane'
 import Footer from '../../components/Footer/Footer'
 import Slider3D from '../../components/Slider3D/Slider3d'
-//import ServiceNav from '../../components/MainNav/ServiceNav'
+import ServiceNav from '../../components/MainNav/ServiceNav'
 
 
 
@@ -76,11 +76,11 @@ export default function Main() {
               alt="художественное моделирование"
             />
           </div>
-          {/* <ServiceNav
+          <ServiceNav
             data={[{ name: 'Художественное' }, { name: 'Инженерное' }, { name: 'Ювелирное' }]}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-          /> */}
+          />
 
           {/* ----------------------------------- */}
           {activeSection === 'Художественное'
@@ -236,11 +236,11 @@ export default function Main() {
               </div>)
           }
 
-          {/* <ServiceNav
+          <ServiceNav
             data={[{ name: 'Художественное' }, { name: 'Инженерное' }, { name: 'Ювелирное' }]}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-          /> */}
+          />
 
           <div className={s.section_item} >
             <div className={s.block_content} >
@@ -309,14 +309,6 @@ export default function Main() {
                   list={false}
                   title={`МЫ СМОТРИМ ВПЕРЁД`}
                   description={`Мы проектируем наши 3D-модели таким образом, чтобы все элементы были связаны, работали вместе и были готовы к производству.`}
-                  animation={true}
-                />
-                <InfoBlock
-                  src={'/souvenir/c3083b8355840c9e76010f76297ec7d4.jpg'}
-                  style={'style_3'}
-                  list={false}
-                  title={'Если у вас есть чертеж'}
-                  description={'??????? ??????? ?????????????? ??????? ??????? ??????? '}
                   animation={true}
                 />
               </div>

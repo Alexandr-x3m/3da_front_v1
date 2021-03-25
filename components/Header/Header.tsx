@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import s from './Header.module.sass'
 import InputButton from '../Inputs/InputButton/inputButton'
@@ -13,7 +14,7 @@ import SocialIcon from '../interfaceEl/SocialIcon/SocialIcon'
 
 
 
-const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
+const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
 
     const [popUp, setPopUp] = useState<boolean>(false)
     const [authLog, setAuthLog] = useState<boolean>(false)
@@ -22,6 +23,8 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
 
     const [windowHeight, setWindowHeight] = useState<number>()
     const [pageHeight, setPageHeight] = useState<number>()
+
+    const router = useRouter()
 
     const openAuthorization = () => {
         setAuthLog(true)
@@ -34,26 +37,25 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
     }
 
     useEffect(() => {
-        if (document.documentElement.clientWidth >= 800) {
-            setTimeout(() => {
-                debugger
-                let windowH = window.document.documentElement.clientHeight
-                let pageH = window.document.documentElement.offsetHeight
+        if (scroll) {
+        setTimeout(() => {
+            let windowH = window.document.documentElement.clientHeight
+            let pageH = window.document.documentElement.offsetHeight
 
-                setWindowHeight(windowH)
-                setPageHeight(pageH)
-                console.log(windowH)
-            }, 100)
-        }
-    }, [])
+            setWindowHeight(windowH)
+            setPageHeight(pageH)
+            console.log(windowH)
+        }, 100)
+    }
+    }, [scroll])
 
     console.log(scroll)
     return (
         <div >
             <div className={s.header__container} >
-                <div 
-                    className={s.headerTop__container} 
-                    style={scroll > 150 || (scroll !< 150 && scroll !> 100) ? {height:  '0px'} : {height:  '48px'}} 
+                <div
+                    className={s.headerTop__container}
+                    style={scroll > 150 || (scroll! < 150 && scroll! > 100) ? { height: '0px' } : { height: '48px' }}
                 >
                     <div className={s.headerTop__contentBlock} >
                         <div className={s.headerTop__infoTextBlock} >
@@ -69,9 +71,9 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                             </div>
                         </div>
                         <div className={s.headerTop__btnBlock} >
-                            <AnimatedBtn 
-                                name={'Получить предложение'} 
-                                additClass={s.get_sentence} 
+                            <AnimatedBtn
+                                name={'Получить предложение'}
+                                additClass={s.get_sentence}
                             />
                         </div>
                     </div>
@@ -85,7 +87,7 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                                     alt='27 cypher'
                                     width={'fill'}
                                     height={42} />
-                                <div className={s.logo_gradient}  style={{height: `${pageHeight}px`,top: `-${scroll}px`}}  ></div>
+                                <div className={s.logo_gradient} style={{ height: `${pageHeight}px`, top: `-${scroll}px` }}  ></div>
                             </a></Link>
                         </div>
                         <div className={s.header__interfaceBlock} >
@@ -98,7 +100,7 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                                     onClick={() => setServiceList(!serviceList)}
                                 >
                                     <p className={s.header__navbarItem_text} >Услуги</p>
-                                    <img src={'/arrow-left-r.svg'} className={s.header__navbarItem_icon} />
+                                    <img src={'/arrow-left-r.svg'} className={s.navbarItem_icon} />
                                     {serviceList
                                         ? (<Menu
                                             visability={serviceList}
@@ -144,32 +146,33 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                 </div>
                 <div className={s.header_mobile} >
                     <div className={s.mobile_container} >
-                        <Link href='/' >
-                            <a>
+                        <div className={s.logo_container} >
+                            <Link href='/' ><a>
                                 <Image
-                                    src={'/logotype.svg'}
-                                    alt='3Da modeling studio'
-                                    width={232}
-                                    height={48}
-                                />
-                            </a>
-                        </Link>
+                                    src={'/logotype.png'}
+                                    alt='27 cypher'
+                                    width={'fill'}
+                                    height={48} />
+                                <div className={s.logo_gradient} style={{ height: `${pageHeight}px`, top: `-${scroll}px` }} ></div>
+                            </a></Link>
+                        </div>
                         <input
                             type="checkbox"
                             id="menu_checkbox"
                             className={s.menu_checkbox + ' ' + s.visuallyHidden}
                             onChange={() => setMobileMenu(!mobileMenu)}
                         />
-                        <label htmlFor={'menu_checkbox'}>
-                            <div className={s.hamburger + ' ' + s.hamburger4}>
-                                <span className={s.bar + ' ' + s.bar1} ></span>
-                                <span className={s.bar + ' ' + s.bar2} ></span>
-                                <span className={s.bar + ' ' + s.bar3} ></span>
-                                <span className={s.bar + ' ' + s.bar4} ></span>
-                                <span className={s.bar + ' ' + s.bar5} ></span>
-                            </div>
-                            <div className={s.menu_background} ></div>
-                        </label>
+                        <div style={{ gridColumn: '3' }}>
+                            <label htmlFor={'menu_checkbox'}>
+                                <div className={s.hamburger + ' ' + s.hamburger4}>
+                                    <span className={s.bar + ' ' + s.bar1} ></span>
+                                    <span className={s.bar + ' ' + s.bar2} ></span>
+                                    <span className={s.bar + ' ' + s.bar3} ></span>
+                                    <span className={s.bar + ' ' + s.bar4} ></span>
+                                    <span className={s.bar + ' ' + s.bar5} ></span>
+                                </div>
+                            </label>
+                        </div>
                         <div
                             className={s.mobile_menu}
                             style={
@@ -186,50 +189,49 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                         >
                             <div className={s.mobile_menu__navbar} >
                                 <div className={s.navbar_container} >
-                                    <Link href='/' passHref >
-                                        <a className={s.navbar_item} >Главная</a>
-                                    </Link>
+                                    <InputButton
+                                        value={'Главная'}
+                                        additClass={s.navbar_item}
+                                        onClick={() => router.push('/')}
+                                    />
                                     <div>
                                         <div
                                             className={s.navbar_item}
-                                            onClick={() => setServiceList(!serviceList)}
+                                            onClick={() => {
+                                                debugger
+                                                setServiceList(!serviceList)
+                                            }}
                                         >
-                                            <p className={s.header__navbarItem_text} >Услуги</p>
-                                            <img src={'/arrow-left-r.svg'} className={s.header__navbarItem_icon} />
+                                            <p >Услуги</p>
+                                            <img src={'/arrow-left-r.svg'} className={s.navbarItem_icon} />
 
                                         </div>
                                         {serviceList
                                             ? (<div className={s.mobile_menu__sublist} >
-                                                <Link href={'/3d-modeling'} >
-                                                    <a>
-                                                        <div className={s.sublist_item} >
-                                                            {/* <InputButton
-                                                                value={'3D Моделированиеы'}
-                                                                additClass={s.sublist_item__btn}
-                                                            /> */}
-                                                        </div>
-                                                    </a>
-                                                </Link>
-                                                <Link href={'/3d-printing'} >
-                                                    <a>
-                                                        <div className={s.sublist_item} >
-                                                            {/* <InputButton
-                                                                value={'3D Печать'}
-                                                                additClass={s.sublist_item__btn}
-                                                            /> */}
-                                                        </div>
-                                                    </a>
-                                                </Link>
+                                                    <InputButton
+                                                        value={'3D Моделирование'}
+                                                        additClass={s.navbar_item}
+                                                        onClick={() => router.push('/3d-modeling')}
+                                                    />
+                                                    <InputButton
+                                                        value={'3D Печать'}
+                                                        additClass={s.navbar_item}
+                                                        onClick={() => router.push('/3d-printing')}
+                                                    />
                                             </div>)
                                             : null
                                         }
                                     </div>
-                                    <Link href='/aboutus' passHref >
-                                        <p className={s.navbar_item} >Контакты</p>
-                                    </Link>
-                                    <Link href='/gallery' passHref >
-                                        <p className={s.navbar_item} >Галерея</p>
-                                    </Link>
+                                    <InputButton
+                                        value={'Контакты'}
+                                        additClass={s.navbar_item}
+                                        onClick={() => router.push('/aboutus')}
+                                    />
+                                    {/* <InputButton
+                                        value={'Галерея'}
+                                        additClass={s.navbar_item}
+                                        onClick={() => router.push('/gallery')}
+                                    /> */}
                                 </div>
                                 <div className={s.social_container} >
                                     <SocialIcon socialName={'instagram'} href={'instgram.com'} />
@@ -238,6 +240,11 @@ const HeaderBlock: React.FC<{scroll: number}> = ({scroll}) => {
                                 </div>
                             </div>
                         </div>
+                        <div 
+                            className={s.menu_background} 
+                            onClick={() => setMobileMenu(!mobileMenu)} 
+                            style={{display: mobileMenu ? 'block' : 'none'}}
+                        ></div>
                     </div>
                 </div>
             </div>

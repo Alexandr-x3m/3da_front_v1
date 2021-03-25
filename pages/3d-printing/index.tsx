@@ -6,7 +6,7 @@ import HeaderBlock from '../../components/Header/Header'
 import InfoBlock from '../../components/InfoBlock/InfoBlock'
 import AttentionLane from '../../components/AttentionLane/AttentionLane'
 import Footer from '../../components/Footer/Footer'
-//import ServiceNav from '../../components/MainNav/ServiceNav'
+import ServiceNav from '../../components/MainNav/ServiceNav'
 import Slider3D from '../../components/Slider3D/Slider3d'
 import ParameterCard from '../../components/ParameterCard/ParameterCard'
 
@@ -62,11 +62,11 @@ export default function Main() {
             />
           </div>
 
-          {/* <ServiceNav
+          <ServiceNav
             data={[{ name: 'SLA' }, { name: 'FDM' }]}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-          /> */}
+          />
 
           {activeSection === 'SLA'
             ? (<div className={s.section_item} >
@@ -167,18 +167,18 @@ export default function Main() {
               : null
           }
 
-
-          {/* <ServiceNav
+          <ServiceNav
             data={[{ name: 'SLA' }, { name: 'FDM' }]}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-          /> */}
+          />
+
           <div className={s.section_item} >
             <div className={s.block_content} >
               <div className={s.title_container} >
                 <h2 className={s.title} >СТОИМОСТЬ 3D-ПЕЧАТИ</h2>
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridColumnGap: '32px'}} >
+              <div className={s.parameters} >
                 <ParameterCard 
                   dataPr={{
                     name: 'Материал',

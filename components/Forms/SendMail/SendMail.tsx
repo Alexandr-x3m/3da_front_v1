@@ -66,7 +66,6 @@ const MailForm: React.FC<MailFormProps> = (props) => {
                 method={'POST'}
                 ref={forma}
                 className={s.mailForm__container} 
-                onSubmit={handleSubmit}
             >
                 <div className={s.input_block} >
                     <InputText 
@@ -106,12 +105,13 @@ const MailForm: React.FC<MailFormProps> = (props) => {
                 </div>
                 <InputFile name={'mailfail'} file={file} setFile={setFile} multiple={true}  />
                 <div className={s.mailForm__submitContainer} >
-                    {/* <InputButton 
+                    <InputButton 
                         value={'Отправить'}
                         type={'submit'}
                         additClass={s.submit_btn}
                         loading={sending}
-                    /> */}
+                        onClick={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+                    />
                 </div>
             </form>
         </div>

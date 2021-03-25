@@ -8,6 +8,11 @@
     background: $snd-back-color
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6)
     z-index: 9
+    @media screen and ( max-width: 1200px )
+        padding: 0 32px
+    @media screen and ( max-width: 800px )
+        height: 48px
+        
 
 .content
     display: flex
@@ -16,14 +21,19 @@
     width: 716px
     height: 100%
     margin: auto
+    @media screen and ( max-width: 1200px )
+        width: 100%
 
 .item_container
     display: flex
     position: relative
-    height: 64px
+    height: inherit
     padding: 0 30px
     &:hover
         cursor: pointer
+    @media screen and ( max-width: 800px )
+        left: -13px
+        padding: 0 8px
     
 
 .item_icon
@@ -35,6 +45,22 @@
     animation: moving 1s infinite
     img
         height: 20px
+    @media screen and ( max-width: 800px )
+        top: 16px
+        width: 18px
+        height: 14px
+        margin-right: 8px
+        animation: movingMobile 0.8s infinite
+        img
+            height: 14px
+    @media screen and ( max-width: 500px )
+        top: 13.5px
+        width: 13px
+        height: 10px
+        margin-right: 2px
+        animation: name(-40px) 0.8s infinite
+        img
+            height: 10px
 
 .item
     position: relative
@@ -50,6 +76,16 @@
     outline: none
     &:hover
         cursor: pointer
+    @media screen and ( max-width: 800px )
+        width: auto
+        height: 48px
+        font-size: $txt-12px
+        line-height: 48px
+    @media screen and ( max-width: 500px )
+        width: auto
+        height: 48px
+        font-size: $txt-12px
+        line-height: 48px
 
 .active_item
     color: $def-color
@@ -62,3 +98,13 @@
         left: -14px
     100%
         left: 0px
+
+@keyframes movingMobile
+    0%
+        left: 0px
+    50%
+        left: -6px
+    100%
+        left: 0px
+
+        

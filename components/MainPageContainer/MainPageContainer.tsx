@@ -46,7 +46,10 @@ const MainPageContainer: React.FC<ActiveSlideMP> = ({scroll}) => {
 
     return (
         <>
-            <div className={s.container} style={scroll > 120 ? {top: '64px'} : {top: '112px'}} >
+            <div 
+                className={s.container} 
+                style={scroll > 120 ? {top: '64px'} : {top: '112px'}} 
+            >
                 <div className={s.sliderWindow} >
                     <Slider
                         data={slides}

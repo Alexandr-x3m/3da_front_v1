@@ -112,9 +112,10 @@ interface IconParams {
     type?: string,
     value: string,
     onClick: Function,
+    link?: boolean,
     additClass?: string,
     icon?: boolean,
-    iconParams: {
+    iconParams?: {
         src?: string,
         component?: JSX.Element,
         onClick?: Function

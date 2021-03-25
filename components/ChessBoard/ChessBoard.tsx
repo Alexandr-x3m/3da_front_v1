@@ -53,10 +53,6 @@ const ChessBoard: React.FC = () => {
     
 
     useEffect(() => {
-        if (document.documentElement.clientWidth < 1200) {
-            setAnima(false)
-        } else {
-            if (anima) {
                 gsap.registerPlugin(ScrollTrigger)
 
                 boxShadowAnima(itemContain.current)
@@ -68,8 +64,6 @@ const ChessBoard: React.FC = () => {
                 emptyItemAnima(emptyItem1.current)
                 emptyItemAnima(emptyItem2.current)
                 emptyItemAnima(emptyItem3.current)
-            }
-        }
     }, [anima])
 
     return (

@@ -7,7 +7,7 @@
     transition-duration: $property
 
 .header__container
-    position: relative
+    position: fixed
     top: 0
     width: 100%
     box-shadow: 0px 3px 10px 0px $prim-back-color
@@ -92,13 +92,12 @@
 
 .logo_container
     position: relative
-    width: 89px
+    width: 90px
     height: 36px
     margin: 10px 32px 0 0 
     z-index: 999
     overflow: hidden
     img
-        top: -4px !important
         z-index: 99
 
 .logo_gradient
@@ -126,32 +125,42 @@
     display: flex
     position: relative
     width: 100%
-    color: $def-color
+    height: 100%
+    padding: 6px 32px
     font-weight: 600
     text-transform: uppercase
+    line-height: 64px
+    color: $def-color
     &:hover
         background: $def-15-color
         cursor: pointer
-
-.header__navbar
-    .navbar_item
-        padding: 20px 32px
+        border-bottom: 1px solid $prim-color
+    @media screen and ( max-width: 800px )
+        height: 32px
         margin: 0
         font-size: 16px
         line-height: 24px
         text-align: center
-        text-decoration: none
+        background: $snd-back-color !important
         &:hover
-            border-bottom: 1px solid $prim-color
+            background: $def-15-color !important
+            border-bottom: none
+        input
+            height: 20px
+            padding: 0 
+            line-height: 24px
+            text-transform: uppercase !important
+    
 
-.header__navbarItem_icon
+.navbarItem_icon
     transform: rotate(-90deg)
     height: 12px
-    margin: 6px 0px 0px 12px
+    margin: 23.5px 0px 0px 12px
     @media screen and ( max-width: 800px )
         margin: 4px 0px 0px 8px
         
 
+    
 .header__userContainer
     display: flex
     flex-direction: row
@@ -290,8 +299,15 @@
         display: block
 
 .mobile_container
-    display: flex
-    justify-content: space-between
+    display: grid
+    grid-template-columns: 102px 1fr 48px
+    .logo_container
+        width: 100%
+        height: 48px 
+        margin: 0
+    .logo_gradient
+        width: 100%
+        
 
 /*----------------------------
  hanburger icon 
@@ -386,7 +402,7 @@
     z-index: 99
 
 .menu_background
-    display: none
+    display: block
     position: absolute
     top: 64px
     left: 0
@@ -418,8 +434,8 @@
             border-radius: 4px
     .social_container
         display: flex
-        position: relative
-        bottom: 0
+        position: fixed
+        bottom: 16px
         width: 100%
         height: 28px
         padding: 0 12px
@@ -427,8 +443,9 @@
 .mobile_menu__sublist 
     position: relative
     left: 12px
-    padding: 8px 0 16px
+    padding: 4px 0
     width: calc(100% - 12px)
+    height: auto
     .sublist_item
         width: 100%
         height: 34px

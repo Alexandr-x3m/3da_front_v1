@@ -4,8 +4,11 @@
     display: flex
     position: relative
     color: $def-color
-    @media screen and ( max-width: 600px )
+    @media screen and ( max-width: 1200px )
+        padding: 0 32px
+    @media screen and ( max-width: 1800px )
         padding: 0
+        
 
 .style_1
     display: grid
@@ -21,48 +24,39 @@
             top: 50%
             width: 100%
             transform: translate(0, -50%)
-    .mainImg_container
-        position: relative
-        overflow: hidden
-        img
-            width: 100%
-            object-fit: cover
-    @media screen and ( max-width: 600px )
-        margin: 0
-        flex-direction: column
-        .mainImg_container
-            width: 100%
-            height: auto
-            margin-bottom: 16px
+    @media screen and ( max-width: 1200px )
+        grid-column-gap: 16px
         .txt_container
+            grid-column: 1
+            grid-row: 1
             width: 100%
-            margin: 0
+    @media screen and ( max-width: 800px )
+        display: flex
+        flex-direction: column
+        .main_img
+            left: 50%
+            transform: translate(-50%, 0)
+        .txt_container
             .txt_description
-                font-size: $txt-16px
-                font-weight: 600
-                line-height: 24px
-                text-align: center
+                position: relative
+                top: 50%
+                width: 100%
+                transform: translate(0, 0)
+
 
 .style_2
     display: grid
     grid-template-columns: 530px 1fr
     grid-column-gap: 32px
-    padding: 0
-    .mainImg_container
-        height: inherit
-        overflow: hidden
     .list_container
         padding: 32px
         background: $snd-back-color
-        border-radius: 6px
-    @media screen and ( max-width: 600px )
+    @media screen and ( max-width: 800px )
+        display: flex
         flex-direction: column
         .list_container
-            margin: 0 0 0 16px
+            padding: 16px
         .main_img
-            top: 0
-            width: 100%
-            margin: 0 0 16px 0
             transform: translate(0, 0)
 
 .style_3
@@ -83,41 +77,57 @@
         padding: 0 32px !important
         border-radius: 0 !important
     .txt_title
-        padding: 16px 0
+        padding: 24px 0
         text-align: center
         font-weight: 700
         font-size: $txt-18px
+        letter-spacing: 0.03em
     .txt_description
         padding-bottom: 16px
         text-align: center !important
         font-weight: 400 !important
         font-size: $txt-16px
-    @media screen and ( max-width: 600px )
-        flex-direction: column
+        line-height: 20px
+    @media screen and ( max-width: 800px )
+        padding: 0
         margin: 0 0 32px 0
+        &:first-child
+            padding: 0
+        &:last-child
+            padding: 0
         .mainImg_container
-            padding: 0 16px 16px 16px
+            padding: 0
+            img
+                height: 240px
 
 .mainImg_container
     position: relative
+    overflow: hidden
 
 .main_img
     position: relative
     width: 100%
+    height: 100%
+    object-fit: cover
 
 .txt_container
     position: relative
     width: 100%
     text-align: left
     padding: 32px
-    border-radius: 6px
+    border-radius: 4px
     background: $snd-back-color
+    @media screen and ( max-width: 1200px )
+        padding: 16px
 
 .txt_description
     font-size: $txt-18px
     font-weight: 600
     line-height: $txt-24px
     letter-spacing: 0.03%
+    @media screen and ( max-width: 1200px )
+        font-size: $txt-16px
+        
 
 .list_wrapper
     position: relative
