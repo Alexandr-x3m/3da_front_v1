@@ -1,4 +1,4 @@
-@import '../../styles/app'
+@import './app'
 
 .popUp__container
     position: fixed
@@ -19,18 +19,23 @@
     left: 50%
     top: 50%
     transform: translate(-50%, -50%)
-    max-width: 464px
+    max-width: 60%
     padding: 32px 24px 32px 32px
     background: $snd-back-color
     border-radius: 6px
     border: 1px solid $def-15-color
     box-shadow: 0px 4px 20px 6px $prim-back-color
+    @media screen and ( max-width: 1680px )
+        max-width: 80%
+    @media screen and ( max-width: 1220px )
+        max-width: 520px
     @media screen and ( max-width: 600px )
         max-width: calc(100% - 2px)
         
 .content_title
     color: $def-color
     font-size: $txt-24px
+    text-align: center
     text-shadow: $textShadow-1px
     padding: 0 16px 32px 0
 
@@ -65,6 +70,19 @@
 
 .content_block
     position: relative
+    right: 0px
     width: calc( 100% - 16px )
     height: calc( 100% + 32px)
+
+
+.image_background
+    position: absolute
+    top: 50%
+    left: 25%
+    width: 40%
+    margin-right: 240px
+    transform: translate(-50%, -50%)
+    @media screen and ( max-width: 1220px )
+        display: none
+
     

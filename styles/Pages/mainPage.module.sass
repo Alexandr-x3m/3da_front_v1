@@ -1,0 +1,76 @@
+@import '../../styles/app'
+@import './serviceContainer.module'
+
+
+.container
+    +transitionDuration(0.4s)
+    position: relative
+    top: 64px
+    width: 100%
+    overflow: hidden
+    background: $prim-back-color
+    @media screen and ( max-width: 800px )
+        top: 64px !important
+
+.sliderWindow
+    width: 100%
+    height: calc( 100vh - 64px )
+    overflow: hidden
+    @media screen and ( max-width: 800px )
+        height: calc( 100vh - 64px )
+
+.servicesList
+    position: relative
+    margin-bottom: 64px
+    z-index: 999
+    @media screen and ( max-width: 800px )
+        margin-bottom: 72px
+
+.main_title_container
+    margin-bottom: 72px
+
+
+.counter_content
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-column-gap: 32px
+    position: relative
+    width: 1200px
+    margin: 0 auto 48px
+    @media screen and ( max-width: 1200px )
+        width: 100%
+    @media screen and ( max-width: 1050px )
+        grid-row-gap: 32px
+        grid-template-columns: repeat(2, 1fr)
+        width: 60%
+    @media screen and ( max-width: 750px )
+        grid-row-gap: 16px
+        grid-column-gap: 16px
+        width: 100%
+    @media screen and ( max-width: 400px )
+        grid-template-columns: 1fr
+        
+
+.transition_background
+    position: relative
+    width: 100%
+    height: 300px
+    margin-bottom: -100px
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)
+
+.title
+    font-size: $txt-48px
+    margin-bottom: 48px
+    @media screen and ( max-width: 1200px )
+        font-size: $txt-36px
+        margin-bottom: 36px
+    @media screen and ( max-width: 600px )
+        font-size: $txt-24px
+
+
+        
+
+
+        
+
+

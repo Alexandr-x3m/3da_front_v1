@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 
 import HeaderBlock from '../components/Header/Header'
-import MainPageContainer from '../components/MainPageContainer/MainPageContainer'
+import MainPage from '../containers/MainPage/MainPage'
 
 
 export default function Main() {
@@ -36,7 +36,7 @@ export default function Main() {
       </Head>
       <div >
         <HeaderBlock scroll={scroll} />
-        <MainPageContainer scroll={scroll}  />
+        <MainPage scroll={scroll}  />
       </div>
     </div>
   )

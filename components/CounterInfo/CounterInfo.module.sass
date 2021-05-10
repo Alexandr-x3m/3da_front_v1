@@ -12,7 +12,6 @@
     @media screen and ( max-width: 800px )
         width: 100%
         margin: 0 auto 120px auto
-        
 
 .counterInfo__background
     position: absolute
@@ -33,10 +32,10 @@
     @media screen and ( max-width: 800px )
         width: 100%
         height: 420px
-        
 
 .counterInfo__title
     position: relative
+    text-align: center
     font-size: $txt-48px
     margin-bottom: 110px
     z-index: 10
@@ -46,7 +45,6 @@
     @media screen and ( max-width: 600px )
         font-size: $txt-24px
         margin-bottom: 32px
-        
 
 .conter_container
     display: grid
@@ -63,40 +61,75 @@
         grid-column-gap: 32px
         padding: 0 32px
 
-.counterInfo__item 
+.counter_container
     position: relative
-    width: 100%
     height: 100%
-    padding: 32px 32px
-    background: rgba(0, 0, 0, 0.6)
+    margin: auto
+    @media screen and ( max-width: 1050px )
+        width: 90%
+        
+
+.counterInfo__item
+    position: relative
+    max-width: 230px
+    max-height: 200px
+    padding: 32px 32px 16px
+    background: $snd-back-color
     @media screen and (max-width: 1200px)
         max-width: 300px
         margin: auto
     @media screen and (max-width: 800px)
         width: 100%
-        padding: 16px 16px
-        background: rgba(0, 0, 0, 0.4)
+        padding: 16px 16px 8px
+    @media screen and (max-width: 480px)
+        padding: 8px 8px 4px
+    @media screen and (max-width: 400px)
+        max-width: 230px
+        padding: 16px 16px 8px
+
+.cube-wrap
+    perspective: 1000px
+    perspective-origin: 50% 50%
+
+.top_angle
+    position: absolute
+    top: -12px
+    right: -12px
+    transform: rotate(180deg)
+    @media screen and ( max-width: 1050px )
+        top: -8px
+        right: -8px
+    @media screen and ( max-width: 650px )
+        top: 0px
+        right: 0px
+
+.bottom_angle
+    position: absolute
+    bottom: -12px
+    left: -12px
+    @media screen and ( max-width: 1050px )
+        bottom: -8px
+        left: -8px
+    @media screen and ( max-width: 650px )
+        bottom: 0px
+        left: 0px
 
 .counterInfo__counter
-    margin: 32px
+    margin: 0
+    text-align: center
+    font-family: 'Oswald', sans-serif
     font-size: $txt-48px
+    text-shadow: -4px -1px 0px #000000
     @media screen and ( max-width: 600px )
         font-size: $txt-32px
         margin-bottom: 24px
-
-.counterInfo__horLine
-    width: 100%
-    height: 1px 
-    background: $prim-color
 
 .counterInfo__name
     margin: 16px
     font-size: $txt-16px
     font-weight: 400
+    text-align: center
     letter-spacing: 0.03em
     @media screen and ( max-width: 600px )
         font-size: $txt-16px
         margin-bottom: 16px
-
-
-

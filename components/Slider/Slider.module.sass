@@ -20,13 +20,7 @@
     color: $def-color
     overflow: hidden
 
-.sliderMain__textBlock
-    position: absolute
-    top: 50%
-    width: 100%
-    padding: 0 100px
-    transform: translate( 0, -50%)
-    z-index: 99
+
 
 .servicePreview__btn
     background: $def-color
@@ -51,45 +45,65 @@
             padding: 12px 28px
             border-radius: 6px
 
-.sliderMain__textBlock
+
+.text_block
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: absolute
+    top: 50%
+    width: 100%
+    padding: 0 100px
+    transform: translate( 0, -50%)
+    z-index: 99
     @media screen and ( max-width: 1200px )
         width: 100%
         padding: 0 64px
     @media screen and (max-width: 800px)
         padding: 0 32px
 
-.textBlock_title
+.title
     text-align: center
-    font-size: $txt-48px
-    font-weight: 700
+    font-size: 6.250em
+    font-weight: 400
     text-transform: uppercase
     margin-bottom: 48px
     text-shadow: $textShadow-2px
     @media screen and ( max-width: 1200px )
         width: 100%
-        font-size: $txt-36px
+        font-size: $txt-48px
     @media screen and (max-width: 800px)
         font-size: $txt-32px
         margin-bottom: 24px
 
-.textBlock_desc
-    position: relative
-    width: 750px
-    margin: 0 auto 64px auto
-    font-weight: 400
-    text-align: center
-    font-size: $txt-32px
-    color: $def-color
-    text-shadow: $textShadow-2px
+.description
+    height: 24px
+    padding: 0px 12px
+    margin-bottom: 12px
+    text-transform: lowercase
+    font-size: $txt-18px
+    font-family: "Oswald", sans-serif
+    font-weight: 500
+    line-height: 18px
+    color: $prim-back-color
+    background: $spec-color
+    //animation: name 2s ease 
     @media screen and ( max-width: 1200px )
-        width: 100%
-        margin: 0 auto 48px auto
+        padding: 0 6px
+        margin: 0 auto 16px auto
         padding: 0 48px
-        font-size: $txt-24px
     @media screen and (max-width: 800px)
-        font-size: $txt-18px
-        margin: 0 auto 48px auto
+        margin: 0 auto 16px auto
         padding: 0
+
+
+@keyframes name
+    0%
+        opacity: 0
+        margin-left: 100px
+    100%
+        opacity: 1
+        margin-left: 0px
 
 .textBlock_btn
     position: relative
@@ -126,58 +140,67 @@
     height: inherit
     z-index: 99
 
-.sliderMain_swiperNav
+.swiper_nav
     display: flex
     flex-direction: row
     position: absolute
     top: -152px
     left: 50%
     bottom: 32px
-    transform: translate(-50%, 0)
+    transform: translate(-50%, 0)        
 
 .swiperNav__item
     +transitionDuration(0.2s)
-    width: 90px
+    width: 166px
     height: 3px
-    margin-right: 24px
     background: $def-color
     button
+        +transitionDuration(.2s)
         position: relative
-        top: -14px
+        top: -45px
         width: 100%
-        height: 32px
+        height: 48px
+        padding: 9px 0
         border: none
         background: none
         outline: none
         cursor: pointer
+        color: $def-color
+        font-family: 'Oswald', sans-serif
+        font-size: $txt-18px
     &:hover
-        background: $prim-color
+        background: $spec-color
         cursor: pointer
+        button
+            background: $snd-back-80-color
     @media screen and ( max-width: 800px )
-        width: 12px
+        width: 120px
         height: 12px
-        border-radius: 50%
-        margin-right: 12px
+        button
+            font-size: $txt-14px
 
 .swiperNav__activeItem
-    width: 90px
+    width: 166px
     height: 3px
-    margin-right: 24px
     background: $prim-color
     button
         position: relative
-        top: -14px
+        top: -45px
         width: 100%
-        height: 32px
+        height: 48px
+        padding: 9px 0
         border: none
         background: none
         outline: none
         cursor: pointer
+        color: $def-color
+        font-family: 'Oswald', sans-serif
+        font-size: $txt-18px
     @media screen and ( max-width: 800px )
-        width: 12px
+        width: 120px
         height: 12px
-        border-radius: 50%
-        margin-right: 12px
+        button
+            font-size: $txt-14px
 
 .sliderMain_swiperBtns
     display: grid

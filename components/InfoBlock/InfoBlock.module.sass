@@ -14,6 +14,9 @@
     display: grid
     grid-template-columns: 9fr 11fr
     grid-column-gap: 32px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
     margin: 0
     .txt_container
         grid-column: 1
@@ -26,6 +29,8 @@
             transform: translate(0, -50%)
     @media screen and ( max-width: 1200px )
         grid-column-gap: 16px
+        top: 0
+        transform: translateY(0)
         .txt_container
             grid-column: 1
             grid-row: 1
@@ -48,9 +53,15 @@
     display: grid
     grid-template-columns: 530px 1fr
     grid-column-gap: 32px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
     .list_container
         padding: 32px
         background: $snd-back-color
+    @media screen and ( max-width: 1200px )
+        top: 0
+        transform: translateY(0)
     @media screen and ( max-width: 800px )
         display: flex
         flex-direction: column
@@ -61,9 +72,11 @@
 
 .style_3
     flex-direction: column
+    top: 100px
     margin: 0
     width: 100%
     padding: 0 16px
+    opacity: 0
     &:first-child
         padding: 0 16px 0 0
     &:last-child
@@ -122,6 +135,7 @@
 
 .txt_description
     font-size: $txt-18px
+    font-family: 'Oswald', sans-serif
     font-weight: 600
     line-height: $txt-24px
     letter-spacing: 0.03%
@@ -145,6 +159,7 @@
 
 .listItem__title
     font-size: $txt-18px
+    font-family: 'Oswald', sans-serif
     font-weight: 700
     margin-bottom: 12px
     @media screen and ( max-width: 600px )
@@ -152,6 +167,7 @@
 
 .listItem_description
     font-size: $txt-16px
+    font-family: 'Oswald', sans-serif
     font-weight: 400
     line-height: $txt-24px
     @media screen and ( max-width: 600px )

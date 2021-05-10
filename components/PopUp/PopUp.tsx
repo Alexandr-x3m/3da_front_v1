@@ -1,4 +1,4 @@
-import s from './PopUp.module.sass'
+import s from '../../styles/components/PopUp.module.sass'
 import { Scrollbars } from 'react-custom-scrollbars';
 import { PopUpProps } from '../../interfaces/interfaces'
 
@@ -17,6 +17,7 @@ const PopUp: React.FC<PopUpProps> = (props) => {
                 </button>
                 {scroll
                     ? (<div className={s.content_container} >
+                        <img className={s.image_background} src={'/form_background.png'} alt="" />
                         <h1 className={s.content_title} >
                             {title}
                         </h1>

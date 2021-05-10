@@ -26,7 +26,7 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
 
     const router = useRouter()
 
-    const openAuthorization = () => {
+    /* const openAuthorization = () => {
         setAuthLog(true)
         setPopUp(true)
     }
@@ -34,22 +34,20 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
     const openRegistration = () => {
         setAuthLog(false)
         setPopUp(true)
-    }
-
+    } */
+    
     useEffect(() => {
+        let pageH = window.document.documentElement.offsetHeight
+        setPageHeight(pageH)
         if (scroll) {
         setTimeout(() => {
             let windowH = window.document.documentElement.clientHeight
-            let pageH = window.document.documentElement.offsetHeight
 
             setWindowHeight(windowH)
-            setPageHeight(pageH)
-            console.log(windowH)
         }, 100)
     }
     }, [scroll])
 
-    console.log(scroll)
     return (
         <div >
             <div className={s.header__container} >
@@ -83,10 +81,11 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                         <div className={s.logo_container} >
                             <Link href='/' ><a>
                                 <Image
-                                    src={'/logotype.svg'}
-                                    alt='27 cypher'
-                                    width={'fill'}
-                                    height={42} />
+                                    src={'/logotype_2.png'}
+                                    alt='3d worker'
+                                    layout={'fixed'}
+                                    width={185.5}
+                                    height={42}  />
                                 <div className={s.logo_gradient} style={{ height: `${pageHeight}px`, top: `-${scroll}px` }}  ></div>
                             </a></Link>
                         </div>
@@ -149,9 +148,10 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                         <div className={s.logo_container} >
                             <Link href='/' ><a>
                                 <Image
-                                    src={'/logotype.png'}
+                                    src={'/logotype.svg'}
                                     alt='27 cypher'
-                                    width={'fill'}
+                                    layout={'fixed'}
+                                    width={212}
                                     height={48} />
                                 <div className={s.logo_gradient} style={{ height: `${pageHeight}px`, top: `-${scroll}px` }} ></div>
                             </a></Link>

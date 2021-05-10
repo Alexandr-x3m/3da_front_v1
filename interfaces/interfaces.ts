@@ -22,11 +22,9 @@ interface AttentionLaneProps {
 
 interface SliderProps {
     data: {
-        id: string,
         img: string,
         title?: string,
         desc?: string,
-        url: string
     }[],
     thumbnail: boolean,
     content?: Array<ReactElement>,
@@ -73,8 +71,11 @@ interface PopUpProps {
 }
 
 interface CounterData {
-    number: number,
-    text: string
+    data: {
+        number: number,
+        text: string
+    },
+    mousePos: {clientX: number, clientY: number, rotateX: number, rotateY: number}
 }
 
 interface CounterInfoData {
@@ -82,9 +83,6 @@ interface CounterInfoData {
     text: string
 }
 
-interface CounterInfoProps {
-    data: Array<CounterInfoData>
-}
 
 interface TagsList {
     id: string,
@@ -247,7 +245,6 @@ export type {
     PopUpProps,
     CounterData,
     CounterInfoData,
-    CounterInfoProps,
     TagsList,
     GalleryNavigationProps,
     MailFormProps,

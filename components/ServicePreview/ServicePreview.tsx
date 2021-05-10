@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
@@ -18,60 +17,55 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
 
     const router = useRouter()
 
-    const text = useRef<any>();
-    const image = useRef<any>();
+    let text = useRef<HTMLDivElement>(null);
+    let image = useRef<HTMLDivElement>(null);
 
     //fade and up animation
-    const animation1 = (obj: any) => {
+    const fadeOut = (obj: any) => {
         gsap.to(obj, {
             scrollTrigger: {
                 trigger: obj,
-                start: 'top bottom',
-                end: '+=400'
+                start: 'top bottom-=20%',
+                end: 'bottom top+=18%',
+                toggleActions: 'play reverse play reverse',
             },
             opacity: 1,
-            top: 0,
-            duration: 1.5
+            duration: 0.8
         })
     }
-
+    
     //left or right moving animation
-    const animation2 = (obj: any) => {
+    const fadeLeftRight = (obj: HTMLDivElement) => {
         gsap.to(obj, {
             scrollTrigger: {
                 trigger: obj,
-                start: 'top bottom',
-                end: '+=400'
+                start: 'top bottom-=20%',
+                end: 'bottom top+=16%',
+                toggleActions: 'play reverse play reverse',
             },
-            //opacity: 1,
+            opacity: 1,
             right: 0,
             left: 0,
-            duration: 1.5
+            duration: 0.8
         })
     }
-
 
     useEffect(() => {
         if (document.documentElement.clientWidth < 1200) {
             setAnima(false)
         } else {
-            if (anima) {
-                gsap.registerPlugin(ScrollTrigger)
-
-                animation1(text.current)
-                animation2(image.current)
-            }
+            gsap.registerPlugin(ScrollTrigger)
+            if (image && image.current) fadeLeftRight(image.current)
+            if (text && text.current) fadeOut(text.current)
         }
-
-    }, [anima, text])
+    }, [image, text])
 
     return (
-        <div className={s.servicePreview__container} style={{ flexDirection: (reverse ? 'row-reverse' : 'row') }} >
+        <div className={s.container + ' ' + (reverse ? s.reverse : '')} >
             <div
                 ref={text}
-                className={s.servicePreview__info}
+                className={s.info_block}
                 style={{
-                    top: (anima ? '60px' : '0px'),
                     opacity: (anima ? '0' : '1')
                 }}
             >
@@ -91,11 +85,7 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
             </div>
             <div
                 ref={image}
-                className={s.servicePreview__img}
-                style={{
-                    right: (anima && reverse ? '200px' : '0px'),
-                    left: (anima && reverse ? '200px' : '0px')
-                }}
+                className={s.image}
             >
                 <Image src={img_src} layout={'fill'} />
             </div>

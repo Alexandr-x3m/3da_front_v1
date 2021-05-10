@@ -15,7 +15,7 @@ const AttentionLane: React.FC<AttentionLaneProps> = (props) => {
                 <div>
                     {title 
                         ? <h2 className={s.title_txt + ' ' + s.custom_title} >{title}</h2>
-                        : <h2 className={s.title_txt} >ЧЕМ МЫ ЗАНИМАЕМСЯ !!!</h2>
+                        : <h2 className={s.title_txt} >ЧЕМ МЫ ЗАНИМАЕМСЯ</h2>
                     }
                 </div>
                 <h4 className={s.attentionLane__subtitle} >

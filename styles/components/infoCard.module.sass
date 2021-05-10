@@ -1,0 +1,65 @@
+@import '../app'
+
+.container
+    position: relative
+    width: 1200px
+    margin: auto
+
+.cards_container
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+
+
+.visible_window
+    +transitionDuration(0.4s)
+    position: absolute
+    top: 0
+    left: 50px
+    width: 25%
+    height: 636px
+    border-top: 3px solid $prim-color
+    background: $snd-back-color
+
+.card_item
+    +transitionDuration(0.4s)
+    width: 300px
+    height: 636px
+    padding: 32px
+    border-top: 3px solid $def-color
+    background: black
+    &:hover
+        border-top: 3px solid $prim-color
+        background: $snd-back-color
+        .hidden_content
+            opacity: 1
+
+.number
+    position: relative
+    margin-bottom: 42px
+    color: $def-color
+    font-size: $txt-24px
+    font-family: 'Oswald', sans-serif
+    font-weight: 600
+    z-index: 99
+
+.title
+    font-size: $txt-24px
+    color: $def-color
+    margin-bottom: 64px
+    
+.title_mark
+    color: $prim-color
+    background: none
+
+.hidden_content
+    width: calc(100% + 32px)
+    opacity: 0
+    overflow: hidden
+
+.description
+    font-family: 'Oswald', sans-serif
+    font-family: $txt-24px
+    color: $def-color
+    
+.icon
+    height: 250px

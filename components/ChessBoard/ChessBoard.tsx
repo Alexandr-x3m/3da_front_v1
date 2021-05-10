@@ -28,7 +28,6 @@ const ChessBoard: React.FC = () => {
                 endTrigger: el,
                 end: "top top+=120px",
                 toggleActions: 'play reverse play reverse',
-                markers: true
             },
             opacity: 1,
             duration: 0.6
@@ -49,8 +48,6 @@ const ChessBoard: React.FC = () => {
             boxShadow: '0px 0px 6px 0px #0AAFF1'
         })
     }
-
-    
 
     useEffect(() => {
                 gsap.registerPlugin(ScrollTrigger)

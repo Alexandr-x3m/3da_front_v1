@@ -1,0 +1,181 @@
+@import '../app'
+
+.container
+    position: relative
+
+.layer_1
+    display: flex
+    margin-bottom: 16px
+    & > .priority_item:nth-child(1)
+        width: 50%
+        height: 360px
+        margin-right: 16px
+        background-position: top left
+        @media screen and ( max-width: 1200px )
+            height: 285px
+        & > .title
+            text-align: center
+            margin-bottom: 62px
+        & > .description
+            text-align: center
+    & > .priority_item:nth-child(2)
+        width: 50%
+        height: 360px
+        background-position: top right
+        @media screen and ( max-width: 1200px )
+            height: 285px
+        @media screen and ( max-width: 1000px )
+            text-align: center 
+        & > .title
+            margin-right: 58px
+            text-align: left
+            margin-bottom: 28px
+            @media screen and ( max-width: 1000px )
+                text-align: center
+                margin: 0 0 32px 0
+    @media screen and ( max-width: 850px )
+        flex-direction: column
+        
+
+.layer_2
+    display: flex
+    & > .priority_item:nth-child(1)
+        width: 60%
+        height: 404px
+        margin-right: 16px
+        background-position: bottom left
+        @media screen and ( max-width: 1200px )
+            height: 334px
+        @media screen and ( max-width: 1000px )
+            height: 285px
+            width: 50%
+            text-align: center
+        & > .title
+            text-align: center
+            margin: 0 247px 48px 92px
+            @media screen and ( max-width: 1200px )
+                margin: 0 132px 48px 0
+            @media screen and ( max-width: 1000px )
+                margin: 0 0 32px 0
+        & > .description
+            margin: 0 150px 0 0
+            @media screen and ( max-width: 1000px )
+                margin: 0
+    & > .priority_item:nth-child(2)
+        width: 40%
+        height: 404px
+        background-position: bottom right
+        @media screen and ( max-width: 1200px )
+            height: 334px
+        @media screen and ( max-width: 1000px )
+            height: 285px
+            width: 50%
+            text-align: center
+        & > .title
+            margin-bottom: 32px
+    @media screen and ( max-width: 850px )
+        flex-direction: column
+                
+    
+        
+    
+
+.priority_item
+    position: relative
+    padding: 48px
+    border-radius: 10px
+    background: $snd-back-color
+    overflow: hidden
+    opacity: 0
+    background: url('/main/priorities_back_1.jpg')
+    @media screen and ( max-width: 850px )
+        margin-bottom: 16px
+        width: 100% !important
+        height: auto !important
+        background: $snd-back-color
+    @media screen and ( max-width: 400px )
+        padding: 32px 16px
+
+.title
+    font-family: 'Conv_19888', sans-serif
+    font-size: $txt-36px
+    font-weight: 400
+    @media screen and ( max-width: 1200px )
+        font-size: $txt-24px
+    @media screen and ( max-width: 400px )
+        font-size: $txt-18px
+
+        
+.marker
+    color: $prim-color
+    background: none
+
+.description
+    color: $def-80-color
+    font-family: 'Oswald', sans-serif
+    font-size: $txt-24px
+    font-weight: 400
+    @media screen and ( max-width: 1200px )
+        font-size: $txt-16px
+    @media screen and ( max-width: 400px )
+        font-size: $txt-12px
+
+.icon_spy
+    position: absolute
+    bottom: -100px
+    right: 12px
+    width: 156px
+    height: 156px
+    animation: upDown 8s ease-out infinite
+    @media screen and ( max-width: 1000px )
+        display: none
+
+@keyframes upDown
+    0%
+        bottom: -156px
+    25%
+        bottom: -90px   
+    60%
+        bottom: -90px   
+    85%
+        bottom: -156px
+    100%
+        bottom: -156px
+        
+
+.icon_watch
+    position: absolute
+    right: 30px
+    bottom: 118px
+    @media screen and ( max-width: 1200px )
+        bottom: 84px
+    @media screen and ( max-width: 1000px )
+        display: none
+        
+
+.minute_arrow
+    transform-origin: 86px 83px
+    animation: circle 4s linear infinite
+
+.hour_arrow
+    transform-origin: 86px 83px
+    animation: circle 96s linear infinite
+
+@keyframes circle
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+.mobile_img
+    display: none
+    position: relative
+    top: 16px
+    left: 50%
+    height: 110px
+    margin-bottom: 32px
+    transform: translateX(-50%)
+    svg
+        height: 110px
+    @media screen and (max-width: 850px)
+        display: block !important

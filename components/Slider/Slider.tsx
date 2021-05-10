@@ -1,9 +1,7 @@
-import { JSXElementConstructor, ReactElement, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import s from './Slider.module.sass'
-import InputButton from '../Inputs/InputButton/inputButton'
 import { SliderProps } from '../../interfaces/interfaces'
 import { PositionMTouch } from '../../interfaces/interfaces'
 
@@ -24,7 +22,8 @@ const Slider: React.FC<SliderProps> = (props) => {
 
     const [autoSwipeS, setAutoSwipeS] = useState<boolean>(autoSwipe ? autoSwipe : false);
     const [touch, setTouch] = useState<boolean>(false);
-    const [positionMTouch, setPositionMTouch] = useState<PositionMTouch>({ downX: 0, downY: 0, upX: 0, upY: 0 });
+    const [positionMTouch, setPositionMTouch] = useState<PositionMTouch>({ downX: 0, downY: 0, upX: 0, upY: 0 })
+
 
     const handleSwipeLeft = () => {
         let newSlide = activeSlide - 1
@@ -113,29 +112,32 @@ const Slider: React.FC<SliderProps> = (props) => {
                     gridTemplateColumns: `repeat(${data.length}, 100%)`,
                 }}
             >
-                {data.map(el => (
-                    <div className={s.sliderMain__itemBlock} key={'slide_' + el.id} >
-                        <div className={s.sliderMain__textBlock} >
-                            {el.title ? (
-                                <h2 className={s.textBlock_title} >
-                                    {el.title}
-                                </h2>
-                            ) : null}
-                            {el.desc ? (
-                                <p className={s.textBlock_desc} >
+                {data.map((el, index) => (
+                    <div className={s.sliderMain__itemBlock} key={'slide_' + index} >
+                        <div className={s.text_block} >
+                            {el.desc
+                                ? (<span className={s.description} >
                                     {el.desc}
-                                </p>
-                            ) : null}
-                            <div className={s.textBlock_btn} >
+                                </span>)
+                                : null
+                            }
+                            {el.title 
+                                ? (<h2 className={s.title} >
+                                    {el.title}
+                                </h2>)
+                                : null
+                            }
+                            
+                            {/* <div className={s.textBlock_btn} >
                                 <Link href={el.url}>
                                     <a>
-                                       {/*  <InputButton
+                                        <InputButton
                                             value={'Узнать больше'}
                                             additClass={s.servicePreview__btn}
-                                        /> */}
+                                        />
                                     </a>
                                 </Link>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={s.sliderMain__imgBlock} >
                             <img src={el.img} className={s.slider__mainImg} />
@@ -146,11 +148,13 @@ const Slider: React.FC<SliderProps> = (props) => {
             <div className={s.sliderMain__infoBlock} >
                 {sliderSwiper ? (
                     <div
-                        className={s.sliderMain_swiperNav}
+                        className={s.swiper_nav}
                     >
                         {data.map((el, index) => (
-                            <div key={'swiper_nav_' + el.id} className={(activeSlide == index) ? (s.swiperNav__activeItem) : (s.swiperNav__item)} >
-                                <button onClick={() => setActiveSlide(index)} />
+                            <div key={'swiper_nav_' + index} className={(activeSlide == index) ? (s.swiperNav__activeItem) : (s.swiperNav__item)} >
+                                <button onClick={() => setActiveSlide(index)} >
+                                    {el.title}
+                                </button>
                             </div>
                         ))}
                     </div>
@@ -169,7 +173,7 @@ const Slider: React.FC<SliderProps> = (props) => {
                     <div className={s.slider__thumbnail_background} ></div>
                     {data.map((el, index) => (
                         <button
-                            key={'thumbnail' + el.id}
+                            key={'thumbnail_' + index}
                             onClick={() => setActiveSlide(index)}
                             className={s.slider__thumbnail_item + ' ' + (index == activeSlide ? s.slider__thumbnail_activeItem : null)}
                         >

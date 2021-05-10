@@ -4,14 +4,15 @@
 .container
     position: relative
     width: 100%
-    height: 64px
-    background: $snd-back-color
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6)
-    z-index: 9
-    @media screen and ( max-width: 1200px )
-        padding: 0 32px
+    height: 42px
+    z-index: 9999
     @media screen and ( max-width: 800px )
+        position: fixed 
+        bottom: 0
         height: 48px
+        background: $prim-color
+        box-shadow: 0 0 10px $prim-back-color
+        z-index: 99999
         
 
 .content
@@ -23,88 +24,85 @@
     margin: auto
     @media screen and ( max-width: 1200px )
         width: 100%
+    @media screen and ( max-width: 800px )
+        width: auto
 
 .item_container
     display: flex
     position: relative
     height: inherit
-    padding: 0 30px
+    border: 1px solid $spec-color
+    &:first-child
+        border-top-left-radius: 6px
+        border-bottom-left-radius: 6px
+        @media screen and ( max-width: 800px )
+            border-radius: 0
+    &:last-child
+        border-top-right-radius: 6px
+        border-bottom-right-radius: 6px
+        @media screen and ( max-width: 800px )
+            border-radius: 0
     &:hover
         cursor: pointer
+    @media screen and ( max-width: 1200px )
+        display: block
     @media screen and ( max-width: 800px )
-        left: -13px
-        padding: 0 8px
-    
-
-.item_icon
-    position: relative
-    top: 20px
-    width: 25px
-    height: 20px
-    margin-right: 12px
-    animation: moving 1s infinite
-    img
-        height: 20px
-    @media screen and ( max-width: 800px )
-        top: 16px
-        width: 18px
-        height: 14px
-        margin-right: 8px
-        animation: movingMobile 0.8s infinite
-        img
-            height: 14px
-    @media screen and ( max-width: 500px )
-        top: 13.5px
-        width: 13px
-        height: 10px
-        margin-right: 2px
-        animation: name(-40px) 0.8s infinite
-        img
-            height: 10px
+        border: none
 
 .item
     position: relative
-    width: 160px
-    height: 60px
+    width: 210px
+    height: 40px
     padding: 0
-    font-size: $txt-18px
-    text-align: left
-    line-height: 64px
-    color: $def-40-color
+    font-size: $txt-16px
+    font-family: 'Oswald', sans-serif
+    text-align: center
+    line-height: 40px
+    letter-spacing: 0.03em
+    color: $def-color
     background: none
     border: none
     outline: none
     &:hover
         cursor: pointer
     @media screen and ( max-width: 800px )
-        width: auto
-        height: 48px
-        font-size: $txt-12px
-        line-height: 48px
-    @media screen and ( max-width: 500px )
-        width: auto
-        height: 48px
-        font-size: $txt-12px
-        line-height: 48px
+        width: 90px 
+        height: 20px
+        padding: 0 8px
+        font-size: $txt-8px
+        line-height: 20px
+        text-align: center
+
+.mobile_icon
+    display: none
+    @media screen and ( max-width: 800px )
+        display: block
+        position: relative
+        top: 6px
+        left: 50%
+        width: 24px
+        height: 24px
+        transform: translate(-50%, 0)
 
 .active_item
-    color: $def-color
+    background: $spec-color
+    opacity: 1
+    input
+        color: $snd-back-color
+        font-weight: 600
+    @media screen and ( max-width: 800px )
+        background: $spec-back-color
+        input
+            color: $def-color
 
 
-@keyframes moving
-    0%
-        left: 0px
-    50%
-        left: -14px
-    100%
-        left: 0px
+.focus_item
+    position: absolute
+    left: 0
+    width: 210px
+    height: 40px
+    background: $spec-color
 
-@keyframes movingMobile
-    0%
-        left: 0px
-    50%
-        left: -6px
-    100%
-        left: 0px
+
 
         

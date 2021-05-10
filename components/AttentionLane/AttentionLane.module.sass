@@ -4,7 +4,6 @@
     position: relative
     width: 100%
     padding: 48px 0
-    background: $prim-gradient
     @media screen and ( max-width: 800px )
         padding: 32px 0
         
@@ -36,6 +35,7 @@
         font-size: $txt-24px
     @media screen and ( max-width: 600px )
         font-size: $txt-18px
+        margin: 0
 
 .custom_title
     margin-bottom: 32px
@@ -47,15 +47,14 @@
     width: 50%
     transform: translate(-50%, 0)
     font-size: $txt-24px
+    font-family: 'Oswald', sans-serif
     font-weight: 500
     letter-spacing: 0
-    color: $def-80-color    
-    text-shadow: $textShadow-1px
+    color: $def-80-color   
     @media screen and ( max-width: 1200px )
         width: 80%
         font-size: $txt-16px
-    @media screen and ( max-width: 600px )
-        font-size: $txt-14px
+    @media screen and ( max-width: 800px )
 
 .attentionLane__request
     margin-top: 48px !important
