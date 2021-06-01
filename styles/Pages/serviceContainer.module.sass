@@ -2,16 +2,12 @@
 
 .pageContainer
     position: relative
-    top: 112px
     width: 100%
-    @media screen and ( max-width: 600px )
-        top: 64px
-
+    @media screen and ( max-width: 800px )
+        padding: 0 0 48px 0
 
 .serviceContainer
-    position: relative
-    overflow-y: hidden
-    overflow-x: hidden
+    overflow: hidden
     background: $prim-back-color
 
 .previewBlock__container
@@ -21,7 +17,6 @@
     @media screen and ( max-width: 600px )
         height: 40vh
         overflow: hidden
-        
 
 .previewBlock__text
     position: relative
@@ -46,6 +41,9 @@
         font-size: $txt-24px
         line-height: $txt-24px
 
+.title_mark
+    font-family: 'Oswald', sans-serif
+
 .serviceContainer__subtitle
     font-size: $txt-24px
     font-weight: 400
@@ -59,6 +57,7 @@
     left: 0
     width: 100%
     height: 380px
+    object-fit: cover
     z-index: 9
     @media screen and ( max-width: 600px )
         left: 50%
@@ -73,7 +72,6 @@
     @media screen and ( max-width: 600px )
         width: 100% !important
         padding: 0 32px
-        
 
 .block_content
     position: relative
@@ -88,9 +86,9 @@
         padding: 48px 0
 
 .title_container
-    margin-bottom: 48px 
+    margin-bottom: 48px
     @media screen and ( max-width: 600px )
-        margin-bottom: 32px 
+        margin-bottom: 32px
 
 .title
     text-align: center
@@ -112,9 +110,8 @@
     color: $def-80-color
     text-align: center
     @media screen and ( max-width: 750px )
-        font-size: $txt-16px  
-        line-height: 24px   
-        
+        font-size: $txt-16px
+        line-height: 24px
 
 .hor_block
     display: grid
@@ -122,28 +119,41 @@
     @media screen and ( max-width: 800px )
         grid-template-columns: 1fr
 
-
 .nav_container
-    position: absolute
-    left: 0
-    top: 0
-    width: 100vw
-    padding: 6px 0
-    z-index: 9999 
-    @media screen and ( max-width: 1200px )
-        position: relative
+    +transitionDuration(.2s)
+    position: sticky
+    top: 64px
+    width: 100%
+    padding: 10px 0
+    background: $prim-back-color
+    z-index: 999
     @media screen and ( max-width: 600px )
         position: fixed
-        height: 48px
+        top: auto
         bottom: 0
+        height: 48px
+
+.nav_top
+    border-top: 1px solid rgba(255, 255, 255, 0.2)
+    background: #0D0D0D
 
 .conter_block
     display: grid
     grid-template-columns: repeat(4, 1fr)
     grid-column-gap: 32px
 
-.parameters
-    display: grid 
+.parameters_container
+    position: relative
+
+.priorities_title
+    font-size: $txt-24px
+    border-bottom: 1px solid $def-60-color
+    margin: 32px 0
+    @media screen and ( max-width: 800px )
+        font-size: $txt-18px
+
+.parameters_row
+    display: grid
     grid-template-columns: 1fr 1fr 1fr
     grid-column-gap: 32px
     grid-row-gap: 32px
@@ -158,39 +168,16 @@
         margin: auto
     @media screen and ( max-width: 450px )
         width: 100%
-        
-
-.scroll_item
-    display: flex
-    flex-direction: row
-    width: 200vw
-    z-index: 999
-    .section_item
-        width: 100vw
-    @media screen and ( max-width: 1200px )
-        flex-direction: column
-        width: 100%
-    @media screen and ( max-width: 1200px )
-        .section_item
-            padding: 0
-        
-        
 
 .style_2_printing
-    height: 580px
+    height: 480px
     @media screen and ( max-width: 800px )
         height: auto
 
 .style_1_modeling
-    height: 544px 
+    height: 644px
     @media screen and ( max-width: 800px )
         height: auto
-        
 
 .style_2_modeling
     height: 574px
-
-    
-
-
-    

@@ -6,6 +6,15 @@
 	font-style: normal;
 }
 
+@font-face {
+  font-family: 'minecraftten';
+  src: url('./fonts/mct/MinecraftTen.woff2') format('woff2'),
+       url('./fonts/mct/16326-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap');
 
 html{
@@ -26,7 +35,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6, p, a, div, input{
-  font-family: 'Conv_19888', sans-serif;
+  font-family: 'minecraftten';
   font-size: 100%;
   margin: 0;
 }

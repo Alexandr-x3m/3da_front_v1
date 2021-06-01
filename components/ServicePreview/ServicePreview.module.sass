@@ -24,15 +24,16 @@
     margin: 110px 160px
     z-index: 999
     h2
-        font-size: $txt-32px
+        font-size: $txt-36px
         font-weight: 700
         text-align: center
         margin-bottom: 32px
         color: $def-color
-        text-shadow: -2px 2px 4px $prim-back-color
+        text-shadow: $textShadow-4px
+        letter-spacing: 0.03em
         text-transform: uppercase
     h6
-        font-size: $txt-18px
+        font-size: $txt-24px
         font-weight: 400
         font-family: 'Oswald', sans-serif
         letter-spacing: 0.03em
@@ -48,7 +49,7 @@
         transform: translate(0, -50%)
         padding: 0 48px
         h2
-            font-size: $txt-24px
+            font-size: $txt-32px
             text-align: center
             margin-bottom: 24px
         h6
@@ -57,10 +58,10 @@
             margin-bottom: 32px
     @media screen and (max-width: 800px)
         h2
-            font-size: $txt-24px
+            font-size: $txt-18px
             margin-bottom: 12px
         h6
-            font-size: $txt-14px
+            font-size: $txt-16px
             margin-bottom: 24px
 
     
@@ -74,14 +75,15 @@
 
 .servicePreview__btn
     +transitionDuration(.2s)
-    font-family: 'Conv_19888', sans-serif
     background: $def-color
     border-radius: 25px
     input
         color: $prim-back-color
         text-align: center
+        font-family: 'Oswald', sans-serif
         font-weight: 700
-        padding: 12px 28px
+        text-transform: uppercase
+        padding: 14px 32px
         width: 100%
         border-radius: 25px
         &:hover
@@ -91,7 +93,7 @@
         height: 48px
         border-radius: 6px
         input
-            padding: 10px 28px
+            padding: 10px 24px
             border-radius: 6px
 
 .image
@@ -105,6 +107,7 @@
         left: 0
         right: 0
         height: 420px
+        opacity: 1
     @media screen and (max-width: 800px)
         height: 360px
         opacity: 0.6

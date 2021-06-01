@@ -14,7 +14,7 @@ const FilterProjects: React.FC<GalleryNavigationProps> = (props) => {
                     <img src={'./arrow-right-r.svg'} />
                 </div>
                 {tagsList.map((el) => (
-                    <div className={s.tag_item} >
+                    <div key={`tag_item_${el.id}`} className={s.tag_item}  >
                         <input 
                             name={'filter_tag'} 
                             id={'tag_' + el.id} 

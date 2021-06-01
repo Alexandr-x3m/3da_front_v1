@@ -25,7 +25,7 @@ export default function Main() {
       onWheel={() => scrollPageHandler()} 
     >
       <Head>
-        <title>3Da studio - 3Д моделирование и печать, в Москве и Московской области</title>
+        <title>3D Craft - услуги по созданию 3D моедлей и 3D печати, для Москвы и всей России</title>
         <meta charSet='utf-8' />
         <meta name='keywords' content='most famous words' />
         <meta name='description' content='test desc' />

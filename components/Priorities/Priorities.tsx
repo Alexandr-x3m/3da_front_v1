@@ -26,7 +26,7 @@ const Priorities: React.FC = () => {
     }
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger)
+        //gsap.registerPlugin(ScrollTrigger)
 
         if (container1 && container1.current) fadeOut(container1.current)
         if (container2 && container2.current) fadeOut(container2.current)
@@ -61,7 +61,7 @@ const Priorities: React.FC = () => {
             </div>
             <div className={s.layer_2} >
                 <div ref={container3} className={s.priority_item} >
-                    <div className={s.icon_watch + ' ' + s.mobile_img} >
+                    <div className={s.icon_watch /* + ' ' + s.mobile_img */} >
                         <svg width="162" height="163" viewBox="0 0 162 163" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path className={s.hour_arrow} d="M83 69C83 67.3431 84.3431 66 86 66V66C87.6569 66 89 67.3431 89 69V82H83V69Z" fill="#0AAFF1" />
                             <path className={s.minute_arrow} d="M83 57C83 55.3431 84.3431 54 86 54V54C87.6569 54 89 55.3431 89 57L89 83L83 83L83 57Z" fill="#0AAFF1" />

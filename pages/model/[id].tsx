@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
 import HeaderBlock from '../../components/Header/Header'
-import ModelComponent from '../../components/Pages/ModelPage/ModelPage'
+import ModelComponent from '../../containers/ModelPage/ModelPage'
 
 
 const ModelPage: React.FC = () => {

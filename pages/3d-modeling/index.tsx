@@ -11,6 +11,7 @@ import AttentionLane from '../../components/AttentionLane/AttentionLane'
 import Footer from '../../components/Footer/Footer'
 import Slider3D from '../../components/Slider3D/Slider3d'
 import ServiceNav from '../../components/ServiceNav/ServiceNav'
+import ModelingPage from '../../containers/ModelingPage/ModelingPage'
 
 
 
@@ -22,6 +23,8 @@ export default function Main() {
   let block_2 = useRef<HTMLDivElement>(null)
   let container = useRef<HTMLDivElement>(null)
   let nav = useRef<HTMLDivElement>(null)
+
+  const [navTop, setNavTop] = useState<boolean>(false)
 
   let topFixing = (block: HTMLDivElement) => {
     gsap.to(block, {
@@ -36,16 +39,8 @@ export default function Main() {
     })
   }
 
-  useEffect(() => {
-    console.log(nav.current)
 
-    if (nav && nav.current) {
-      gsap.registerPlugin(ScrollTrigger)
-      topFixing(nav.current)
-    }
-  }, [nav])
-
-  const sliderScroll = (sections: HTMLDivElement[], container: HTMLDivElement) => {
+  /* const sliderScroll = (sections: HTMLDivElement[], container: HTMLDivElement) => {
     gsap.to(sections, {
       scrollTrigger: {
         trigger: container,
@@ -53,21 +48,40 @@ export default function Main() {
         end: () => '+=' + container.offsetWidth,
         scrub: 0.3,
         pin: true,
-        snap: 1 / (sections.length - 1),
+        //snap: 1 / (sections.length - 1),
+        snap: 0.1
       },
-      xPercent: -100 * (sections.length - 1),
+      xPercent: -100 * ((sections.length - 1)/2),
       ease: 'none'
     })
+  } */
+
+  let handleScroll = () => {
+    if (nav && nav.current) {
+      let topX = nav.current.getBoundingClientRect().top
+      console.log(topX)
+
+      if (topX <= 64) return setNavTop(true)
+      return setNavTop(false)
+    }
   }
 
   useEffect(() => {
-    if (window.document.body.clientWidth >  1200 
-      && block_1 && block_1.current 
-      && block_2 && block_2.current 
+    if (window.document.body.clientWidth > 1200) {
+      window.addEventListener('scroll', handleScroll)
+
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (window.document.body.clientWidth > 1200
+      && block_1 && block_1.current
+      && block_2 && block_2.current
       && container && container.current
     ) {
-      gsap.registerPlugin(ScrollTrigger)
-      sliderScroll([block_1.current, block_2.current], container.current)
+      //gsap.registerPlugin(ScrollTrigger)
+      //sliderScroll([block_1.current, block_2.current], container.current)
     }
   }, [block_1, block_2, container])
 
@@ -90,9 +104,17 @@ export default function Main() {
   useEffect(() => {
     let sect = segment
 
-    if (sect === "1") setActiveSection('Художественное')
-    if (sect === "2") setActiveSection('Инженерное')
-    if (sect === "3") setActiveSection('Ювелирное')
+    switch (sect) {
+      case '1':
+        setActiveSection('Художественное')
+        break
+      case '2':
+        setActiveSection('Инженерное')
+        break
+      case '3':
+        setActiveSection('Ювелирное')
+        break
+    }
 
   }, [])
 
@@ -102,7 +124,9 @@ export default function Main() {
       onWheel={() => scrollPageHandler()}
     >
       <Head>
-        <title>3Da modeling studio</title>
+        <title>
+          Заказать {activeSection} моделирование | 3D Craft - услуги по 3D моделированию и 3D печати
+        </title>
         <meta charSet='utf-8' />
         <meta name='keywords' content='most famous words' />
         <meta name='description' content='test desc' />
@@ -111,284 +135,16 @@ export default function Main() {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
-      <div >
-        <HeaderBlock scroll={scroll} />
-
-        <div className={s.serviceContainer} >
-          <div className={s.previewBlock__container} >
-            <div className={s.previewBlock__text} >
-              <h1 className={s.previewBlock__title} >
-                3D моделирование
-              </h1>
-              <p className={s.serviceContainer__subtitle} >
-                От художественного произведения до 3D-модели.
-              </p>
-            </div>
-            <img
-              className={s.previewBlock__background}
-              src={'/artistic-preview.jpg'}
-              alt="художественное моделирование"
-            />
-          </div>
-
-
-          {/* ----------------------------------- */}
-          {activeSection === 'Художественное'
-            ? (<div className={s.section_item + ' ' + s.scroll_item} ref={container} >
-              <div className={s.nav_container} ref={nav} >
-                <ServiceNav
-                  data={[
-                    { name: 'Художественное', icon: '/icons/color_lens_24px_outlined.svg' },
-                    { name: 'Инженерное', icon: '/icons/memory_24px_outlined.svg' },
-                    { name: 'Ювелирное', icon: '/icons/diamond_24px_outlined.svg' }]}
-                  activeSection={activeSection}
-                  setActiveSection={setActiveSection}
-                />
-              </div>
-              <div className={s.section_item} ref={block_1} >
-                <div className={s.block_content} >
-                  <div className={s.title_container} >
-                    <h2 className={s.title} >
-                      Художественное 3D Моделирование
-                    </h2>
-                  </div>
-                  <InfoBlock
-                    src={'/souvenir/VR3XApcRbOg.jpg'}
-                    style={'style_1'}
-                    list={false}
-                    description={`Клиенты с существующими моделями, которые необходимо изменить, могут рассчитывать на то, что мы сохраним важную сущность исходной геометрии, пока мы вносим необходимые изменения. Обладая сильными основными художественными навыками, 3D Craft Studio хорошо разбирается в анатомии человека и тонкостях создания 3D-моделей, которые хорошо работают в конечном масштабе и конечном использовании, чтобы эффективно передать художественный замысел вашего проекта. Независимо от того, является ли ваша цель гипер-реальностью или причудливо стилизованным образом, мы можем помочь вам в ее достижении.`}
-                    animation={true}
-                    additClass={s.style_1_modeling}
-                  />
-                </div>
-              </div>
-              <div className={s.section_item} ref={block_2} >
-                <div className={s.block_content} >
-
-                  <div className={s.title_container} >
-                    <h2 className={s.title} >
-                      Важные моменты
-                  </h2>
-                  </div>
-                  <InfoBlock
-                    src={'/souvenir/c3083b8355840c9e76010f76297ec7d4.jpg'}
-                    style={'style_2'}
-                    list={true}
-                    listData={[
-                      {
-                        title: 'ДВИЖЕНИЯ ФИГУР',
-                        subtitle: `Мы стремимся понять все стили артикуляции фигуры и помогаем нашим клиентам вводить новшества, чтобы обеспечить еще больший диапазон движений / возможностей.`
-                      },
-                      {
-                        title: `СТАТУИ И ДИОРАМЫ`,
-                        subtitle: `Мы легко переходим от игрушек к предметам коллекционирования и изобразительному искусству, создавая основу для презентаций с высокой детализацией.`
-                      },
-                      {
-                        title: `ТЕХНОЛОГИЯ`,
-                        subtitle: `Наше цифровое моделирование выполняется в средах моделирования с большим количеством полигонов. Наличие миллионов и миллионов полигонов в модели во время строительства позволяет нам создавать мельчайшие детали и делать их идеально читаемыми в окончательном масштабе.`
-                      }
-                    ]}
-                    animation={true}
-                  />
-                </div>
-              </div>
-            </div>)
-            : activeSection === 'Инженерное'
-              ? (<div className={s.section_item + ' ' + s.scroll_item} ref={container} >
-                <div className={s.nav_container} ref={nav} >
-                <ServiceNav 
-                  data={[
-                    { name: 'Художественное', icon: '/icons/color_lens_24px_outlined.svg' },
-                    { name: 'Инженерное', icon: '/icons/memory_24px_outlined.svg' },
-                    { name: 'Ювелирное', icon: '/icons/diamond_24px_outlined.svg' }]}
-                  activeSection={activeSection}
-                  setActiveSection={setActiveSection}
-                />
-              </div>
-                <div className={s.section_item} ref={block_1} >
-                  <div className={s.block_content} >
-                    <div className={s.title_container} >
-                      <h2 className={s.title} >
-                        Инженерное 3D Моделирование
-                      </h2>
-                    </div>
-                    <InfoBlock
-                      src={'/souvenir/photo_2021-01-30_03-53-03.jpg'}
-                      style={'style_1'}
-                      list={false}
-                      description={`?????????????`}
-                      animation={true}
-                    />
-                  </div>
-                </div>
-                <div className={s.section_item} ref={block_2} >
-                  <div className={s.block_content} >
-                    <div className={s.title_container}>
-                      <h2 className={s.title} >
-                        Важные моменты
-                    </h2>
-                    </div>
-                    <InfoBlock
-                      src={'/souvenir/c3083b8355840c9e76010f76297ec7d4.jpg'}
-                      style={'style_2'}
-                      list={true}
-                      listData={[
-                        {
-                          title: 'ДВИЖЕНИЯ ФИГУР',
-                          subtitle: `Мы стремимся понять все стили артикуляции фигуры и помогаем нашим клиентам вводить новшества, чтобы обеспечить еще больший диапазон движений / возможностей.`
-                        },
-                        {
-                          title: `СТАТУИ И ДИОРАМЫ`,
-                          subtitle: `Мы легко переходим от игрушек к предметам коллекционирования и изобразительному искусству, создавая основу для презентаций с высокой детализацией.`
-                        },
-                        {
-                          title: `ТЕХНОЛОГИЯ`,
-                          subtitle: `Наше цифровое моделирование выполняется в средах моделирования с большим количеством полигонов. Наличие миллионов и миллионов полигонов в модели во время строительства позволяет нам создавать мельчайшие детали и делать их идеально читаемыми в окончательном масштабе.`
-                        }
-                      ]}
-                      animation={true}
-                    />
-                  </div>
-                </div>
-              </div>)
-              : (<div className={s.section_item + ' ' + s.scroll_item} ref={container} >
-                <div className={s.nav_container} ref={nav} >
-                <ServiceNav
-                  data={[
-                    { name: 'Художественное', icon: '/icons/color_lens_24px_outlined.svg' },
-                    { name: 'Инженерное', icon: '/icons/memory_24px_outlined.svg' },
-                    { name: 'Ювелирное', icon: '/icons/diamond_24px_outlined.svg' }]}
-                  activeSection={activeSection}
-                  setActiveSection={setActiveSection}
-                />
-              </div>
-                <div className={s.section_item} ref={block_1} >
-                  <div className={s.block_content} >
-                    <div className={s.title_container} >
-                      <h2 className={s.title} >
-                        Ювелирное 3D Моделирование
-                      </h2>
-                    </div>
-                    <InfoBlock
-                      src={'/souvenir/photo_2021-01-30_03-55-25.jpg'}
-                      style={'style_1'}
-                      list={false}
-                      description={`3D-печать провоцирует революцию дизайна в ювелирном деле. Создание 3D-печатных изделий, которые имели бы сравнимый внешний вид с традиционно изготовленными вручную и литыми ювелирными изделиями, раньше было непростой задачей. Однако после последнего раунда достижений в области специализированных высококачественных программ 3D-моделирования и с большим количеством доступных для печати материалов все больше и больше дизайнеров ювелирных изделий теперь предпочитают 3D-модель и печать своих дизайнов традиционным методам ручной работы.`}
-                      animation={true}
-                    />
-                  </div>
-                </div>
-                <div className={s.section_item} ref={block_2} >
-                  <div className={s.block_content} >
-                    <div className={s.title_container}>
-                      <h2 className={s.title} >
-                        Важные моменты
-                    </h2>
-                    </div>
-                    <InfoBlock
-                      src={'/souvenir/c3083b8355840c9e76010f76297ec7d4.jpg'}
-                      style={'style_2'}
-                      list={true}
-                      listData={[
-                        {
-                          title: 'ДВИЖЕНИЯ ФИГУР',
-                          subtitle: `Мы стремимся понять все стили артикуляции фигуры и помогаем нашим клиентам вводить новшества, чтобы обеспечить еще больший диапазон движений / возможностей.`
-                        },
-                        {
-                          title: `СТАТУИ И ДИОРАМЫ`,
-                          subtitle: `Мы легко переходим от игрушек к предметам коллекционирования и изобразительному искусству, создавая основу для презентаций с высокой детализацией.`
-                        },
-                        {
-                          title: `ТЕХНОЛОГИЯ`,
-                          subtitle: `Наше цифровое моделирование выполняется в средах моделирования с большим количеством полигонов. Наличие миллионов и миллионов полигонов в модели во время строительства позволяет нам создавать мельчайшие детали и делать их идеально читаемыми в окончательном масштабе.`
-                        }
-                      ]}
-                      animation={true}
-                    />
-                  </div>
-                </div>
-              </div>)
-          }
-    
-          <div className={s.section_item} >
-            <div className={s.block_content} >
-              <div className={s.title_container} >
-                <h2 className={s.title} >Наши Работы</h2>
-              </div>
-              <Slider3D dt={[{
-                id: 'id_1',
-                position: 1,
-                src: '/placeholder.jpg',
-                name: 'Laba daba dap'
-              },
-              {
-                id: 'id_2',
-                position: 2,
-                src: '/design/photo_2021-01-30_03-50-18 (2).jpg',
-                name: 'Riki tiki tai'
-              },
-              {
-                id: 'id_3',
-                position: 3,
-                src: '/design/photo_2021-01-30_03-50-18.jpg',
-                name: 'Laba daba dap'
-              },
-              {
-                id: 'id_4',
-                position: 4,
-                src: '/jewelry/photo_2021-01-30_04-02-14.jpg',
-                name: 'Laba daba dap'
-              },
-              {
-                id: 'id_5',
-                position: 5,
-                src: '/jewelry/photo_2021-01-30_04-02-14 (3).jpg',
-                name: 'Laba daba dap'
-              },]} />
-            </div>
-          </div>
-
-          <div className={s.section_item} >
-            <div className={s.block_content}  >
-              <div className={s.title_container} >
-                <h2 className={s.title} >Важные моменты</h2>
-              </div>
-              <div className={s.hor_block} >
-                <InfoBlock
-                  src={'/souvenir/c3083b8355840c9e76010f76297ec7d4.jpg'}
-                  style={'style_3'}
-                  list={false}
-                  title={'Если у вас есть чертеж'}
-                  description={'??????? ??????? ?????????????? ??????? ??????? ??????? '}
-                  animation={true}
-                />
-                <InfoBlock
-                  src={'/souvenir/photo_2021-01-30_03-55-25.jpg'}
-                  style={'style_3'}
-                  list={false}
-                  title={`ЭТО ДОЛЖНО БЫТЬ ДИНАМИЧНЫМ`}
-                  description={`Представление и реализация необходимого события - все это в фигурной модели`}
-                  animation={true}
-                />
-                <InfoBlock
-                  src={'/souvenir/photo_2021-01-30_03-53-03.jpg'}
-                  style={'style_3'}
-                  list={false}
-                  title={`МЫ СМОТРИМ ВПЕРЁД`}
-                  description={`Мы проектируем наши 3D-модели таким образом, чтобы все элементы были связаны, работали вместе и были готовы к производству.`}
-                  animation={true}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <AttentionLane
-          title={'Давайте воплотим вашу идею'}
-          subtitle={'Отправте свои требования к проекту, мы обработаем заявку и свяжемся с вами в ближайшее время'}
-          btn={true}
-        />
-        <Footer />
-      </div>
+      <ModelingPage
+        scroll={scroll}
+        navTop={navTop}
+        nav={nav}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+        container={container}
+        block_1={block_1}
+        block_2={block_2}
+      />
     </div>
   )
 }

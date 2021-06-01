@@ -46,15 +46,12 @@ const MainPage: React.FC<ActiveSlideMP> = () => {
 
     return (
         <>
-            <div 
-                className={s.container} 
-            >
+            <div  className={s.container} >
                 <div className={s.sliderWindow} >
                     <Slider
                         data={slides}
                         thumbnail={false}
                         swiper={true}
-                        additClass={s.mainPageContainer__slider}
                         autoSwipe={true}
                     />
                 </div>
@@ -65,31 +62,27 @@ const MainPage: React.FC<ActiveSlideMP> = () => {
                         title={'Художественное моделирование'}
                         subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
                         link={'/3d-modeling?segment=1'}
-                        img_src={'/artistic-preview.jpg'}
-                        animation={true}
+                        img_src={'/preview/zczczxc-421432-min.jpg'}
                     />
                     <ServicePreview
                         title={'ИНЖЕНЕРНОЕ МОДЕЛИРОВАНИЕ'}
-                        subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
+                        subtitle={'Мы создаем 3D модели высокой точности в размерах, с учетом особенностей дальнейшего ее использования'}
                         link={'/3d-modeling?segment=2'}
-                        img_src={'/engineering-preview.jpg'}
+                        img_src={'/preview/engineering-preview-min.jpg'}
                         reverse={true}
-                        animation={true}
                     />
                     <ServicePreview
                         title={'Ювелирное МОДЕЛИРОВАНИЕ'}
-                        subtitle={'В погоне за лучшим качеством предоставления услуг в 3D скульптинге, печати, инженерном моделировании'}
+                        subtitle={'В нашей команде есть специалист обученный ювелирному ремеслу, который воплотит вашу мечту в реальность'}
                         link={'/3d-modeling?segment=3'}
-                        img_src={'/jewelry/photo_2021-01-30_04-02-14 (2).jpg'}
-                        animation={true}
+                        img_src={'/preview/kmdlkfsnmd-232131-min.jpg'}
                     />
                     <ServicePreview
                         title={'3D печать'}
-                        subtitle={'Перенесите свое 3D-изображение в физический мир.'}
+                        subtitle={'Наши принтеры помогу решить задачи из разных сфер деятельности'}
                         link={'/3d-printing'}
-                        img_src={'/3d-printer-preview.jpg'}
+                        img_src={'/preview/3d-printer-preview-min.jpg'}
                         reverse={true}
-                        animation={true}
                     />
                 </div>
                 <div className={s.section_item} >
@@ -114,7 +107,7 @@ const MainPage: React.FC<ActiveSlideMP> = () => {
                         </div>
                         <div className={s.counter_content} >
                                 {counters.map((el, index) => (
-                                    <Count key={'counter_item_' + index} number={el.number} text={el.text} />
+                                    <Count key={`counter_item_${index}`} number={el.number} text={el.text} />
                                 ))}
                         </div>
                     </div>

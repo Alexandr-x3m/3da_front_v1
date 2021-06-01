@@ -1,19 +1,17 @@
 import s from './InputButton.module.sass'
 import { InputButtonProps } from '../../../interfaces/interfaces'
+//selfwritten components
 import Loader from '../../Loader/Loader'
 
 const InputButton: React.FC<InputButtonProps> = (props) => {
 
-    const { name, type, value, onClick, additClass, icon, iconParams, loading, link } = props
+    const { name, type, value, onClick, additClass, loading, link } = props
 
     const clickHandler = (e: React.MouseEvent<HTMLInputElement>) => {
-        console.log('click')
-        debugger
         onClick(e)
     }
 
     const linkRedirect = (e: React.MouseEvent<HTMLInputElement>) => {
-        debugger
         e.preventDefault()
     }
 

@@ -29,7 +29,7 @@ const ParameterCard: React.FC<ParameterCard> = ({dataPr}) => {
                 <div className={s.hor_line} ></div>
                 <div className={s.param_container} >
                     {data.parameters.map((el, index) => (
-                        <div className={s.parametr_block} key={'parametr_' + el.name + '_' + index} >
+                        <div key={`parametr_${el.name}_${index}`} className={s.parametr_block}  >
                             <p>{el.name}</p>
                             {el.type === 'text'
                                 ? <p>{el.value}</p>

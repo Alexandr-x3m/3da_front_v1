@@ -46,7 +46,6 @@ interface ServicePreviewProps {
     link: string,
     img_src: string,
     reverse?: boolean
-    animation: boolean
 }
 
 interface PreviewCardProps {

@@ -9,8 +9,8 @@ const Menu: React.FC<MenuProps> = (props) => {
 
     return (
         <div className={s.menu__container} >
-            {data.map(el => (
-                <Link href={'/' + el.url} >
+            {data.map((el) => (
+                <Link key={`menu_link_${el.name}`} href={'/' + el.url} >
                     <a>
                         <div className={s.menu__itemBlock} >
                             <img src={el.icon_src} />

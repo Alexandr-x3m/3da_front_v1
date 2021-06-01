@@ -71,7 +71,7 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
             })
         }
         
-        if (container && container.current) {
+        if (container && container.current && document.documentElement.clientWidth < 1200) {
             let observer = new IntersectionObserver(callback, {threshold: 1.0})
             observer.observe(container.current)
         }
@@ -105,9 +105,9 @@ const Slider3D: React.FC<Slider3DProps> = ({ dt }) => {
                 onTouchStart={(e: React.TouchEvent<HTMLDivElement>) => touchEndHandler(e)}
                 onTouchEnd={(e: React.TouchEvent<HTMLDivElement>) => touchStartHandler(e)}
             >
-                {data.map((el, index) => (
+                {data.map((el) => (
                     <div
-                        key={`${el.id}_321321lds_${index}`}
+                        key={`${el.id}_slide_3d`}
                         id={`${el.id}`}
                         className={s.item + ' ' + s[`position_${el.position}`]}
                         onClick={(e: React.MouseEvent<HTMLDivElement>) => clickHandler(e)}

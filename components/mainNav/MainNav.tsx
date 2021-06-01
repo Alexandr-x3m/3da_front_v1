@@ -11,7 +11,7 @@ export const MainNav: React.FC<MainNavProps> = (props) => {
 
         return (
             <div
-                key={el.name + '_' + index}
+                key={`${el.name}_${index}`}
                 className={s.mainNav__item + ' ' + (activeSlide === index ? s.mainNav__activeItem : null)}
                 onClick={() => setActiveSlide(index)} >
                 <div 

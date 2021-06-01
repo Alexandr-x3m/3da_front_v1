@@ -66,28 +66,39 @@
     text-align: center
     font-size: 6.250em
     font-weight: 400
+    font-family: 'minecraftten'
     text-transform: uppercase
     margin-bottom: 48px
-    text-shadow: $textShadow-2px
+    text-shadow: $textShadow-6px
     @media screen and ( max-width: 1200px )
         width: 100%
         font-size: $txt-48px
     @media screen and (max-width: 800px)
         font-size: $txt-32px
         margin-bottom: 24px
+        text-shadow: $textShadow-4px
 
 .description
-    height: 24px
-    padding: 0px 12px
-    margin-bottom: 12px
+    position: relative
+    height: 32px
+    padding: 0px 14px
     text-transform: lowercase
     font-size: $txt-18px
     font-family: "Oswald", sans-serif
     font-weight: 500
-    line-height: 18px
+    line-height: 26px
     color: $prim-back-color
     background: $spec-color
-    //animation: name 2s ease 
+    //background: radial-gradient(36.11% 100% at 51.6% 0%, #FFFFFF 0%, #CDDEF2 100%)
+    overflow: hidden
+    &::before
+        content: ''
+        position: absolute
+        width: 40px
+        height: 32px
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.520833) 47.92%, rgba(255, 255, 255, 0) 100%)
+        animation: left_move 4s linear infinite 
+        transform: skewX(-20deg)
     @media screen and ( max-width: 1200px )
         padding: 0 6px
         margin: 0 auto 16px auto
@@ -96,14 +107,17 @@
         margin: 0 auto 16px auto
         padding: 0
 
-
-@keyframes name
+@keyframes left_move
     0%
-        opacity: 0
-        margin-left: 100px
+        left: -60px
+    25%
+        left: -60px
+    50%
+        left: -60px
+    75% 
+        left: -60px
     100%
-        opacity: 1
-        margin-left: 0px
+        left: calc( 100% + 40px )
 
 .textBlock_btn
     position: relative
@@ -134,7 +148,7 @@
 
 .sliderMain__infoBlock
     position: absolute
-    top: 100vh
+    top: 80vh
     left: 0
     width: 100%
     height: inherit
@@ -203,7 +217,7 @@
             font-size: $txt-14px
 
 .sliderMain_swiperBtns
-    display: grid
+    display: none
     grid-template-columns: 80px 1fr 80px
     position: absolute
     top: calc(-50vh - 120px)

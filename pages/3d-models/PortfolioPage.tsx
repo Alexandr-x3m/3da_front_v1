@@ -104,7 +104,7 @@ const PortfolioPage: React.FC = () => {
 
     const viewData = data.map((el, index) => {
         return (
-            <div key={el.name + '_' + index} className={s.portfolio__itemContainer} >
+            <div key={`${el.name}_${index}`} className={s.portfolio__itemContainer} >
                 <PreviewCard 
                     id={index}
                     name={el.name}

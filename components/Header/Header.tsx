@@ -10,6 +10,7 @@ import LogAuthContainer from '../LogAuthContainer'
 import AnimatedBtn from '../Inputs/AnimatedBtn/AnimatedBtn'
 import Menu from '../Menu/Menu'
 import SocialIcon from '../interfaceEl/SocialIcon/SocialIcon'
+import Contacts from '../../containers/Contacts/Contacts'
 
 
 
@@ -20,6 +21,7 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
     const [authLog, setAuthLog] = useState<boolean>(false)
     const [serviceList, setServiceList] = useState<boolean>(false)
     const [mobileMenu, setMobileMenu] = useState<boolean>(false)
+    const [constacts, setContacts] = useState<boolean>(false)
 
     const [windowHeight, setWindowHeight] = useState<number>()
     const [pageHeight, setPageHeight] = useState<number>()
@@ -39,22 +41,12 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
     useEffect(() => {
         let pageH = window.document.documentElement.offsetHeight
         setPageHeight(pageH)
-        if (scroll) {
-        setTimeout(() => {
-            let windowH = window.document.documentElement.clientHeight
-
-            setWindowHeight(windowH)
-        }, 100)
-    }
-    }, [scroll])
+    }, [])
 
     return (
-        <div >
+        <div className={s.header_outer}>
             <div className={s.header__container} >
-                <div
-                    className={s.headerTop__container}
-                    style={scroll > 150 || (scroll! < 150 && scroll! > 100) ? { height: '0px' } : { height: '48px' }}
-                >
+                <div className={s.headerTop__container} >
                     <div className={s.headerTop__contentBlock} >
                         <div className={s.headerTop__infoTextBlock} >
                             <div className={s.headerTop__infoText} >
@@ -86,7 +78,7 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                                     layout={'fixed'}
                                     width={185.5}
                                     height={42}  />
-                                <div className={s.logo_gradient} style={{ height: `${pageHeight}px`, top: `-${scroll}px` }}  ></div>
+                                <div className={s.logo_gradient} style={{ height: `${pageHeight}px`}}  ></div>
                             </a></Link>
                         </div>
                         <div className={s.header__interfaceBlock} >
@@ -98,7 +90,7 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                                     className={s.navbar_item}
                                     onClick={() => setServiceList(!serviceList)}
                                 >
-                                    <p className={s.header__navbarItem_text} >Услуги</p>
+                                    <p>Услуги</p>
                                     <img src={'/arrow-left-r.svg'} className={s.navbarItem_icon} />
                                     {serviceList
                                         ? (<Menu
@@ -108,7 +100,7 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                                                 {
                                                     url: './3d-modeling',
                                                     icon_src: './cube_icon.svg',
-                                                    name: '3D Моделирование'
+                                                    name: '3D моделирование'
                                                 },
                                                 {
                                                     url: './3d-printing',
@@ -119,12 +111,10 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                                         : null
                                     }
                                 </div>
-                                <Link href='/aboutus' passHref >
-                                    <a className={s.navbar_item} >Контакты</a>
-                                </Link>
-                                <Link href='/gallery' passHref >
+                                {/* <div className={s.navbar_item} onClick={() => setContacts(true)} >Контакты</div> */}
+                                {/* <Link href='/gallery' passHref >
                                     <a className={s.navbar_item} >Галерея</a>
-                                </Link>
+                                </Link> */}
                             </div>
                             {/*  <div className={s.header__userContainer} >
                                     <InputButton
@@ -197,10 +187,7 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                                     <div>
                                         <div
                                             className={s.navbar_item}
-                                            onClick={() => {
-                                                debugger
-                                                setServiceList(!serviceList)
-                                            }}
+                                            onClick={() => setServiceList(!serviceList)}
                                         >
                                             <p >Услуги</p>
                                             <img src={'/arrow-left-r.svg'} className={s.navbarItem_icon} />
@@ -248,10 +235,14 @@ const HeaderBlock: React.FC<{ scroll: number }> = ({ scroll }) => {
                     </div>
                 </div>
             </div>
-            {popUp
+            {/* {popUp
                 ? (<PopUp setVisibility={setPopUp} content={<LogAuthContainer authLog={authLog} />} />)
                 : null
-            }
+            } */}
+            {/* {constacts
+                ? (<PopUp setVisibility={setContacts} content={<Contacts />} /> )
+                : null
+            } */}
         </div >
     )
 }

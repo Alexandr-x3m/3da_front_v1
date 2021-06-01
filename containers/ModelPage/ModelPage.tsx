@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useMutation } from 'urql'
 
-import s from './ModelPage.module.sass'
-import DownloadBoard from '../../interfaceEl/DownloadBoard/DownloadBoard'
-import ViewBoard from '../../interfaceEl/ViewBoard/ViewBoard'
-import PriceTag from '../../interfaceEl/PriceTag/PriceTag'
-import Slider from '../../Slider/Slider'
-import ShareBtn from '../../interfaceEl/ShareBtn/ShareBtn'
-import InputButton from '../../Inputs/InputButton/inputButton'
-import LikeBoard from '../../interfaceEl/LikeBoard/LikeBoard'
+import s from '../../styles/Pages/modelPage.module.sass'
+import DownloadBoard from '../../components/interfaceEl/DownloadBoard/DownloadBoard'
+import ViewBoard from '../../components/interfaceEl/ViewBoard/ViewBoard'
+import PriceTag from '../../components/interfaceEl/PriceTag/PriceTag'
+import Slider from '../../components/Slider/Slider'
+import ShareBtn from '../../components/interfaceEl/ShareBtn/ShareBtn'
+import InputButton from '../../components/Inputs/InputButton/inputButton'
+import LikeBoard from '../../components/interfaceEl/LikeBoard/LikeBoard'
 
 const GET_MAIN_SLIDES = `
 query {

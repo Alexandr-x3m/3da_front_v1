@@ -113,7 +113,7 @@ const Slider: React.FC<SliderProps> = (props) => {
                 }}
             >
                 {data.map((el, index) => (
-                    <div className={s.sliderMain__itemBlock} key={'slide_' + index} >
+                    <div key={`slide_${index}`}  className={s.sliderMain__itemBlock} >
                         <div className={s.text_block} >
                             {el.desc
                                 ? (<span className={s.description} >
@@ -151,7 +151,7 @@ const Slider: React.FC<SliderProps> = (props) => {
                         className={s.swiper_nav}
                     >
                         {data.map((el, index) => (
-                            <div key={'swiper_nav_' + index} className={(activeSlide == index) ? (s.swiperNav__activeItem) : (s.swiperNav__item)} >
+                            <div key={`swiper_nav_${index}`} className={(activeSlide == index) ? (s.swiperNav__activeItem) : (s.swiperNav__item)} >
                                 <button onClick={() => setActiveSlide(index)} >
                                     {el.title}
                                 </button>
@@ -173,7 +173,7 @@ const Slider: React.FC<SliderProps> = (props) => {
                     <div className={s.slider__thumbnail_background} ></div>
                     {data.map((el, index) => (
                         <button
-                            key={'thumbnail_' + index}
+                            key={`thumbnail_${index}`}
                             onClick={() => setActiveSlide(index)}
                             className={s.slider__thumbnail_item + ' ' + (index == activeSlide ? s.slider__thumbnail_activeItem : null)}
                         >

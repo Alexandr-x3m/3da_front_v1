@@ -14,7 +14,6 @@ const RegisterForm: React.FC = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        debugger
         /* bcrypt.genSalt(saltRounds, function(err, salt) {
             bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
                 // Store hash in your password DB.

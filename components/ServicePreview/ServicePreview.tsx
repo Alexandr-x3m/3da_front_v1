@@ -11,9 +11,8 @@ import { useRouter } from 'next/router'
 
 const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
 
-    const { title, subtitle, link, img_src, reverse, animation } = props;
+    const { title, subtitle, link, img_src, reverse } = props;
 
-    const [anima, setAnima] = useState<boolean>(animation)
 
     const router = useRouter()
 
@@ -41,7 +40,7 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
                 trigger: obj,
                 start: 'top bottom-=20%',
                 end: 'bottom top+=16%',
-                toggleActions: 'play reverse play reverse',
+                toggleActions: 'play complete',
             },
             opacity: 1,
             right: 0,
@@ -51,24 +50,19 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
     }
 
     useEffect(() => {
-        if (document.documentElement.clientWidth < 1200) {
-            setAnima(false)
-        } else {
+        if (document.documentElement.clientWidth > 1200 &&
+            image && image.current &&
+            text && text.current
+        ) {
             gsap.registerPlugin(ScrollTrigger)
-            if (image && image.current) fadeLeftRight(image.current)
-            if (text && text.current) fadeOut(text.current)
+            fadeLeftRight(image.current)
+            fadeOut(text.current)
         }
     }, [image, text])
 
     return (
         <div className={s.container + ' ' + (reverse ? s.reverse : '')} >
-            <div
-                ref={text}
-                className={s.info_block}
-                style={{
-                    opacity: (anima ? '0' : '1')
-                }}
-            >
+            <div ref={text} className={s.info_block} >
                 <h2>
                     {title}
                 </h2>
@@ -83,10 +77,7 @@ const ServicePreview: React.FC<ServicePreviewProps> = (props) => {
                     />
                 </div>
             </div>
-            <div
-                ref={image}
-                className={s.image}
-            >
+            <div ref={image} className={s.image} >
                 <Image src={img_src} layout={'fill'} />
             </div>
         </div>

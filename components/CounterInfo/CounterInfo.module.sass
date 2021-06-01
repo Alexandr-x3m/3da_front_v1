@@ -65,27 +65,22 @@
     position: relative
     height: 100%
     margin: auto
-    @media screen and ( max-width: 1050px )
-        width: 90%
         
 
 .counterInfo__item
     position: relative
-    max-width: 230px
-    max-height: 200px
+    width: 240px
+    height: 240px
     padding: 32px 32px 16px
     background: $snd-back-color
     @media screen and (max-width: 1200px)
         max-width: 300px
         margin: auto
-    @media screen and (max-width: 800px)
-        width: 100%
-        padding: 16px 16px 8px
-    @media screen and (max-width: 480px)
-        padding: 8px 8px 4px
-    @media screen and (max-width: 400px)
-        max-width: 230px
-        padding: 16px 16px 8px
+    @media screen and (max-width: 700px)
+        width: 170px
+        height: 170px
+    @media screen and (max-width: 550px)
+        padding: 22px
 
 .cube-wrap
     perspective: 1000px
@@ -120,16 +115,21 @@
     font-family: 'Oswald', sans-serif
     font-size: $txt-48px
     text-shadow: -4px -1px 0px #000000
-    @media screen and ( max-width: 600px )
-        font-size: $txt-32px
-        margin-bottom: 24px
+    @media screen and (max-width: 700px)
+        font-size: $txt-36px
+        margin-bottom: px
+    @media screen and (max-width: 550px)
+        margin-bottom: 12px
 
 .counterInfo__name
-    margin: 16px
-    font-size: $txt-16px
-    font-weight: 400
+    margin: 16px 0
+    font-size: $txt-24px
+    font-family: 'Oswald', sans-serif
+    font-weight: 700
     text-align: center
     letter-spacing: 0.03em
-    @media screen and ( max-width: 600px )
+    @media screen and (max-width: 700px)
+        font-size: $txt-18px
+        margin: 0
+    @media screen and (max-width: 550px)
         font-size: $txt-16px
-        margin-bottom: 16px

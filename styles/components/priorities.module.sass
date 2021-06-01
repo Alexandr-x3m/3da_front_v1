@@ -18,6 +18,9 @@
             margin-bottom: 62px
         & > .description
             text-align: center
+        @media screen and ( max-width: 850px )
+            & > .title
+                margin-bottom: 32px
     & > .priority_item:nth-child(2)
         width: 50%
         height: 360px
@@ -97,9 +100,10 @@
         padding: 32px 16px
 
 .title
-    font-family: 'Conv_19888', sans-serif
+    font-family: 'minecraftten'
     font-size: $txt-36px
     font-weight: 400
+    text-shadow: $textShadow-2px
     @media screen and ( max-width: 1200px )
         font-size: $txt-24px
     @media screen and ( max-width: 400px )
@@ -145,12 +149,23 @@
 
 .icon_watch
     position: absolute
-    right: 30px
+    right: 48px
     bottom: 118px
     @media screen and ( max-width: 1200px )
         bottom: 84px
     @media screen and ( max-width: 1000px )
         display: none
+    @media screen and ( max-width: 850px )
+        display: block
+        position: relative
+        top: 16px
+        left: 50%
+        height: 110px
+        margin-bottom: 32px
+        transform: translateX(-50%)
+        svg
+            height: 110px
+
         
 
 .minute_arrow
@@ -168,8 +183,7 @@
         transform: rotate(360deg)
 
 .mobile_img
-    display: none
-    position: relative
+    position: absolute
     top: 16px
     left: 50%
     height: 110px
@@ -179,3 +193,4 @@
         height: 110px
     @media screen and (max-width: 850px)
         display: block !important
+        position: relative

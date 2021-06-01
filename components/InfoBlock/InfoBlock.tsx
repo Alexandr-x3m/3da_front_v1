@@ -11,9 +11,6 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
 
     const { list, listData, title, description, style, src, additClass } = props
 
-    const [anima, setAnima] = useState<boolean>(true)
-    const [data, setData] = useState<{title: string, subtitle: string}[]>(listData ? listData : [{title: ' ', subtitle: ' '}])
-
     const container = useRef<HTMLDivElement>(null)
 
     // right and left moving
@@ -23,7 +20,6 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
                 trigger: el,
                 start: 'top bottom-=20%',
                 end: 'bottom',
-                markers: true
             },
             opacity: 1,
             top: 0,
@@ -31,14 +27,13 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
         })
     }
 
-
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
 
         if (container && container.current && style === 'style_3') topFadeOut(container.current)
-    }, [anima, container])
+    }, [container])
 
-
+    
     return (
         <div className={s.container + ' ' + s[style] + ' ' + additClass} ref={container} >
             <div className={s.mainImg_container} >
@@ -47,19 +42,22 @@ const InfoBlock: React.FC<InfoBlockProps> = (props) => {
             {list
                 ? (<div className={s.list_container} >
                     <div className={s.list_wrapper}>
-                        {data.map((el, index) => (
-                            <div key={'list_itme_' + index} className={s.list_item} >
-                                <img src={'/list_marker.svg'} className={s.list_icon} />
-                                <div className={s.list_txtContainer} >
-                                    <p className={s.listItem__title} >
-                                        {el.title}
-                                    </p>
-                                    <p className={s.listItem_description} >
-                                        {el.subtitle}
-                                    </p>
+                        {listData 
+                            ? (listData.map((el, index) => (
+                                <div key={`list_itme_${index}`} className={s.list_item} >
+                                    <img src={'/list_marker.svg'} className={s.list_icon} />
+                                    <div className={s.list_txtContainer} >
+                                        <p className={s.listItem__title} >
+                                            {el.title}
+                                        </p>
+                                        <p className={s.listItem_description} >
+                                            {el.subtitle}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            )))
+                            : null
+                        }
                     </div>
                 </div>)
                 : (<div className={s.txt_container} >
